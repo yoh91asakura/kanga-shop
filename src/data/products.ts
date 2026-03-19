@@ -61,7 +61,7 @@ export const products: Product[] = [
     price: 7.90,
     unit: '50cl',
     category: 'saveurs',
-    image: '/images/products/huile-palme.png',
+    image: '/images/products/huile-palme-v2.png',
   },
   {
     id: 'huile-karite',
@@ -79,7 +79,7 @@ export const products: Product[] = [
     price: 9.90,
     unit: '200g',
     category: 'saveurs',
-    image: '/images/products/beurre-karite.png',
+    image: '/images/products/beurre-karite-v2.png',
   },
   {
     id: 'huile-palmistes',
@@ -172,7 +172,7 @@ export const products: Product[] = [
     price: 29.90,
     unit: 'piece',
     category: 'style',
-    image: '/images/products/artisanat-panier.png',
+    image: '/images/products/artisane-raphia.png',
   },
 
   // === ART & CULTURE ===
@@ -193,7 +193,7 @@ export const products: Product[] = [
     price: 69.90,
     unit: 'piece',
     category: 'art',
-    image: '/images/products/masques-art.png',
+    image: '/images/products/sculpteur-masques.png',
   },
   {
     id: 'objet-art',
