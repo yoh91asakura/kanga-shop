@@ -77,7 +77,7 @@ export const products: Product[] = [
     price: 19.90,
     unit: 'coffret',
     category: 'terroirs',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/coffret-mbongo.png',
     badge: 'Coffret signature',
   },
   {
@@ -87,7 +87,7 @@ export const products: Product[] = [
     price: 6.90,
     unit: '50g',
     category: 'terroirs',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/epices-traditionnelles.png',
   },
   {
     id: 'essese',
@@ -96,7 +96,7 @@ export const products: Product[] = [
     price: 4.90,
     unit: '50g',
     category: 'terroirs',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/epices-traditionnelles.png',
   },
   {
     id: 'rondelle',
@@ -105,7 +105,7 @@ export const products: Product[] = [
     price: 5.90,
     unit: '50g',
     category: 'terroirs',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/epices-traditionnelles.png',
   },
   {
     id: 'djansang',
@@ -114,7 +114,7 @@ export const products: Product[] = [
     price: 7.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/epices-traditionnelles.png',
   },
   {
     id: 'melange-secret',
@@ -123,7 +123,7 @@ export const products: Product[] = [
     price: 9.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/epices-traditionnelles.png',
     badge: 'Best-seller',
   },
   {
@@ -133,7 +133,7 @@ export const products: Product[] = [
     price: 6.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/epices-traditionnelles.png',
   },
   {
     id: 'epices-achu',
@@ -142,7 +142,7 @@ export const products: Product[] = [
     price: 12.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/epices-traditionnelles.png',
   },
 
   // ============================================================
@@ -155,7 +155,7 @@ export const products: Product[] = [
     price: 3.90,
     unit: 'boite',
     category: 'gardemanger',
-    image: '/images/products/epices-huiles.png',
+    image: '/images/products/cube-maggi.png',
     badge: 'Incontournable',
   },
   {
@@ -165,7 +165,7 @@ export const products: Product[] = [
     price: 4.90,
     unit: '500g',
     category: 'gardemanger',
-    image: '/images/products/graines-haricots.png',
+    image: '/images/products/foufou.png',
   },
   {
     id: 'gari',
@@ -174,7 +174,7 @@ export const products: Product[] = [
     price: 5.90,
     unit: '1kg',
     category: 'gardemanger',
-    image: '/images/products/graines-haricots.png',
+    image: '/images/products/gari.png',
   },
   {
     id: 'farine-mais',
@@ -183,7 +183,7 @@ export const products: Product[] = [
     price: 3.90,
     unit: '500g',
     category: 'gardemanger',
-    image: '/images/products/graines-haricots.png',
+    image: '/images/products/farine-mais.png',
   },
   {
     id: 'arachides-grillees',
@@ -264,7 +264,7 @@ export const products: Product[] = [
     price: 3.50,
     unit: 'sachet',
     category: 'gardemanger',
-    image: '/images/products/arachides.png',
+    image: '/images/products/chips-plantain.png',
   },
   {
     id: 'nkui',
@@ -324,7 +324,7 @@ export const products: Product[] = [
     price: 24.90,
     unit: '100g',
     category: 'douceurs',
-    image: '/images/products/arachides-feu.png',
+    image: '/images/products/kilichi.png',
     badge: 'Premium',
   },
   {
