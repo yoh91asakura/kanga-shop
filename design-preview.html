@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="fr" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanga-Shop — Design System Preview</title>
+<link rel="preconnect" href="https://api.fontshare.com">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=instrument-sans@400,500,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    /* Kanga-Shop — Palette extraite de l'image hero */
+    --bg-primary: #1C1A14;
+    --bg-secondary: #252218;
+    --bg-tertiary: #2E2A1E;
+    --surface-glass: rgba(250, 245, 238, 0.08);
+    --surface-glass-border: rgba(250, 245, 238, 0.15);
+    --surface-glass-hover: rgba(250, 245, 238, 0.14);
+    --text-primary: #FAF5EE;
+    --text-secondary: rgba(250, 245, 238, 0.7);
+    --text-tertiary: rgba(250, 245, 238, 0.4);
+    /* Couleurs de l'image: or des fleurs, vert olive de l'arbre, terre de la savane, bleu du volcan */
+    --color-primary: #C8963A;      /* Or ambre — fleurs de l'arbre */
+    --color-primary-hover: #D9A744;
+    --color-accent: #D4572A;       /* Terracotta — terre rouge camerounaise */
+    --color-accent-hover: #E06434;
+    --color-secondary: #5A7A48;    /* Vert olive — feuillage de l'arbre */
+    --color-secondary-light: #6B8E55;
+    --color-earth: #8B7355;        /* Brun savane */
+    --color-sky: #7A9CB8;          /* Bleu-gris du volcan/ciel */
+    --color-success: #5A7A48;
+    --color-warning: #C8963A;
+    --color-error: #D4572A;
+    --color-info: #7A9CB8;
+    --radius-sm: 6px;
+    --radius-md: 12px;
+    --radius-lg: 20px;
+    --radius-xl: 28px;
+    --font-display: 'Satoshi', sans-serif;
+    --font-body: 'Instrument Sans', sans-serif;
+    --font-mono: 'Geist Mono', monospace;
+    --blur: blur(24px);
+    --blur-light: blur(16px);
+  }
+
+  [data-theme="light"] {
+    --bg-primary: #FAF5EE;
+    --bg-secondary: #F0EBE3;
+    --bg-tertiary: #E6E0D8;
+    --surface-glass: rgba(28, 26, 20, 0.06);
+    --surface-glass-border: rgba(28, 26, 20, 0.12);
+    --surface-glass-hover: rgba(28, 26, 20, 0.10);
+    --text-primary: #1C1A14;
+    --text-secondary: rgba(28, 26, 20, 0.65);
+    --text-tertiary: rgba(28, 26, 20, 0.4);
+    --color-primary: #A67D2E;
+    --color-primary-hover: #C8963A;
+    --color-accent: #B84A24;
+    --color-accent-hover: #D4572A;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    transition: background 0.5s ease, color 0.5s ease;
+  }
+
+  .theme-toggle {
+    position: fixed; top: 24px; right: 24px; z-index: 100;
+    width: 48px; height: 48px; border-radius: 50%;
+    border: 1px solid var(--surface-glass-border);
+    background: var(--surface-glass);
+    backdrop-filter: var(--blur-light); -webkit-backdrop-filter: var(--blur-light);
+    cursor: pointer; display: flex; align-items: center; justify-content: center;
+    font-size: 20px; transition: all 0.3s ease;
+  }
+  .theme-toggle:hover { background: var(--surface-glass-hover); transform: scale(1.05); }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 0 32px; }
+
+  section {
+    padding: 96px 0;
+    border-bottom: 1px solid var(--surface-glass-border);
+  }
+
+  .section-label {
+    font-family: var(--font-mono); font-size: 11px;
+    letter-spacing: 3px; text-transform: uppercase;
+    color: var(--color-primary); margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(32px, 5vw, 48px); line-height: 1.1;
+    margin-bottom: 24px; letter-spacing: -0.02em;
+  }
+
+  .section-desc {
+    color: var(--text-secondary); font-size: 18px;
+    max-width: 600px; margin-bottom: 48px;
+  }
+
+  /* HERO — image de fond avec glassmorphism */
+  .hero {
+    min-height: 100vh;
+    display: flex; flex-direction: column;
+    justify-content: center; align-items: center; text-align: center;
+    padding: 120px 32px;
+    position: relative; overflow: hidden;
+    background: url('Gemini_Generated_Image_1o7gkc1o7gkc1o7g.png') center center / cover no-repeat;
+  }
+
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(28, 26, 20, 0.3) 0%,
+      rgba(28, 26, 20, 0.5) 40%,
+      rgba(28, 26, 20, 0.7) 100%
+    );
+  }
+
+  .hero-content {
+    position: relative; z-index: 1;
+  }
+
+  .hero-glass-panel {
+    background: rgba(28, 26, 20, 0.45);
+    backdrop-filter: blur(32px); -webkit-backdrop-filter: blur(32px);
+    border: 1px solid rgba(250, 245, 238, 0.12);
+    border-radius: var(--radius-xl);
+    padding: 64px 80px;
+    max-width: 800px;
+  }
+
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 20px; border-radius: 100px;
+    background: rgba(200, 150, 58, 0.2);
+    border: 1px solid rgba(200, 150, 58, 0.4);
+    font-family: var(--font-mono); font-size: 12px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--color-primary); margin-bottom: 32px;
+  }
+
+  .hero h1 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(48px, 10vw, 100px); line-height: 0.95;
+    letter-spacing: -0.04em; margin-bottom: 20px;
+    color: #FAF5EE;
+  }
+
+  .hero h1 .gold { color: var(--color-primary); }
+  .hero h1 .terra { color: var(--color-accent); }
+
+  .hero-tagline {
+    font-family: var(--font-body);
+    font-size: clamp(16px, 2.2vw, 22px);
+    color: rgba(250, 245, 238, 0.8); margin-bottom: 40px; font-weight: 400;
+  }
+
+  /* GLASS CARD */
+  .glass-card {
+    background: var(--surface-glass); backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border: 1px solid var(--surface-glass-border);
+    border-radius: var(--radius-lg); padding: 32px;
+    transition: all 0.4s ease;
+  }
+  .glass-card:hover {
+    background: var(--surface-glass-hover);
+    transform: translateY(-2px); border-color: var(--color-primary);
+  }
+
+  /* BUTTONS */
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 14px 32px; border-radius: var(--radius-md);
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 15px; letter-spacing: 0.01em;
+    border: none; cursor: pointer; transition: all 0.3s ease;
+    text-decoration: none;
+  }
+  .btn-primary { background: var(--color-primary); color: #1C1A14; }
+  .btn-primary:hover {
+    background: var(--color-primary-hover); transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(200, 150, 58, 0.3);
+  }
+  .btn-accent { background: var(--color-accent); color: #FAF5EE; }
+  .btn-accent:hover {
+    background: var(--color-accent-hover); transform: translateY(-1px);
+    box-shadow: 0 8px 32px rgba(212, 87, 42, 0.3);
+  }
+  .btn-ghost {
+    background: transparent; color: var(--text-primary);
+    border: 1px solid var(--surface-glass-border);
+  }
+  .btn-ghost:hover { background: var(--surface-glass); border-color: var(--color-primary); }
+  .btn-glass {
+    background: var(--surface-glass); backdrop-filter: var(--blur-light);
+    -webkit-backdrop-filter: var(--blur-light);
+    border: 1px solid var(--surface-glass-border); color: var(--text-primary);
+  }
+  .btn-glass:hover { background: var(--surface-glass-hover); border-color: var(--color-primary); }
+
+  /* TYPOGRAPHY SPECIMENS */
+  .type-grid { display: grid; grid-template-columns: 1fr; gap: 32px; }
+
+  .type-specimen {
+    padding: 40px; border-radius: var(--radius-lg);
+    background: var(--surface-glass); backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border: 1px solid var(--surface-glass-border);
+  }
+  .type-meta {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 20px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--surface-glass-border);
+  }
+  .type-name {
+    font-family: var(--font-mono); font-size: 12px;
+    letter-spacing: 2px; text-transform: uppercase; color: var(--color-primary);
+  }
+  .type-role { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); }
+  .type-sample-display {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(36px, 6vw, 72px); line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 8px;
+  }
+  .type-sample-body {
+    font-family: var(--font-body); font-size: 18px;
+    line-height: 1.7; color: var(--text-secondary);
+  }
+  .type-sample-mono {
+    font-family: var(--font-mono); font-size: 14px;
+    line-height: 1.6; color: var(--text-secondary);
+  }
+
+  /* COLOR PALETTE */
+  .color-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 16px; margin-bottom: 48px;
+  }
+  .color-swatch {
+    border-radius: var(--radius-md); overflow: hidden;
+    border: 1px solid var(--surface-glass-border);
+  }
+  .color-swatch-block {
+    height: 100px; display: flex; align-items: flex-end; padding: 12px 16px;
+  }
+  .color-swatch-label { font-family: var(--font-mono); font-size: 11px; letter-spacing: 1px; }
+  .color-swatch-info { padding: 12px 16px; background: var(--surface-glass); }
+  .color-swatch-name { font-family: var(--font-display); font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+  .color-swatch-hex { font-family: var(--font-mono); font-size: 11px; color: var(--text-tertiary); }
+
+  /* COMPONENTS */
+  .component-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;
+  }
+
+  .product-card {
+    background: var(--surface-glass); backdrop-filter: var(--blur);
+    -webkit-backdrop-filter: var(--blur);
+    border: 1px solid var(--surface-glass-border);
+    border-radius: var(--radius-xl); overflow: hidden; transition: all 0.4s ease;
+  }
+  .product-card:hover {
+    transform: translateY(-4px); border-color: var(--color-primary);
+    box-shadow: 0 24px 64px rgba(0, 0, 0, 0.3);
+  }
+  .product-card-image {
+    height: 240px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 64px; position: relative; overflow: hidden;
+  }
+  .product-card-image::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(to bottom, transparent 60%, rgba(28, 26, 20, 0.5));
+  }
+  .product-card-badge {
+    position: absolute; top: 16px; right: 16px;
+    padding: 6px 14px; border-radius: 100px;
+    background: var(--color-primary); color: #1C1A14;
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 12px; z-index: 1;
+  }
+  .product-card-body { padding: 24px; }
+  .product-card-category {
+    font-family: var(--font-mono); font-size: 10px;
+    letter-spacing: 2px; text-transform: uppercase;
+    color: var(--color-primary); margin-bottom: 8px;
+  }
+  .product-card-title {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: 20px; margin-bottom: 8px;
+  }
+  .product-card-desc {
+    font-size: 14px; color: var(--text-secondary);
+    margin-bottom: 20px; line-height: 1.5;
+  }
+  .product-card-footer { display: flex; justify-content: space-between; align-items: center; }
+  .product-card-price {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 24px; color: var(--color-primary);
+  }
+  .product-card-price span { font-size: 14px; font-weight: 500; color: var(--text-tertiary); }
+
+  /* FORM */
+  .form-group { margin-bottom: 20px; }
+  .form-label {
+    display: block; font-family: var(--font-display);
+    font-weight: 600; font-size: 13px; margin-bottom: 8px;
+    color: var(--text-secondary);
+  }
+  .form-input {
+    width: 100%; padding: 14px 18px; border-radius: var(--radius-md);
+    background: var(--surface-glass); backdrop-filter: var(--blur-light);
+    -webkit-backdrop-filter: var(--blur-light);
+    border: 1px solid var(--surface-glass-border);
+    color: var(--text-primary); font-family: var(--font-body);
+    font-size: 15px; transition: all 0.3s ease; outline: none;
+  }
+  .form-input:focus {
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px rgba(200, 150, 58, 0.15);
+  }
+  .form-input::placeholder { color: var(--text-tertiary); }
+
+  /* ALERTS */
+  .alert {
+    padding: 16px 20px; border-radius: var(--radius-md);
+    font-size: 14px; display: flex; align-items: center;
+    gap: 12px; margin-bottom: 12px; border: 1px solid;
+  }
+  .alert-success { background: rgba(90, 122, 72, 0.15); border-color: rgba(90, 122, 72, 0.35); color: var(--color-success); }
+  .alert-warning { background: rgba(200, 150, 58, 0.15); border-color: rgba(200, 150, 58, 0.35); color: var(--color-warning); }
+  .alert-error { background: rgba(212, 87, 42, 0.15); border-color: rgba(212, 87, 42, 0.35); color: var(--color-error); }
+  .alert-info { background: rgba(122, 156, 184, 0.15); border-color: rgba(122, 156, 184, 0.35); color: var(--color-info); }
+
+  /* MOCKUP */
+  .mockup-frame {
+    border-radius: var(--radius-xl);
+    border: 1px solid var(--surface-glass-border); overflow: hidden; margin-bottom: 24px;
+  }
+  .mockup-toolbar {
+    display: flex; align-items: center; gap: 8px;
+    padding: 14px 20px; border-bottom: 1px solid var(--surface-glass-border);
+    background: var(--bg-secondary);
+  }
+  .mockup-dot { width: 12px; height: 12px; border-radius: 50%; }
+  .mockup-dot:nth-child(1) { background: #FF5F57; }
+  .mockup-dot:nth-child(2) { background: #FFBD2E; }
+  .mockup-dot:nth-child(3) { background: #28C840; }
+  .mockup-url {
+    flex: 1; text-align: center; font-family: var(--font-mono);
+    font-size: 12px; color: var(--text-tertiary);
+  }
+
+  .mockup-hero-section {
+    position: relative;
+    min-height: 450px;
+    background: url('Gemini_Generated_Image_1o7gkc1o7gkc1o7g.png') center center / cover no-repeat;
+    display: flex; flex-direction: column;
+    padding: 32px 48px;
+  }
+  .mockup-hero-section::before {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(
+      to bottom,
+      rgba(28, 26, 20, 0.2) 0%,
+      rgba(28, 26, 20, 0.4) 40%,
+      rgba(28, 26, 20, 0.75) 100%
+    );
+  }
+
+  .mockup-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 48px; position: relative; z-index: 1;
+  }
+  .mockup-logo {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: 20px; letter-spacing: -0.02em; color: #FAF5EE;
+  }
+  .mockup-nav-links {
+    display: flex; gap: 32px; list-style: none;
+    font-family: var(--font-body); font-size: 14px; color: rgba(250, 245, 238, 0.7);
+  }
+  .mockup-hero-text {
+    position: relative; z-index: 1; max-width: 600px; margin-top: auto;
+  }
+  .mockup-hero-text h2 {
+    font-family: var(--font-display); font-weight: 900;
+    font-size: clamp(28px, 4vw, 44px); line-height: 1.05;
+    letter-spacing: -0.03em; margin-bottom: 16px; color: #FAF5EE;
+  }
+  .mockup-hero-text p {
+    font-size: 15px; color: rgba(250, 245, 238, 0.75);
+    margin-bottom: 28px; max-width: 460px; line-height: 1.6;
+  }
+
+  .mockup-glass-waitlist {
+    display: flex; gap: 12px; max-width: 440px;
+    background: rgba(28, 26, 20, 0.4);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(250, 245, 238, 0.12);
+    border-radius: var(--radius-lg);
+    padding: 8px;
+  }
+  .mockup-glass-waitlist input {
+    flex: 1; padding: 12px 16px; border-radius: var(--radius-md);
+    background: transparent; border: none;
+    color: #FAF5EE; font-family: var(--font-body); font-size: 14px; outline: none;
+  }
+  .mockup-glass-waitlist input::placeholder { color: rgba(250, 245, 238, 0.4); }
+
+  /* Product section mockup */
+  .mockup-product-section {
+    padding: 64px 48px;
+    background: var(--bg-secondary);
+  }
+
+  /* SPACING */
+  .spacing-demo { display: flex; flex-wrap: wrap; gap: 16px; align-items: flex-end; }
+  .spacing-block { display: flex; flex-direction: column; align-items: center; gap: 8px; }
+  .spacing-bar { background: var(--color-secondary); border-radius: 4px; width: 48px; }
+  .spacing-label { font-family: var(--font-mono); font-size: 10px; color: var(--text-tertiary); text-align: center; }
+
+  .preview-footer {
+    padding: 48px 32px; text-align: center; color: var(--text-tertiary);
+    font-family: var(--font-mono); font-size: 12px; letter-spacing: 1px;
+  }
+
+  @media (max-width: 768px) {
+    section { padding: 64px 0; }
+    .container { padding: 0 20px; }
+    .hero-glass-panel { padding: 40px 28px; }
+    .color-grid { grid-template-columns: repeat(2, 1fr); }
+    .component-grid { grid-template-columns: 1fr; }
+    .mockup-hero-section { padding: 24px; min-height: 350px; }
+    .mockup-product-section { padding: 32px 24px; }
+    .mockup-nav-links { display: none; }
+    .mockup-glass-waitlist { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+<button class="theme-toggle" onclick="toggleTheme()" title="Toggle light/dark mode" aria-label="Toggle theme">
+  <span id="theme-icon">&#9790;</span>
+</button>
+
+<!-- HERO — Image de fond + glassmorphism -->
+<div class="hero">
+  <div class="hero-content">
+    <div class="hero-glass-panel">
+      <div class="hero-badge">Le Cameroun chez vous</div>
+      <h1><span class="gold">Kanga</span><span style="color: rgba(250,245,238,0.4);">-</span>Shop</h1>
+      <p class="hero-tagline">Saveurs authentiques. Mode 237. Art contemporain.<br>Une selection familiale, livree en France.</p>
+      <div style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap;">
+        <button class="btn btn-primary">Rejoindre la waitlist</button>
+        <button class="btn btn-glass">Decouvrir les univers</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TYPOGRAPHY -->
+<section>
+  <div class="container">
+    <div class="section-label">Typographie</div>
+    <h2 class="section-title">Trois voix, un langage</h2>
+    <p class="section-desc">Satoshi pour les titres, Instrument Sans pour le corps, Geist Mono pour les donnees.</p>
+    <div class="type-grid">
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span class="type-name">Satoshi</span>
+          <span class="type-role">Display / Hero / Titres</span>
+        </div>
+        <div class="type-sample-display">Le Cameroun<br>chez vous.</div>
+        <p style="font-family: var(--font-display); font-weight: 700; font-size: 24px; color: var(--text-secondary); margin-top: 16px;">
+          Poivre de Penja &middot; Cafe d'origine &middot; Boubou 237
+        </p>
+        <p style="font-family: var(--font-display); font-weight: 500; font-size: 16px; color: var(--text-tertiary); margin-top: 8px;">
+          ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz 0123456789
+        </p>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span class="type-name">Instrument Sans</span>
+          <span class="type-role">Body / Storytelling</span>
+        </div>
+        <p class="type-sample-body">
+          Le poivre de Penja pousse sur les flancs volcaniques du Mont Cameroun, dans un sol riche en mineraux qui lui donne son arome unique au monde. Reconnu par une Indication Geographique Protegee, c'est le premier produit africain a obtenir cette distinction.
+        </p>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">
+          <span class="type-name">Geist Mono</span>
+          <span class="type-role">Data / Prix / UI</span>
+        </div>
+        <p class="type-sample-mono">
+          Prix: 12,90 EUR &middot; Poids: 250g &middot; Origine: Penja, Cameroun<br>
+          Ref: KS-PVR-001 &middot; Stock: 48 unites &middot; Livraison: 3-5 jours
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COLORS -->
+<section>
+  <div class="container">
+    <div class="section-label">Palette</div>
+    <h2 class="section-title">Extraite du paysage camerounais</h2>
+    <p class="section-desc">Chaque couleur vient de l'image hero : l'or des fleurs, le vert de l'arbre, la terre de la savane, le bleu du volcan.</p>
+    <div class="color-grid">
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background: #1C1A14;">
+          <span class="color-swatch-label" style="color: #FAF5EE;">Aa</span>
+        </div>
+        <div class="color-swatch-info">
+          <div class="color-swatch-name">Nuit Savane</div>
+          <div class="color-swatch-hex">#1C1A14 — Fond</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background: #C8963A;">
+          <span class="color-swatch-label" style="color: #1C1A14;">Aa</span>
+        </div>
+        <div class="color-swatch-info">
+          <div class="color-swatch-name">Or Ambre</div>
+          <div class="color-swatch-hex">#C8963A — Primaire</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background: #D4572A;">
+          <span class="color-swatch-label" style="color: #FAF5EE;">Aa</span>
+        </div>
+        <div class="color-swatch-info">
+          <div class="color-swatch-name">Terre Rouge</div>
+          <div class="color-swatch-hex">#D4572A — Accent</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background: #5A7A48;">
+          <span class="color-swatch-label" style="color: #FAF5EE;">Aa</span>
+        </div>
+        <div class="color-swatch-info">
+          <div class="color-swatch-name">Vert Feuillage</div>
+          <div class="color-swatch-hex">#5A7A48 — Secondaire</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background: #8B7355;">
+          <span class="color-swatch-label" style="color: #FAF5EE;">Aa</span>
+        </div>
+        <div class="color-swatch-info">
+          <div class="color-swatch-name">Brun Savane</div>
+          <div class="color-swatch-hex">#8B7355 — Terre</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background: #7A9CB8;">
+          <span class="color-swatch-label" style="color: #1C1A14;">Aa</span>
+        </div>
+        <div class="color-swatch-info">
+          <div class="color-swatch-name">Bleu Volcan</div>
+          <div class="color-swatch-hex">#7A9CB8 — Info/Ciel</div>
+        </div>
+      </div>
+      <div class="color-swatch">
+        <div class="color-swatch-block" style="background: #FAF5EE;">
+          <span class="color-swatch-label" style="color: #1C1A14;">Aa</span>
+        </div>
+        <div class="color-swatch-info">
+          <div class="color-swatch-name">Creme Chaude</div>
+          <div class="color-swatch-hex">#FAF5EE — Texte</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-label" style="margin-top: 48px;">Semantiques</div>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 12px; margin-top: 16px;">
+      <div class="alert alert-success">Commande confirmee</div>
+      <div class="alert alert-warning">Stock limite</div>
+      <div class="alert alert-error">Erreur de paiement</div>
+      <div class="alert alert-info">Livraison en 3-5 jours</div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPONENTS -->
+<section>
+  <div class="container">
+    <div class="section-label">Composants</div>
+    <h2 class="section-title">Glassmorphism sur le Cameroun</h2>
+    <p class="section-desc">Les cartes produits et formulaires en verre depoli, coherents avec l'image hero.</p>
+    <div class="component-grid">
+      <div class="product-card">
+        <div class="product-card-image" style="background: url('Gemini_Generated_Image_1o7gkc1o7gkc1o7g.png') center 30% / cover no-repeat; font-size: 80px;">
+          <div class="product-card-badge">Exclusif</div>
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-category">Saveurs</div>
+          <div class="product-card-title">Poivre Blanc de Penja</div>
+          <div class="product-card-desc">IGP certifie, recolte a la main sur les pentes volcaniques du Mont Cameroun. Arome unique au monde.</div>
+          <div class="product-card-footer">
+            <div class="product-card-price">14,90 <span>EUR</span></div>
+            <button class="btn btn-primary" style="padding: 10px 20px; font-size: 13px;">Ajouter</button>
+          </div>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="product-card-image" style="background: linear-gradient(135deg, #2E2A1E, #1C1A14); font-size: 80px;">
+          &#9749;
+        </div>
+        <div class="product-card-body">
+          <div class="product-card-category">Saveurs</div>
+          <div class="product-card-title">Cafe Pur Arabica</div>
+          <div class="product-card-desc">Cultive en altitude dans les hauts plateaux de l'Ouest. Notes de chocolat et noisette.</div>
+          <div class="product-card-footer">
+            <div class="product-card-price">9,50 <span>EUR</span></div>
+            <button class="btn btn-primary" style="padding: 10px 20px; font-size: 13px;">Ajouter</button>
+          </div>
+        </div>
+      </div>
+      <div class="glass-card">
+        <div class="section-label">Waitlist</div>
+        <h3 style="font-family: var(--font-display); font-weight: 700; font-size: 24px; margin-bottom: 8px;">
+          Soyez les premiers
+        </h3>
+        <p style="color: var(--text-secondary); font-size: 14px; margin-bottom: 24px;">
+          Inscrivez-vous pour etre informe du lancement.
+        </p>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="votre@email.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Ce qui vous interesse</label>
+          <select class="form-input" style="appearance: auto;">
+            <option>Tout</option>
+            <option>Saveurs</option>
+            <option>Style 237</option>
+            <option>Art & Culture</option>
+            <option>La Box Decouverte</option>
+          </select>
+        </div>
+        <button class="btn btn-primary" style="width: 100%; justify-content: center;">
+          Rejoindre la waitlist
+        </button>
+      </div>
+    </div>
+    <div style="margin-top: 48px;">
+      <div class="section-label">Boutons</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-top: 16px; align-items: center;">
+        <button class="btn btn-primary">Primaire (Or Ambre)</button>
+        <button class="btn btn-accent">Accent (Terre Rouge)</button>
+        <button class="btn btn-ghost">Ghost</button>
+        <button class="btn btn-glass">Glass</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOCKUP: LANDING PAGE avec image -->
+<section>
+  <div class="container">
+    <div class="section-label">Mockup</div>
+    <h2 class="section-title">Le site avec ton image</h2>
+    <p class="section-desc">Glassmorphism sur la photo du volcan et de l'arbre — exactement comme tu l'imagines.</p>
+    <div class="mockup-frame">
+      <div class="mockup-toolbar">
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-dot"></div>
+        <div class="mockup-url">kanga-shop.fr</div>
+      </div>
+      <div class="mockup-hero-section">
+        <nav class="mockup-nav">
+          <div class="mockup-logo"><span style="color: var(--color-primary);">Kanga</span><span style="color: rgba(250,245,238,0.3);">-</span>Shop</div>
+          <ul class="mockup-nav-links">
+            <li>Saveurs</li>
+            <li>Style 237</li>
+            <li>Art & Culture</li>
+            <li>La Box</li>
+          </ul>
+          <button class="btn btn-primary" style="padding: 8px 20px; font-size: 13px;">Waitlist</button>
+        </nav>
+        <div class="mockup-hero-text">
+          <h2>Le <span style="color: var(--color-primary);">Cameroun</span>,<br>chez <span style="color: var(--color-accent);">vous</span>.</h2>
+          <p>Saveurs authentiques, mode 237, art contemporain. Une selection familiale des meilleurs produits camerounais, livree en France.</p>
+          <div class="mockup-glass-waitlist">
+            <input type="email" placeholder="votre@email.com">
+            <button class="btn btn-primary" style="white-space: nowrap; padding: 12px 24px;">Etre informe</button>
+          </div>
+        </div>
+      </div>
+      <div class="mockup-product-section">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center;">
+          <div>
+            <div class="section-label">Saveurs</div>
+            <h3 style="font-family: var(--font-display); font-weight: 900; font-size: 32px; line-height: 1.1; letter-spacing: -0.02em; margin-bottom: 16px;">
+              Poivre Blanc<br>de Penja
+            </h3>
+            <p style="color: var(--text-secondary); line-height: 1.7; margin-bottom: 24px; font-size: 15px;">
+              Premier produit africain a obtenir une IGP. Recolte a la main sur les pentes du Mont Cameroun.
+            </p>
+            <button class="btn btn-primary">Decouvrir</button>
+          </div>
+          <div style="height: 260px; border-radius: var(--radius-xl); background: url('Gemini_Generated_Image_1o7gkc1o7gkc1o7g.png') center 40% / cover no-repeat; border: 1px solid var(--surface-glass-border); position: relative; overflow: hidden;">
+            <div style="position: absolute; inset: 0; background: rgba(28,26,20,0.2);"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SPACING -->
+<section>
+  <div class="container">
+    <div class="section-label">Espacement</div>
+    <h2 class="section-title">Echelle 8px</h2>
+    <p class="section-desc">Le vide est un luxe. Densite spacieuse, chaque element respire.</p>
+    <div class="spacing-demo">
+      <div class="spacing-block"><div class="spacing-bar" style="height: 4px;"></div><span class="spacing-label">xs<br>4px</span></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 8px;"></div><span class="spacing-label">sm<br>8px</span></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 16px;"></div><span class="spacing-label">md<br>16px</span></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 24px;"></div><span class="spacing-label">lg<br>24px</span></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 32px;"></div><span class="spacing-label">xl<br>32px</span></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 48px;"></div><span class="spacing-label">2xl<br>48px</span></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 64px;"></div><span class="spacing-label">3xl<br>64px</span></div>
+      <div class="spacing-block"><div class="spacing-bar" style="height: 96px;"></div><span class="spacing-label">4xl<br>96px</span></div>
+    </div>
+    <div style="margin-top: 48px;">
+      <div class="section-label">Border Radius</div>
+      <div style="display: flex; flex-wrap: wrap; gap: 24px; margin-top: 16px; align-items: end;">
+        <div style="text-align: center;"><div style="width: 64px; height: 64px; border-radius: 6px; border: 2px solid var(--color-secondary); margin-bottom: 8px;"></div><span class="spacing-label">sm 6px</span></div>
+        <div style="text-align: center;"><div style="width: 64px; height: 64px; border-radius: 12px; border: 2px solid var(--color-secondary); margin-bottom: 8px;"></div><span class="spacing-label">md 12px</span></div>
+        <div style="text-align: center;"><div style="width: 64px; height: 64px; border-radius: 20px; border: 2px solid var(--color-secondary); margin-bottom: 8px;"></div><span class="spacing-label">lg 20px</span></div>
+        <div style="text-align: center;"><div style="width: 64px; height: 64px; border-radius: 28px; border: 2px solid var(--color-secondary); margin-bottom: 8px;"></div><span class="spacing-label">xl 28px</span></div>
+        <div style="text-align: center;"><div style="width: 64px; height: 64px; border-radius: 9999px; border: 2px solid var(--color-secondary); margin-bottom: 8px;"></div><span class="spacing-label">full</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="preview-footer">
+  Kanga-Shop Design System &middot; Palette extraite du paysage camerounais &middot; 2026
+</footer>
+
+<script>
+function toggleTheme() {
+  const html = document.documentElement;
+  const icon = document.getElementById('theme-icon');
+  if (html.getAttribute('data-theme') === 'dark') {
+    html.setAttribute('data-theme', 'light');
+    icon.innerHTML = '&#9728;';
+  } else {
+    html.setAttribute('data-theme', 'dark');
+    icon.innerHTML = '&#9790;';
+  }
+}
+</script>
+</body>
+</html>

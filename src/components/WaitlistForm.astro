@@ -1,0 +1,175 @@
+---
+---
+
+<div id="waitlist-container">
+  <form id="waitlist-form" class="glass rounded-[20px] p-8 md:p-12 max-w-lg mx-auto">
+    <p
+      class="text-xs tracking-[3px] uppercase mb-4"
+      style="font-family: var(--font-mono); color: var(--color-primary);"
+    >
+      Waitlist
+    </p>
+    <h3
+      class="text-2xl mb-2"
+      style="font-family: var(--font-display); font-weight: 700;"
+    >
+      Soyez les premiers
+    </h3>
+    <p class="text-sm mb-6" style="color: var(--color-text-secondary);">
+      Inscrivez-vous pour etre informe du lancement de Kanga-Shop.
+    </p>
+
+    <!-- Email -->
+    <div class="mb-5">
+      <label
+        for="waitlist-email"
+        class="block text-[13px] mb-2"
+        style="font-family: var(--font-display); font-weight: 600; color: var(--color-text-secondary);"
+      >
+        Email
+      </label>
+      <input
+        id="waitlist-email"
+        type="email"
+        name="email"
+        placeholder="votre@email.com"
+        required
+        class="w-full px-4 py-3.5 rounded-xl outline-none transition-all duration-300 text-[15px] focus:ring-2 focus:ring-[var(--color-primary)]/20"
+        style="background: rgba(250,245,238,0.06); border: 1px solid rgba(250,245,238,0.12); color: var(--color-text-primary); font-family: var(--font-body);"
+      />
+    </div>
+
+    <!-- Interest -->
+    <div class="mb-5">
+      <label
+        for="waitlist-interest"
+        class="block text-[13px] mb-2"
+        style="font-family: var(--font-display); font-weight: 600; color: var(--color-text-secondary);"
+      >
+        Ce qui vous interesse
+      </label>
+      <select
+        id="waitlist-interest"
+        name="interest"
+        class="w-full px-4 py-3.5 rounded-xl outline-none transition-all duration-300 text-[15px]"
+        style="background: rgba(250,245,238,0.06); border: 1px solid rgba(250,245,238,0.12); color: var(--color-text-primary); font-family: var(--font-body); appearance: auto;"
+      >
+        <option value="tout">Tout</option>
+        <option value="saveurs">Saveurs</option>
+        <option value="style237">Style 237</option>
+        <option value="art">Art & Culture</option>
+        <option value="box">La Box Decouverte</option>
+      </select>
+    </div>
+
+    <!-- RGPD Consent -->
+    <div class="mb-6">
+      <label class="flex items-start gap-3 cursor-pointer">
+        <input
+          id="waitlist-consent"
+          type="checkbox"
+          name="consent"
+          required
+          class="mt-1 w-4 h-4 rounded accent-[var(--color-primary)]"
+        />
+        <span class="text-xs leading-relaxed" style="color: var(--color-text-tertiary);">
+          J'accepte que mes donnees soient utilisees pour m'informer du lancement
+          de Kanga-Shop.
+          <a
+            href="/mentions-legales#confidentialite"
+            class="underline hover:text-[var(--color-primary)] transition-colors"
+          >
+            Politique de confidentialite
+          </a>
+        </span>
+      </label>
+    </div>
+
+    <!-- Error message -->
+    <div
+      id="waitlist-error"
+      class="mb-4 px-4 py-3 rounded-xl text-sm hidden"
+      style="background: rgba(212,87,42,0.15); border: 1px solid rgba(212,87,42,0.3); color: var(--color-error);"
+    >
+    </div>
+
+    <!-- Submit -->
+    <button
+      type="submit"
+      id="waitlist-submit"
+      class="w-full flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-[15px] transition-all duration-300 hover:-translate-y-0.5 disabled:opacity-50 disabled:cursor-not-allowed"
+      style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700; box-shadow: 0 4px 24px rgba(200,150,58,0.2);"
+    >
+      Rejoindre la waitlist
+    </button>
+  </form>
+
+  <!-- Success message (hidden by default) -->
+  <div id="waitlist-success" class="glass rounded-[20px] p-8 md:p-12 text-center max-w-lg mx-auto hidden">
+    <div class="text-5xl mb-4">&#10024;</div>
+    <h3
+      class="text-2xl mb-3"
+      style="font-family: var(--font-display); font-weight: 700;"
+    >
+      Bienvenue dans la famille !
+    </h3>
+    <p class="text-sm" style="color: var(--color-text-secondary);">
+      Vous serez parmi les premiers informes du lancement de Kanga-Shop.
+      Merci pour votre confiance.
+    </p>
+  </div>
+</div>
+
+<script>
+  const form = document.getElementById('waitlist-form') as HTMLFormElement;
+  const errorDiv = document.getElementById('waitlist-error')!;
+  const successDiv = document.getElementById('waitlist-success')!;
+  const submitBtn = document.getElementById('waitlist-submit') as HTMLButtonElement;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorDiv.classList.add('hidden');
+
+    const email = (document.getElementById('waitlist-email') as HTMLInputElement).value;
+    const interest = (document.getElementById('waitlist-interest') as HTMLSelectElement).value;
+    const consent = (document.getElementById('waitlist-consent') as HTMLInputElement).checked;
+
+    if (!email || !email.includes('@')) {
+      errorDiv.textContent = 'Veuillez entrer une adresse email valide.';
+      errorDiv.classList.remove('hidden');
+      return;
+    }
+
+    if (!consent) {
+      errorDiv.textContent = 'Veuillez accepter la politique de confidentialite.';
+      errorDiv.classList.remove('hidden');
+      return;
+    }
+
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Inscription...';
+
+    try {
+      const res = await fetch('/api/waitlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, interest }),
+      });
+
+      if (res.ok) {
+        form.classList.add('hidden');
+        successDiv.classList.remove('hidden');
+      } else {
+        const data = await res.json().catch(() => ({}));
+        errorDiv.textContent = data.error || 'Une erreur est survenue. Reessayez.';
+        errorDiv.classList.remove('hidden');
+      }
+    } catch {
+      errorDiv.textContent = 'Impossible de se connecter. Verifiez votre connexion.';
+      errorDiv.classList.remove('hidden');
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Rejoindre la waitlist';
+    }
+  });
+</script>

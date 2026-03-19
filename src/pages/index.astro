@@ -1,0 +1,150 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import SectionSaveurs from '../components/SectionSaveurs.astro';
+import SectionStyle from '../components/SectionStyle.astro';
+import SectionArt from '../components/SectionArt.astro';
+import SectionBox from '../components/SectionBox.astro';
+import WaitlistForm from '../components/WaitlistForm.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="Kanga-Shop — Le Cameroun chez vous"
+  description="Saveurs authentiques, mode 237, art contemporain. La meilleure selection de produits camerounais, livree en France. Rejoignez la waitlist."
+>
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
+      <a
+        href="#"
+        class="text-lg"
+        style="font-family: var(--font-display); font-weight: 900;"
+      >
+        <span style="color: var(--color-primary);">Kanga</span><span
+          style="color: var(--color-text-tertiary);">-</span
+        >Shop
+      </a>
+
+      <!-- Desktop links -->
+      <div class="hidden md:flex items-center gap-8">
+        <a href="#saveurs" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Saveurs</a>
+        <a href="#style237" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Style 237</a>
+        <a href="#art" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Art & Culture</a>
+        <a href="#box" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">La Box</a>
+      </div>
+
+      <div class="flex items-center gap-4">
+        <a
+          href="#waitlist"
+          class="px-5 py-2 rounded-full text-sm transition-all duration-300 hover:-translate-y-0.5"
+          style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;"
+        >
+          Waitlist
+        </a>
+
+        <!-- Mobile hamburger -->
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden flex flex-col gap-1.5 p-2"
+          aria-label="Menu"
+        >
+          <span class="block w-5 h-0.5 rounded-full transition-all duration-300" style="background: var(--color-text-primary);" id="bar1"></span>
+          <span class="block w-5 h-0.5 rounded-full transition-all duration-300" style="background: var(--color-text-primary);" id="bar2"></span>
+          <span class="block w-3.5 h-0.5 rounded-full transition-all duration-300" style="background: var(--color-text-primary);" id="bar3"></span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="md:hidden overflow-hidden transition-all duration-300" style="max-height: 0;">
+      <div class="glass-panel px-6 py-6 flex flex-col gap-4 border-t border-white/[0.08]">
+        <a href="#saveurs" class="text-base transition-colors hover:text-[var(--color-primary)] mobile-link" style="color: var(--color-text-secondary); font-family: var(--font-body);">Saveurs</a>
+        <a href="#style237" class="text-base transition-colors hover:text-[var(--color-primary)] mobile-link" style="color: var(--color-text-secondary); font-family: var(--font-body);">Style 237</a>
+        <a href="#art" class="text-base transition-colors hover:text-[var(--color-primary)] mobile-link" style="color: var(--color-text-secondary); font-family: var(--font-body);">Art & Culture</a>
+        <a href="#box" class="text-base transition-colors hover:text-[var(--color-primary)] mobile-link" style="color: var(--color-text-secondary); font-family: var(--font-body);">La Box Decouverte</a>
+      </div>
+    </div>
+  </nav>
+
+  <script>
+    // Navbar: transparent at top, glass when scrolled
+    const navbar = document.getElementById('navbar')!;
+    const scrollThreshold = 80;
+
+    function updateNav() {
+      if (window.scrollY > scrollThreshold) {
+        navbar.classList.add('glass-panel');
+        navbar.style.background = '';
+      } else {
+        navbar.classList.remove('glass-panel');
+        navbar.style.background = 'transparent';
+      }
+    }
+    window.addEventListener('scroll', updateNav, { passive: true });
+    updateNav();
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobile-menu-btn')!;
+    const mobileMenu = document.getElementById('mobile-menu')!;
+    let menuOpen = false;
+
+    menuBtn.addEventListener('click', () => {
+      menuOpen = !menuOpen;
+      mobileMenu.style.maxHeight = menuOpen ? '300px' : '0';
+      const bars = menuBtn.querySelectorAll('span');
+      if (menuOpen) {
+        bars[0].style.transform = 'rotate(45deg) translate(4px, 4px)';
+        bars[1].style.opacity = '0';
+        bars[2].style.transform = 'rotate(-45deg) translate(3px, -3px)';
+        bars[2].style.width = '20px';
+      } else {
+        bars[0].style.transform = '';
+        bars[1].style.opacity = '1';
+        bars[2].style.transform = '';
+        bars[2].style.width = '14px';
+      }
+    });
+
+    // Close menu on link click
+    document.querySelectorAll('.mobile-link').forEach((link) => {
+      link.addEventListener('click', () => {
+        menuOpen = false;
+        mobileMenu.style.maxHeight = '0';
+        const bars = menuBtn.querySelectorAll('span');
+        bars[0].style.transform = '';
+        bars[1].style.opacity = '1';
+        bars[2].style.transform = '';
+        bars[2].style.width = '14px';
+      });
+    });
+  </script>
+
+  <Hero />
+  <SectionSaveurs />
+  <SectionStyle />
+  <SectionArt />
+  <SectionBox />
+
+  <!-- Waitlist Section -->
+  <section id="waitlist" class="py-24 md:py-32 border-b border-white/[0.08]">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-8 text-center">
+      <div class="reveal mb-12">
+        <h2
+          class="text-3xl md:text-5xl leading-[1.1] tracking-[-0.02em] mb-6"
+          style="font-family: var(--font-display); font-weight: 900;"
+        >
+          Rejoignez<br />l'aventure
+        </h2>
+        <p class="text-lg" style="color: var(--color-text-secondary);">
+          Soyez parmi les premiers a decouvrir Kanga-Shop.
+        </p>
+      </div>
+      <div class="reveal">
+        <WaitlistForm />
+      </div>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>
