@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Branding — Kanga-Shop</title>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=instrument-sans@400,500,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8963A;
+    --red: #D4572A;
+    --green: #5A7A48;
+    --brown: #8B7355;
+    --bg: #1C1A14;
+    --cream: #FAF5EE;
+    --glass: rgba(250,245,238,0.06);
+    --border: rgba(250,245,238,0.1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    color: var(--cream);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+
+  /* Header */
+  header {
+    padding: 80px 0 60px;
+    border-bottom: 1px solid var(--border);
+  }
+  header .label {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  header h1 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: clamp(36px, 6vw, 56px);
+    font-weight: 900;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    margin-bottom: 20px;
+  }
+  header .subtitle {
+    font-size: 18px;
+    color: rgba(250,245,238,0.55);
+    max-width: 600px;
+  }
+  header .meta {
+    margin-top: 32px;
+    display: flex;
+    gap: 32px;
+    font-size: 13px;
+    color: rgba(250,245,238,0.35);
+  }
+
+  /* Score banner */
+  .score-banner {
+    margin: 48px 0;
+    padding: 40px;
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 24px;
+    text-align: center;
+  }
+  .score-item .value {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 36px;
+    font-weight: 900;
+  }
+  .score-item .label-sm {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(250,245,238,0.4);
+    margin-top: 4px;
+  }
+  .grade-a { color: var(--green); }
+  .grade-b { color: var(--gold); }
+  .grade-c { color: var(--red); }
+
+  /* Sections */
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .section-label {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--red);
+    margin-bottom: 12px;
+  }
+  h2 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 28px;
+    font-weight: 900;
+    letter-spacing: -0.02em;
+    margin-bottom: 20px;
+    line-height: 1.2;
+  }
+  h3 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 10px;
+    margin-top: 32px;
+  }
+  p { margin-bottom: 16px; color: rgba(250,245,238,0.75); }
+  strong { color: var(--cream); font-weight: 600; }
+  em { color: var(--gold); font-style: normal; font-weight: 600; }
+
+  /* Cards */
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 16px;
+    margin: 24px 0;
+  }
+  .card {
+    background: var(--glass);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 24px;
+  }
+  .card .card-icon { font-size: 28px; margin-bottom: 12px; }
+  .card h4 {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .card p { font-size: 14px; margin-bottom: 0; color: rgba(250,245,238,0.55); }
+
+  /* Verdict cards */
+  .verdict {
+    background: rgba(200,150,58,0.08);
+    border: 1px solid rgba(200,150,58,0.2);
+    border-radius: 16px;
+    padding: 24px 28px;
+    margin: 24px 0;
+  }
+  .verdict.good {
+    background: rgba(90,122,72,0.08);
+    border-color: rgba(90,122,72,0.25);
+  }
+  .verdict.warn {
+    background: rgba(212,87,42,0.08);
+    border-color: rgba(212,87,42,0.2);
+  }
+  .verdict .tag {
+    display: inline-block;
+    font-family: 'Satoshi', sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+  .verdict.good .tag { background: rgba(90,122,72,0.2); color: var(--green); }
+  .verdict .tag { background: rgba(200,150,58,0.2); color: var(--gold); }
+  .verdict.warn .tag { background: rgba(212,87,42,0.2); color: var(--red); }
+  .verdict p { margin-bottom: 0; }
+
+  /* Priority matrix */
+  .priority-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 24px 0;
+    font-size: 14px;
+  }
+  .priority-table th {
+    font-family: 'Satoshi', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(250,245,238,0.35);
+    text-align: left;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+  }
+  .priority-table td {
+    padding: 14px 16px;
+    border-bottom: 1px solid rgba(250,245,238,0.04);
+    color: rgba(250,245,238,0.7);
+    vertical-align: top;
+  }
+  .priority-table tr:hover td { background: rgba(250,245,238,0.02); }
+  .pill {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-size: 11px;
+    font-weight: 600;
+    font-family: 'Satoshi', sans-serif;
+  }
+  .pill.high { background: rgba(212,87,42,0.15); color: var(--red); }
+  .pill.med { background: rgba(200,150,58,0.15); color: var(--gold); }
+  .pill.low { background: rgba(90,122,72,0.15); color: var(--green); }
+
+  /* Benchmarks */
+  .bench-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid rgba(250,245,238,0.04);
+  }
+  .bench-row:last-child { border-bottom: none; }
+  .bench-name {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 700;
+    font-size: 14px;
+    min-width: 140px;
+  }
+  .bench-pos {
+    font-size: 13px;
+    color: rgba(250,245,238,0.45);
+    flex: 1;
+  }
+  .bench-tag {
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 99px;
+    font-weight: 600;
+    font-family: 'Satoshi', sans-serif;
+    white-space: nowrap;
+  }
+
+  /* Footer */
+  footer {
+    padding: 48px 0;
+    text-align: center;
+    font-size: 12px;
+    color: rgba(250,245,238,0.2);
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 0 20px; }
+    header { padding: 48px 0 40px; }
+    header .meta { flex-direction: column; gap: 8px; }
+    .score-banner { grid-template-columns: repeat(2, 1fr); padding: 24px; }
+    section { padding: 40px 0; }
+    .priority-table { font-size: 13px; }
+    .priority-table th, .priority-table td { padding: 10px 8px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- HEADER -->
+<header>
+  <div class="label">Audit Branding</div>
+  <h1>Kanga-Shop :<br>ce qui manque pour cartonner</h1>
+  <p class="subtitle">Analyse du positionnement, de l'identite de marque, du storytelling et de la proposition de valeur. Benchmark concurrentiel inclus.</p>
+  <div class="meta">
+    <span>19 mars 2026</span>
+    <span>Focus : Branding & Positionnement</span>
+    <span>Stade : Pre-launch / Concept</span>
+  </div>
+</header>
+
+<!-- SCORES -->
+<div class="score-banner">
+  <div class="score-item">
+    <div class="value grade-a">A</div>
+    <div class="label-sm">Design System</div>
+  </div>
+  <div class="score-item">
+    <div class="value grade-b">B</div>
+    <div class="label-sm">Positionnement</div>
+  </div>
+  <div class="score-item">
+    <div class="value grade-c">C</div>
+    <div class="label-sm">Storytelling</div>
+  </div>
+  <div class="score-item">
+    <div class="value grade-c">C</div>
+    <div class="label-sm">Differenciation</div>
+  </div>
+  <div class="score-item">
+    <div class="value grade-b">B-</div>
+    <div class="label-sm">Catalogue</div>
+  </div>
+</div>
+
+<!-- 1. CE QUI EST DEJA FORT -->
+<section>
+  <div class="section-label">01 — Forces</div>
+  <h2>Tu pars avec de vrais atouts</h2>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">&#127912;</div>
+      <h4>Design system solide</h4>
+      <p>Glassmorphism + paysage camerounais + dark mode chaud = identite visuelle unique. Tres au-dessus du marche. L'execution est Apple-quality.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#127798;</div>
+      <h4>Catalogue profond</h4>
+      <p>50+ produits sur 6 categories (terroirs, garde-manger, douceurs, beaute, style, art). Couverture lifestyle complete que personne ne fait.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#128293;</div>
+      <h4>Modele waitlist = malin</h4>
+      <p>Valider la demande avant la supply chain. Tu reduis le risque, tu crees l'urgence, tu collectes des emails pour le launch day.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#127793;</div>
+      <h4>Multi-univers integre</h4>
+      <p>Aucun concurrent ne fait saveurs + mode + beaute + art en un seul lieu. C'est ta moat. Le cross-sell potentiel est enorme.</p>
+    </div>
+  </div>
+
+  <div class="verdict good">
+    <div class="tag">Verdict</div>
+    <p>Le socle technique et visuel est fort. Le probleme n'est pas l'execution — c'est ce qui se dit (ou ne se dit pas) entre les lignes.</p>
+  </div>
+</section>
+
+<!-- 2. POSITIONNEMENT -->
+<section>
+  <div class="section-label">02 — Positionnement</div>
+  <h2>Tu es entre deux chaises</h2>
+
+  <p>Ton DESIGN.md dit "luxe". Ton catalogue dit "epicerie". Ton tagline dit "selection familiale". Ce melange brouille le message. Le client ne sait pas s'il achete du premium ou du quotidien.</p>
+
+  <h3>Le probleme concret</h3>
+  <p>La tagline actuelle : <em>"Saveurs authentiques. Mode 237. Art contemporain. Une selection familiale, livree en France."</em></p>
+  <p>C'est descriptif, pas emotionnel. Ca dit <strong>ce que tu vends</strong>, pas <strong>pourquoi ca compte</strong>. "Familiale" envoie un signal discount quand tout le design crie luxe. Et "livree en France" est un detail logistique, pas une promesse de marque.</p>
+
+  <h3>Ce que font les marques qui cartonnent</h3>
+  <p>Les marques afro-lifestyle qui percent (ADJOAA, R&R Luxury, Moon Look) ne parlent jamais de livraison ou de catalogue. Elles vendent une <strong>identite</strong>. ADJOAA dit "curated with intention". Moon Look dit "Made in Africa". R&R Luxury vend des "rituels".</p>
+
+  <div class="verdict">
+    <div class="tag">Recommandation</div>
+    <p><strong>Choisis ton camp : "immersion culturelle premium" plutot que "epicerie fine pratique".</strong> Ta tagline devrait vendre l'emotion, pas la logistique. Exemple : "Le Cameroun, comme si vous y etiez" ou "L'art de vivre camerounais, sublime". Le mot "familiale" peut rester dans l'histoire du fondateur, pas dans le headline.</p>
+  </div>
+</section>
+
+<!-- 3. STORYTELLING -->
+<section>
+  <div class="section-label">03 — Storytelling</div>
+  <h2>Il manque l'ame</h2>
+
+  <p>Ton site est beau mais froid. Il n'y a <strong>aucune histoire humaine</strong>. Pas de fondateur, pas de "pourquoi", pas de recit d'origine. Le footer dit "projet familial ne entre le Cameroun et la France" — c'est la phrase la plus puissante du site, et elle est cachee tout en bas en gris clair.</p>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">&#10060;</div>
+      <h4>Pas de section "Notre histoire"</h4>
+      <p>Qui es-tu ? Pourquoi le Cameroun ? Pourquoi ces produits ? La diaspora achete une histoire, pas un catalogue.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#10060;</div>
+      <h4>Produits sans narratif</h4>
+      <p>Le Poivre de Penja a une IGP — premier produit africain a l'obtenir. C'est une histoire incroyable. Elle devrait etre un moment hero, pas une ligne de description.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#10060;</div>
+      <h4>Pas de preuve sociale</h4>
+      <p>Zero temoignage, zero chiffre, zero presse. Meme en pre-launch, tu peux montrer des beta-testeurs, des photos de sourcing, des stories Instagram.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#10060;</div>
+      <h4>Pas de mission visible</h4>
+      <p>"Les produits camerounais meritent le meme ecrin que les produits Apple" — ca c'est une mission puissante. Mais c'est dans le DESIGN.md, pas sur le site.</p>
+    </div>
+  </div>
+
+  <div class="verdict warn">
+    <div class="tag">Critique</div>
+    <p><strong>Ton plus gros gap.</strong> Le marche diaspora achete par emotion et identite. Sans histoire humaine, tu es un joli catalogue sans ame. Ajoute une section "Manifeste" juste apres le hero. Raconte pourquoi ce projet existe. Montre des visages. Cite ta mission.</p>
+  </div>
+</section>
+
+<!-- 4. DIFFERENCIATION -->
+<section>
+  <div class="section-label">04 — Differenciation</div>
+  <h2>Qu'est-ce qui te rend impossible a copier ?</h2>
+
+  <p>Le marche de l'epicerie africaine en France est fragmente. Afromarket, Saveurs d'Afrik, des dizaines de boutiques locales. Tous vendent du foufou et du Maggi. Ce n'est pas un avantage.</p>
+
+  <h3>Concurrents directs</h3>
+  <div>
+    <div class="bench-row">
+      <span class="bench-name">Saveurs d'Afrik</span>
+      <span class="bench-pos">Epicerie africaine online, livraison rapide, budget</span>
+      <span class="bench-tag" style="background:rgba(212,87,42,0.12);color:var(--red);">Menace directe</span>
+    </div>
+    <div class="bench-row">
+      <span class="bench-name">Afrikrea</span>
+      <span class="bench-pos">Marketplace mode africaine ("Etsy de l'Afrique"), 7000+ designers</span>
+      <span class="bench-tag" style="background:rgba(200,150,58,0.12);color:var(--gold);">Indirect</span>
+    </div>
+    <div class="bench-row">
+      <span class="bench-name">ADJOAA</span>
+      <span class="bench-pos">Curation ethique luxe, marques africaines, global</span>
+      <span class="bench-tag" style="background:rgba(90,122,72,0.12);color:var(--green);">Inspiration</span>
+    </div>
+    <div class="bench-row">
+      <span class="bench-name">Moon Look</span>
+      <span class="bench-pos">Concept store Made in Africa, fonde par une Camerounaise, Paris</span>
+      <span class="bench-tag" style="background:rgba(212,87,42,0.12);color:var(--red);">Concurrent direct</span>
+    </div>
+    <div class="bench-row">
+      <span class="bench-name">R&R Luxury</span>
+      <span class="bench-pos">Beaute africaine premium, rituels wellness, UK/UAE</span>
+      <span class="bench-tag" style="background:rgba(90,122,72,0.12);color:var(--green);">Inspiration</span>
+    </div>
+  </div>
+
+  <h3>Ton vrai avantage</h3>
+  <p><strong>Personne ne fait le lifestyle camerounais integre en premium.</strong> Saveurs d'Afrik fait l'epicerie sans branding. Moon Look fait la mode sans la bouffe. Afrikrea fait la marketplace sans curation. Toi tu peux faire les 3 univers, curates, dans un ecrin luxe, avec une histoire camerounaise authentique.</p>
+
+  <div class="verdict">
+    <div class="tag">Recommandation</div>
+    <p><strong>Verrouille ta niche : "premiere maison de lifestyle camerounais".</strong> Pas "boutique africaine", pas "epicerie camerounaise". Une "maison" — le mot positionne directement dans le luxe. Et la specificite camerounaise (pas pan-africaine) est ta force : la diaspora camerounaise cherche le Cameroun, pas "l'Afrique".</p>
+  </div>
+</section>
+
+<!-- 5. PROPOSITION DE VALEUR -->
+<section>
+  <div class="section-label">05 — Proposition de valeur</div>
+  <h2>Pourquoi payer plus chez toi ?</h2>
+
+  <p>Tu vends du Cube Maggi a 3.90€ et du Tableau d'artiste a 99.90€. Cette cohabitation n'est pas un probleme en soi — mais il faut une hierarchie claire. Aujourd'hui le Maggi et le tableau ont la meme presence visuelle.</p>
+
+  <h3>Ce qui manque pour justifier le premium</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-icon">&#128205;</div>
+      <h4>Tracabilite / sourcing</h4>
+      <p>"Recolte a la main sur les pentes du Mont Cameroun" — bien. Mais ou sont les photos du producteur ? La carte du village ? Le certificat IGP ?</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#9884;&#65039;</div>
+      <h4>Ethique & durabilite</h4>
+      <p>Zero mention de fair trade, d'impact sur les communautes locales, de supply chain responsable. C'est table stakes en 2026 pour le premium.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#127873;</div>
+      <h4>Experience unboxing</h4>
+      <p>La Box Decouverte est ta killer feature. Mais elle est presentee avec un emoji cadeau et 3 mots. Ca merite une page entiere avec mockups, teasers, et un vrai CTA.</p>
+    </div>
+    <div class="card">
+      <div class="card-icon">&#128081;</div>
+      <h4>Exclusivite perçue</h4>
+      <p>Tu as des badges "Exclusif", "Rare", "Premium" — bien. Mais il faut les appuyer avec des faits : tirage limite ? Producteur unique ? Recette secrete ?</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. CATALOGUE -->
+<section>
+  <div class="section-label">06 — Catalogue</div>
+  <h2>Des ajustements strategiques</h2>
+
+  <p>50+ produits pour un lancement, c'est beaucoup. C'est aussi un risque de stock. Voici ce que je vois :</p>
+
+  <h3>Tes produits hero (a pousser fort)</h3>
+  <p>Le <em>Poivre de Penja IGP</em>, le <em>Coffret Epices du Mbongo</em>, la <em>Poudre de Chebe</em> (virale TikTok), le <em>Coffret Rituel Beaute</em>, le <em>Tissu Ndop</em>. Ce sont tes produits a fort storytelling, forte marge, forte differenciation.</p>
+
+  <h3>Tes commodites (a repenser)</h3>
+  <p>Le <em>Cube Maggi</em>, le <em>Foufou</em>, le <em>Gari</em> — disponibles dans n'importe quelle epicerie africaine de Paris. Tu ne gagneras pas sur ces produits. Ils attirent du trafic mais diluent le positionnement premium. Garde-les mais ne les mets pas en avant.</p>
+
+  <h3>Ton angle mort</h3>
+  <p>Pas de <em>coffrets cadeaux thematiques</em> au-dela du Mbongo et de la beaute. C'est pourtant le format roi pour le e-commerce premium. Coffret "Decouverte Cameroun", coffret "Noel camerounais", coffret "Mariage" — c'est la que sont les marges et le bouche-a-oreille.</p>
+
+  <div class="verdict">
+    <div class="tag">Recommandation</div>
+    <p><strong>Lance avec 15-20 produits maximum.</strong> 5 produits hero avec storytelling complet + 3 coffrets + la Box Decouverte. Ajoute le reste progressivement. Moins de SKUs = moins de stock = plus de focus narratif = meilleure conversion.</p>
+  </div>
+</section>
+
+<!-- 7. PLAN D'ACTION -->
+<section>
+  <div class="section-label">07 — Plan d'action</div>
+  <h2>Les 10 moves pour transformer Kanga-Shop</h2>
+
+  <table class="priority-table">
+    <thead>
+      <tr>
+        <th>Priorite</th>
+        <th>Action</th>
+        <th>Impact</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="pill high">P0</span></td>
+        <td><strong>Ecris ton manifeste fondateur</strong> — pourquoi ce projet existe, ton histoire perso, ta mission. 200 mots, en section #2 du site.</td>
+        <td>Conversion +30-50%. La diaspora achete une histoire.</td>
+      </tr>
+      <tr>
+        <td><span class="pill high">P0</span></td>
+        <td><strong>Reecris ta tagline</strong> — passe de descriptif a emotionnel. "Le Cameroun, sublime" ou "La premiere maison de lifestyle camerounais".</td>
+        <td>Positionnement clair = meilleur recall, meilleur bouche-a-oreille.</td>
+      </tr>
+      <tr>
+        <td><span class="pill high">P0</span></td>
+        <td><strong>Reduis le catalogue de lancement a 15-20 SKUs</strong> — produits hero + coffrets + Box.</td>
+        <td>Moins de risque stock, meilleur storytelling, meilleure UX.</td>
+      </tr>
+      <tr>
+        <td><span class="pill med">P1</span></td>
+        <td><strong>Ajoute du contenu de sourcing</strong> — photos de producteurs, carte du Cameroun interactive, videos 15s de recolte.</td>
+        <td>Confiance + justification premium + contenu social.</td>
+      </tr>
+      <tr>
+        <td><span class="pill med">P1</span></td>
+        <td><strong>Developpe la page Box Decouverte</strong> — mockup du packaging, teasers mensuels, pricing (29-49€/mois).</td>
+        <td>Revenue recurrent. La box est ton cheval de Troie pour l'acquisition.</td>
+      </tr>
+      <tr>
+        <td><span class="pill med">P1</span></td>
+        <td><strong>Cree 3-5 coffrets cadeaux thematiques</strong> — decouverte, beaute, epicurien, noel, mariage.</td>
+        <td>AOV x2-3. Meilleur format pour le gifting diaspora.</td>
+      </tr>
+      <tr>
+        <td><span class="pill med">P1</span></td>
+        <td><strong>Ajoute une section "Impact"</strong> — fair trade, artisans soutenus, communautes. Meme si c'est early, montre l'intention.</td>
+        <td>Table stakes pour le premium en 2026. Differenciation vs epiceries.</td>
+      </tr>
+      <tr>
+        <td><span class="pill low">P2</span></td>
+        <td><strong>Preuve sociale pre-launch</strong> — beta-testeurs, nombre d'inscrits waitlist, screenshots de DMs enthousiastes.</td>
+        <td>Social proof = conversion. Meme 50 inscrits c'est "50 familles nous font confiance".</td>
+      </tr>
+      <tr>
+        <td><span class="pill low">P2</span></td>
+        <td><strong>SEO du storytelling</strong> — blog "L'histoire du Poivre de Penja", "Guide du Ndole", "Les secrets du Chebe".</td>
+        <td>Trafic organique long terme + autorite de marque.</td>
+      </tr>
+      <tr>
+        <td><span class="pill low">P2</span></td>
+        <td><strong>Strategie Instagram/TikTok</strong> — contenu "behind the sourcing", recettes, culture camerounaise. Le Chebe est deja viral, surfe dessus.</td>
+        <td>Canal #1 pour la diaspora. Le contenu organique > la pub pour le lancement.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 8. SYNTHESE -->
+<section>
+  <div class="section-label">08 — Synthese</div>
+  <h2>Le verdict final</h2>
+
+  <p>Kanga-Shop a les fondations d'une marque qui peut vraiment percer. Le design est au-dessus du marche, le catalogue est riche, l'approche waitlist est intelligente, et le positionnement multi-univers est unique.</p>
+
+  <p>Mais aujourd'hui, c'est un <strong>beau site sans ame</strong>. Il manque l'emotion, l'histoire, le "pourquoi". La diaspora camerounaise n'achete pas du foufou — elle achete un morceau de chez elle. Et ca, ca se raconte.</p>
+
+  <p>Les 3 choses qui feront la difference entre "un site de plus" et "le carton" :</p>
+
+  <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="card" style="border-color: rgba(200,150,58,0.3); text-align:center;">
+      <div class="card-icon">&#128172;</div>
+      <h4 style="color: var(--gold);">Raconte ton histoire</h4>
+      <p>Manifeste, fondateur, mission. C'est le coeur de tout.</p>
+    </div>
+    <div class="card" style="border-color: rgba(212,87,42,0.3); text-align:center;">
+      <div class="card-icon">&#127919;</div>
+      <h4 style="color: var(--red);">Choisis ta niche</h4>
+      <p>"Maison de lifestyle camerounais". Pas epicerie, pas marketplace.</p>
+    </div>
+    <div class="card" style="border-color: rgba(90,122,72,0.3); text-align:center;">
+      <div class="card-icon">&#9889;</div>
+      <h4 style="color: var(--green);">Lance petit, lance fort</h4>
+      <p>15 produits hero avec un storytelling impeccable.</p>
+    </div>
+  </div>
+
+  <p style="margin-top: 32px; color: rgba(250,245,238,0.45); font-size: 14px;">Tu as l'ecrin. Maintenant mets le diamant dedans.</p>
+</section>
+
+</div>
+
+<footer>
+  <div class="container">
+    Audit Branding Kanga-Shop — Mars 2026
+  </div>
+</footer>
+
+</body>
+</html>

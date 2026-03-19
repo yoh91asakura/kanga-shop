@@ -1,0 +1,208 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Footer from '../../components/Footer.astro';
+import { products, categories } from '../../data/products';
+import type { GetStaticPaths } from 'astro';
+
+export const getStaticPaths: GetStaticPaths = () => {
+  return products.map((product) => ({
+    params: { id: product.id },
+    props: { product },
+  }));
+};
+
+const { product } = Astro.props;
+const categoryInfo = categories[product.category];
+
+// Related products: same category, exclude current, max 3
+const related = products
+  .filter((p) => p.category === product.category && p.id !== product.id)
+  .slice(0, 3);
+---
+
+<Layout
+  title={`${product.name} — Kanga-Shop`}
+  description={product.description}
+>
+  <!-- Navigation -->
+  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass-panel" style="background: '';">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="text-lg" style="font-family: var(--font-display); font-weight: 900;">
+        <span style="color: var(--color-primary);">Kanga</span><span style="color: var(--color-text-tertiary);">-</span>Shop
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#saveurs" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Saveurs</a>
+        <a href="/#style237" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Style 237</a>
+        <a href="/#art" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Art & Culture</a>
+        <a href="/shop" class="text-sm transition-colors" style="color: var(--color-primary); font-family: var(--font-body); font-weight: 600;">Shop</a>
+      </div>
+      <a href="/#waitlist" class="px-5 py-2 rounded-full text-sm transition-all duration-300 hover:-translate-y-0.5" style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;">
+        Waitlist
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero Image -->
+  <section class="relative h-[50vh] md:h-[60vh] overflow-hidden">
+    <img
+      src={product.image}
+      alt={product.name}
+      class="w-full h-full object-cover"
+    />
+    <div class="absolute inset-0" style="background: linear-gradient(to bottom, rgba(28,26,20,0.3) 0%, rgba(28,26,20,0.85) 80%, var(--color-bg-primary) 100%);"></div>
+    <!-- Badge overlay -->
+    {product.badge && (
+      <span
+        class="absolute top-24 right-6 md:right-12 px-4 py-1.5 rounded-full text-xs tracking-[1px] uppercase"
+        style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;"
+      >
+        {product.badge}
+      </span>
+    )}
+  </section>
+
+  <!-- Product Details -->
+  <section class="relative -mt-24 pb-16">
+    <div class="max-w-[800px] mx-auto px-6 md:px-8">
+      <div class="glass-panel rounded-[28px] p-8 md:p-12">
+        <!-- Category label -->
+        <p
+          class="text-xs tracking-[2px] uppercase mb-3"
+          style="font-family: var(--font-mono); color: var(--color-primary);"
+        >
+          {categoryInfo.label}
+        </p>
+
+        <!-- Product name -->
+        <h1
+          class="text-3xl md:text-5xl leading-[1.1] tracking-[-0.02em] mb-4"
+          style="font-family: var(--font-display); font-weight: 900;"
+        >
+          {product.name}
+        </h1>
+
+        <!-- Description -->
+        <p
+          class="text-base md:text-lg leading-relaxed mb-8"
+          style="color: var(--color-text-secondary);"
+        >
+          {product.description}
+        </p>
+
+        <!-- Price -->
+        <div class="flex items-baseline gap-3 mb-10">
+          <span
+            class="text-3xl md:text-4xl"
+            style="font-family: var(--font-display); font-weight: 900; color: var(--color-primary);"
+          >
+            {product.price.toFixed(2).replace('.', ',')}
+          </span>
+          <span
+            class="text-sm"
+            style="color: var(--color-text-tertiary); font-family: var(--font-mono);"
+          >
+            EUR / {product.unit}
+          </span>
+        </div>
+
+        <!-- CTA -->
+        <div class="flex flex-col sm:flex-row gap-4">
+          <a
+            href="/#waitlist"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[15px] transition-all duration-300 hover:-translate-y-0.5"
+            style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700; box-shadow: 0 4px 24px rgba(200,150,58,0.25);"
+          >
+            Rejoindre la waitlist
+          </a>
+          <a
+            href="/shop"
+            class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[15px] transition-all duration-300 hover:-translate-y-0.5"
+            style="border: 1px solid rgba(250,245,238,0.15); color: var(--color-text-secondary); font-family: var(--font-display); font-weight: 600;"
+          >
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="margin-right: 4px;">
+              <path d="M10 12L6 8L10 4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            Retour au catalogue
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Related Products -->
+  {related.length > 0 && (
+    <section class="py-16 border-t border-white/[0.08]">
+      <div class="max-w-[1200px] mx-auto px-6 md:px-8">
+        <p
+          class="text-xs tracking-[3px] uppercase mb-3"
+          style="font-family: var(--font-mono); color: var(--color-primary);"
+        >
+          Du meme univers
+        </p>
+        <h2
+          class="text-2xl md:text-3xl mb-8"
+          style="font-family: var(--font-display); font-weight: 900;"
+        >
+          Produits similaires
+        </h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {related.map((rel) => (
+            <a
+              href={`/shop/${rel.id}`}
+              class="glass rounded-[20px] overflow-hidden transition-all duration-400 hover:-translate-y-1 hover:border-[var(--color-primary)] block"
+            >
+              <div class="h-48 overflow-hidden relative">
+                <img
+                  src={rel.image}
+                  alt={rel.name}
+                  class="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
+                  loading="lazy"
+                />
+                {rel.badge && (
+                  <span
+                    class="absolute top-3 right-3 px-3 py-1 rounded-full text-[11px] tracking-[1px] uppercase"
+                    style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;"
+                  >
+                    {rel.badge}
+                  </span>
+                )}
+              </div>
+              <div class="p-5">
+                <p
+                  class="text-[10px] tracking-[2px] uppercase mb-1.5"
+                  style="font-family: var(--font-mono); color: var(--color-primary);"
+                >
+                  {categories[rel.category].label}
+                </p>
+                <h3 class="text-base mb-1.5" style="font-family: var(--font-display); font-weight: 700;">
+                  {rel.name}
+                </h3>
+                <p class="text-xs leading-relaxed mb-4" style="color: var(--color-text-secondary);">
+                  {rel.description}
+                </p>
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="text-xl" style="font-family: var(--font-display); font-weight: 900; color: var(--color-primary);">
+                      {rel.price.toFixed(2).replace('.', ',')}
+                    </span>
+                    <span class="text-xs ml-1" style="color: var(--color-text-tertiary); font-family: var(--font-mono);">
+                      EUR / {rel.unit}
+                    </span>
+                  </div>
+                  <span
+                    class="px-4 py-2 rounded-full text-xs"
+                    style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;"
+                  >
+                    Voir
+                  </span>
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <Footer />
+</Layout>

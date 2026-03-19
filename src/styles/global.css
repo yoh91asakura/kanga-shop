@@ -85,6 +85,33 @@ nav.glass-panel {
 .section-light {
   background-color: #FAF5EE;
   color: #1C1A14;
+  position: relative;
+}
+
+/* Gradient transition: dark -> light (top of light section) */
+.section-light::before {
+  content: '';
+  position: absolute;
+  top: -60px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, transparent, #FAF5EE);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Gradient transition: light -> dark (bottom of light section) */
+.section-light::after {
+  content: '';
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: linear-gradient(to bottom, #FAF5EE, transparent);
+  pointer-events: none;
+  z-index: 1;
 }
 
 .section-light .text-secondary {

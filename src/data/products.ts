@@ -29,7 +29,7 @@ export const products: Product[] = [
     price: 14.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/poivre-penja.png',
+    image: '/images/products/poivre-penja.webp',
     badge: 'Produit star',
   },
   {
@@ -39,7 +39,7 @@ export const products: Product[] = [
     price: 12.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/poivre-noir-penja.png',
+    image: '/images/products/poivre-noir-penja.webp',
   },
   {
     id: 'cafe-arabica',
@@ -48,7 +48,7 @@ export const products: Product[] = [
     price: 9.90,
     unit: '250g',
     category: 'terroirs',
-    image: '/images/products/cafe-grains.png',
+    image: '/images/products/cafe-grains.webp',
     badge: 'Produit star',
   },
   {
@@ -58,7 +58,7 @@ export const products: Product[] = [
     price: 5.90,
     unit: '200g',
     category: 'terroirs',
-    image: '/images/products/cacao-feves.png',
+    image: '/images/products/cacao-feves.webp',
   },
   {
     id: 'huile-ndjansang',
@@ -67,7 +67,7 @@ export const products: Product[] = [
     price: 15.90,
     unit: '25cl',
     category: 'terroirs',
-    image: '/images/products/epices-huiles.png',
+    image: '/images/products/epices-huiles.webp',
     badge: 'Exclusif',
   },
   {
@@ -77,7 +77,7 @@ export const products: Product[] = [
     price: 19.90,
     unit: 'coffret',
     category: 'terroirs',
-    image: '/images/products/coffret-mbongo.png',
+    image: '/images/products/coffret-mbongo.webp',
     badge: 'Coffret signature',
   },
   {
@@ -87,7 +87,7 @@ export const products: Product[] = [
     price: 6.90,
     unit: '50g',
     category: 'terroirs',
-    image: '/images/products/epices-traditionnelles.png',
+    image: '/images/products/epices-traditionnelles.webp',
   },
   {
     id: 'essese',
@@ -96,7 +96,7 @@ export const products: Product[] = [
     price: 4.90,
     unit: '50g',
     category: 'terroirs',
-    image: '/images/products/essese.png',
+    image: '/images/products/essese.webp',
   },
   {
     id: 'rondelle',
@@ -105,7 +105,7 @@ export const products: Product[] = [
     price: 5.90,
     unit: '50g',
     category: 'terroirs',
-    image: '/images/products/rondelle.png',
+    image: '/images/products/rondelle.webp',
   },
   {
     id: 'djansang',
@@ -114,7 +114,7 @@ export const products: Product[] = [
     price: 7.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/djansang.png',
+    image: '/images/products/djansang.webp',
   },
   {
     id: 'melange-secret',
@@ -123,7 +123,7 @@ export const products: Product[] = [
     price: 9.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/melange-secret.png',
+    image: '/images/products/melange-secret.webp',
     badge: 'Best-seller',
   },
   {
@@ -133,7 +133,7 @@ export const products: Product[] = [
     price: 6.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/sel-kanwa.png',
+    image: '/images/products/sel-kanwa.webp',
   },
   {
     id: 'epices-achu',
@@ -142,7 +142,7 @@ export const products: Product[] = [
     price: 12.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/epices-achu.png',
+    image: '/images/products/epices-achu.webp',
   },
 
   // ============================================================
@@ -155,7 +155,7 @@ export const products: Product[] = [
     price: 3.90,
     unit: 'boite',
     category: 'gardemanger',
-    image: '/images/products/cube-maggi.png',
+    image: '/images/products/cube-maggi.webp',
     badge: 'Incontournable',
   },
   {
@@ -165,7 +165,7 @@ export const products: Product[] = [
     price: 4.90,
     unit: '500g',
     category: 'gardemanger',
-    image: '/images/products/foufou.png',
+    image: '/images/products/foufou.webp',
   },
   {
     id: 'gari',
@@ -174,7 +174,7 @@ export const products: Product[] = [
     price: 5.90,
     unit: '1kg',
     category: 'gardemanger',
-    image: '/images/products/gari.png',
+    image: '/images/products/gari.webp',
   },
   {
     id: 'farine-mais',
@@ -183,7 +183,7 @@ export const products: Product[] = [
     price: 3.90,
     unit: '500g',
     category: 'gardemanger',
-    image: '/images/products/farine-mais.png',
+    image: '/images/products/farine-mais.webp',
   },
   {
     id: 'arachides-grillees',
@@ -192,7 +192,7 @@ export const products: Product[] = [
     price: 5.50,
     unit: '300g',
     category: 'gardemanger',
-    image: '/images/products/arachides-feu.png',
+    image: '/images/products/arachides-feu.webp',
   },
   {
     id: 'arachides-crues',
@@ -201,7 +201,7 @@ export const products: Product[] = [
     price: 4.90,
     unit: '500g',
     category: 'gardemanger',
-    image: '/images/products/arachides.png',
+    image: '/images/products/arachides.webp',
   },
   {
     id: 'pate-arachide',
@@ -210,7 +210,7 @@ export const products: Product[] = [
     price: 5.90,
     unit: '500g',
     category: 'gardemanger',
-    image: '/images/products/pate-arachide.png',
+    image: '/images/products/pate-arachide.webp',
   },
   {
     id: 'haricots-rouges',
@@ -219,7 +219,7 @@ export const products: Product[] = [
     price: 4.50,
     unit: '500g',
     category: 'gardemanger',
-    image: '/images/products/graines-haricots.png',
+    image: '/images/products/graines-haricots.webp',
   },
   {
     id: 'nyebe',
@@ -228,7 +228,7 @@ export const products: Product[] = [
     price: 5.50,
     unit: '500g',
     category: 'gardemanger',
-    image: '/images/products/nyebe.png',
+    image: '/images/products/nyebe.webp',
   },
   {
     id: 'gingembre',
@@ -237,7 +237,7 @@ export const products: Product[] = [
     price: 5.90,
     unit: '250g',
     category: 'gardemanger',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/gingembre-epices.webp',
   },
   {
     id: 'eru-okok',
@@ -246,7 +246,7 @@ export const products: Product[] = [
     price: 5.90,
     unit: '50g',
     category: 'gardemanger',
-    image: '/images/products/eru-okok.png',
+    image: '/images/products/eru-okok.webp',
   },
   {
     id: 'ndole-feuilles',
@@ -255,7 +255,7 @@ export const products: Product[] = [
     price: 6.90,
     unit: '100g',
     category: 'gardemanger',
-    image: '/images/products/ndole-feuilles.png',
+    image: '/images/products/ndole-feuilles.webp',
   },
   {
     id: 'chips-plantain',
@@ -264,7 +264,7 @@ export const products: Product[] = [
     price: 3.50,
     unit: 'sachet',
     category: 'gardemanger',
-    image: '/images/products/chips-plantain.png',
+    image: '/images/products/chips-plantain.webp',
   },
   {
     id: 'nkui',
@@ -273,7 +273,7 @@ export const products: Product[] = [
     price: 15.90,
     unit: '100g',
     category: 'gardemanger',
-    image: '/images/products/nkui.png',
+    image: '/images/products/nkui.webp',
     badge: 'Rare',
   },
 
@@ -287,7 +287,7 @@ export const products: Product[] = [
     price: 1.90,
     unit: 'piece',
     category: 'douceurs',
-    image: '/images/products/chocolat-mambo.png',
+    image: '/images/products/chocolat-mambo.webp',
   },
   {
     id: 'mambo-pack',
@@ -296,7 +296,7 @@ export const products: Product[] = [
     price: 4.90,
     unit: 'pack 3',
     category: 'douceurs',
-    image: '/images/products/mambo-pack.png',
+    image: '/images/products/mambo-pack.webp',
     badge: 'Bon plan',
   },
   {
@@ -306,7 +306,7 @@ export const products: Product[] = [
     price: 4.90,
     unit: 'sachet',
     category: 'douceurs',
-    image: '/images/products/caramels.png',
+    image: '/images/products/caramels.webp',
   },
   {
     id: 'bonbons',
@@ -315,7 +315,7 @@ export const products: Product[] = [
     price: 3.90,
     unit: 'sachet',
     category: 'douceurs',
-    image: '/images/products/bonbons.png',
+    image: '/images/products/bonbons.webp',
   },
   {
     id: 'kilichi',
@@ -324,7 +324,7 @@ export const products: Product[] = [
     price: 24.90,
     unit: '100g',
     category: 'douceurs',
-    image: '/images/products/kilichi.png',
+    image: '/images/products/kilichi.webp',
     badge: 'Premium',
   },
   {
@@ -334,7 +334,7 @@ export const products: Product[] = [
     price: 7.90,
     unit: '100g',
     category: 'douceurs',
-    image: '/images/products/bissap.png',
+    image: '/images/products/bissap.webp',
     badge: 'Produit star',
   },
   {
@@ -344,7 +344,7 @@ export const products: Product[] = [
     price: 6.90,
     unit: '30g',
     category: 'douceurs',
-    image: '/images/products/citronnelle.png',
+    image: '/images/products/citronnelle.webp',
   },
   {
     id: 'poudre-baobab',
@@ -353,7 +353,7 @@ export const products: Product[] = [
     price: 11.90,
     unit: '250g',
     category: 'douceurs',
-    image: '/images/products/poudre-baobab.png',
+    image: '/images/products/poudre-baobab.webp',
   },
   {
     id: 'tartina',
@@ -362,7 +362,7 @@ export const products: Product[] = [
     price: 10.90,
     unit: '425g',
     category: 'douceurs',
-    image: '/images/products/tartina.png',
+    image: '/images/products/tartina.webp',
   },
 
   // ============================================================
@@ -375,7 +375,7 @@ export const products: Product[] = [
     price: 11.90,
     unit: '25cl',
     category: 'beaute',
-    image: '/images/products/huile-karite.png',
+    image: '/images/products/huile-karite.webp',
   },
   {
     id: 'beurre-karite',
@@ -384,7 +384,7 @@ export const products: Product[] = [
     price: 9.90,
     unit: '200g',
     category: 'beaute',
-    image: '/images/products/beurre-karite-v2.png',
+    image: '/images/products/beurre-karite-v2.webp',
     badge: 'Produit star',
   },
   {
@@ -394,7 +394,7 @@ export const products: Product[] = [
     price: 7.90,
     unit: '50cl',
     category: 'beaute',
-    image: '/images/products/huile-palme-v2.png',
+    image: '/images/products/huile-palme-v2.webp',
   },
   {
     id: 'savon-noir',
@@ -403,7 +403,7 @@ export const products: Product[] = [
     price: 12.90,
     unit: '100g',
     category: 'beaute',
-    image: '/images/products/savon-noir.png',
+    image: '/images/products/savon-noir.webp',
     badge: 'Tendance',
   },
   {
@@ -413,7 +413,7 @@ export const products: Product[] = [
     price: 14.90,
     unit: '50g',
     category: 'beaute',
-    image: '/images/products/poudre-chebe.png',
+    image: '/images/products/poudre-chebe.webp',
     badge: 'Viral',
   },
   {
@@ -423,7 +423,7 @@ export const products: Product[] = [
     price: 12.90,
     unit: '50ml',
     category: 'beaute',
-    image: '/images/products/huile-baobab.png',
+    image: '/images/products/huile-baobab.webp',
   },
   {
     id: 'huile-moringa',
@@ -432,7 +432,7 @@ export const products: Product[] = [
     price: 12.90,
     unit: '50ml',
     category: 'beaute',
-    image: '/images/products/huile-moringa.png',
+    image: '/images/products/huile-moringa.webp',
   },
   {
     id: 'coffret-beaute',
@@ -441,7 +441,7 @@ export const products: Product[] = [
     price: 34.90,
     unit: 'coffret',
     category: 'beaute',
-    image: '/images/products/coffret-beaute.png',
+    image: '/images/products/coffret-beaute.webp',
     badge: 'Coffret cadeau',
   },
 
@@ -455,7 +455,7 @@ export const products: Product[] = [
     price: 59.90,
     unit: 'piece',
     category: 'style',
-    image: '/images/products/boubou-homme.png',
+    image: '/images/products/boubou-homme.webp',
   },
   {
     id: 'chemisette-237',
@@ -464,7 +464,7 @@ export const products: Product[] = [
     price: 34.90,
     unit: 'piece',
     category: 'style',
-    image: '/images/products/maillot-lions.png',
+    image: '/images/products/maillot-lions.webp',
   },
   {
     id: 'maillot-foot',
@@ -473,7 +473,7 @@ export const products: Product[] = [
     price: 44.90,
     unit: 'piece',
     category: 'style',
-    image: '/images/products/maillot-cameroun.png',
+    image: '/images/products/maillot-cameroun.webp',
     badge: 'Populaire',
   },
   {
@@ -483,7 +483,7 @@ export const products: Product[] = [
     price: 34.90,
     unit: 'piece',
     category: 'style',
-    image: '/images/products/artisane-raphia.png',
+    image: '/images/products/artisane-raphia.webp',
   },
   {
     id: 'sac-cuir-femme',
@@ -492,7 +492,7 @@ export const products: Product[] = [
     price: 44.90,
     unit: 'piece',
     category: 'style',
-    image: '/images/products/sac-cuir-femme.png',
+    image: '/images/products/sac-cuir-femme.webp',
   },
   {
     id: 'tissu-ndop',
@@ -501,7 +501,7 @@ export const products: Product[] = [
     price: 14.90,
     unit: 'yard',
     category: 'style',
-    image: '/images/products/tissu-ndop.png',
+    image: '/images/products/tissu-ndop.webp',
     badge: 'Identite forte',
   },
   {
@@ -511,7 +511,7 @@ export const products: Product[] = [
     price: 29.90,
     unit: 'coupon',
     category: 'style',
-    image: '/images/products/toghu-atoghu.png',
+    image: '/images/products/toghu-atoghu.webp',
   },
   {
     id: 'pagnes-wax',
@@ -520,7 +520,7 @@ export const products: Product[] = [
     price: 29.90,
     unit: '6 yards',
     category: 'style',
-    image: '/images/products/pagnes-wax.png',
+    image: '/images/products/pagnes-wax.webp',
   },
 
   // ============================================================
@@ -533,7 +533,7 @@ export const products: Product[] = [
     price: 99.90,
     unit: 'piece',
     category: 'art',
-    image: '/images/products/tableau-peinture.png',
+    image: '/images/products/tableau-peinture.webp',
     badge: 'Piece unique',
   },
   {
@@ -543,7 +543,7 @@ export const products: Product[] = [
     price: 69.90,
     unit: 'piece',
     category: 'art',
-    image: '/images/products/sculpteur-masques.png',
+    image: '/images/products/sculpteur-masques.webp',
   },
   {
     id: 'statuettes',
@@ -552,7 +552,7 @@ export const products: Product[] = [
     price: 59.90,
     unit: 'piece',
     category: 'art',
-    image: '/images/products/statuettes-bois.png',
+    image: '/images/products/statuettes-bois.webp',
   },
   {
     id: 'bijoux-ethniques',
@@ -561,7 +561,7 @@ export const products: Product[] = [
     price: 24.90,
     unit: 'piece',
     category: 'art',
-    image: '/images/products/bijoux-ethniques.png',
+    image: '/images/products/bijoux-ethniques.webp',
   },
   {
     id: 'songo-awale',
@@ -570,7 +570,7 @@ export const products: Product[] = [
     price: 34.90,
     unit: 'piece',
     category: 'art',
-    image: '/images/products/songo-awale.png',
+    image: '/images/products/songo-awale.webp',
   },
   {
     id: 'vannerie',
@@ -579,6 +579,6 @@ export const products: Product[] = [
     price: 29.90,
     unit: 'piece',
     category: 'art',
-    image: '/images/products/vannerie-camerounaise.png',
+    image: '/images/products/vannerie-camerounaise.webp',
   },
 ];
