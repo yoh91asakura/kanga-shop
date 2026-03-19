@@ -5,13 +5,14 @@ import SectionSaveurs from '../components/SectionSaveurs.astro';
 import SectionStyle from '../components/SectionStyle.astro';
 import SectionArt from '../components/SectionArt.astro';
 import SectionBox from '../components/SectionBox.astro';
+import SectionManifeste from '../components/SectionManifeste.astro';
 import WaitlistForm from '../components/WaitlistForm.astro';
 import Footer from '../components/Footer.astro';
 ---
 
 <Layout
-  title="Kanga-Shop — Le Cameroun chez vous"
-  description="Saveurs authentiques, mode 237, art contemporain. La meilleure selection de produits camerounais, livree en France. Rejoignez la waitlist."
+  title="Kanga-Shop — La maison de lifestyle camerounais"
+  description="Premiere maison de lifestyle camerounais. Saveurs, mode 237, beaute naturelle, art — curates avec amour. Rejoignez la waitlist."
 >
   <!-- Navigation -->
   <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500" style="background: transparent;">
@@ -123,6 +124,7 @@ import Footer from '../components/Footer.astro';
   </script>
 
   <Hero />
+  <SectionManifeste />
   <SectionSaveurs />
   <SectionStyle />
   <SectionArt />
