@@ -1,0 +1,254 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Footer from '../components/Footer.astro';
+---
+
+<Layout
+  title="La Box Decouverte — Kanga-Shop"
+  description="Chaque mois, une selection surprise de produits camerounais livree chez vous. Saveurs, mode, art — un morceau du Cameroun dans votre boite aux lettres."
+>
+  <!-- Navigation -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass-panel" style="background: '';">
+    <div class="max-w-[1200px] mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
+      <a href="/" class="text-lg" style="font-family: var(--font-display); font-weight: 900;">
+        <span style="color: var(--color-primary);">Kanga</span><span style="color: var(--color-text-tertiary);">-</span>Shop
+      </a>
+      <div class="hidden md:flex items-center gap-8">
+        <a href="/#saveurs" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Saveurs</a>
+        <a href="/shop" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Shop</a>
+        <a href="/box" class="text-sm transition-colors" style="color: var(--color-primary); font-family: var(--font-body); font-weight: 600;">La Box</a>
+      </div>
+      <a href="/#waitlist" class="px-5 py-2 rounded-full text-sm transition-all duration-300 hover:-translate-y-0.5" style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;">
+        Waitlist
+      </a>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <section class="pt-32 pb-16">
+    <div class="max-w-[800px] mx-auto px-6 md:px-8 text-center">
+      <p class="text-xs tracking-[3px] uppercase mb-6" style="font-family: var(--font-mono); color: var(--color-primary);">
+        Abonnement mensuel
+      </p>
+      <h1 class="text-4xl md:text-6xl leading-[1.05] tracking-[-0.03em] mb-6" style="font-family: var(--font-display); font-weight: 900;">
+        La Box<br />Decouverte
+      </h1>
+      <p class="text-lg md:text-xl leading-relaxed mb-10" style="color: var(--color-text-secondary);">
+        Chaque mois, une selection surprise de produits camerounais
+        livree chez vous. Saveurs, mode, art — un morceau du Cameroun
+        dans votre boite aux lettres.
+      </p>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pb-20">
+    <div class="max-w-[1000px] mx-auto px-6 md:px-8">
+      <div class="grid md:grid-cols-3 gap-6">
+        <!-- Essentielle -->
+        <div class="glass rounded-[24px] p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]">
+          <p class="text-xs tracking-[2px] uppercase mb-4" style="font-family: var(--font-mono); color: var(--color-text-tertiary);">Essentielle</p>
+          <div class="mb-4">
+            <span class="text-4xl" style="font-family: var(--font-display); font-weight: 900; color: var(--color-primary);">29,90</span>
+            <span class="text-sm" style="color: var(--color-text-tertiary); font-family: var(--font-mono);">EUR / mois</span>
+          </div>
+          <p class="text-sm mb-6" style="color: var(--color-text-secondary);">
+            3-4 produits saveurs selectionnes pour decouvrir les gouts du Cameroun.
+          </p>
+          <ul class="text-sm text-left space-y-3 mb-8" style="color: var(--color-text-secondary);">
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              3-4 produits du terroir
+            </li>
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Fiche recette illustree
+            </li>
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Livraison incluse
+            </li>
+          </ul>
+          <a href="/#waitlist" class="block w-full py-3 rounded-full text-sm text-center transition-all duration-300 hover:-translate-y-0.5" style="border: 1px solid rgba(250,245,238,0.15); color: var(--color-text-secondary); font-family: var(--font-display); font-weight: 600;">
+            Rejoindre la waitlist
+          </a>
+        </div>
+
+        <!-- Premium (recommended) -->
+        <div class="rounded-[24px] p-8 text-center transition-all duration-300 hover:-translate-y-1 relative" style="background: rgba(200,150,58,0.1); border: 2px solid var(--color-primary);">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[10px] tracking-[2px] uppercase" style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;">
+            Populaire
+          </div>
+          <p class="text-xs tracking-[2px] uppercase mb-4" style="font-family: var(--font-mono); color: var(--color-primary);">Premium</p>
+          <div class="mb-4">
+            <span class="text-4xl" style="font-family: var(--font-display); font-weight: 900; color: var(--color-primary);">39,90</span>
+            <span class="text-sm" style="color: var(--color-text-tertiary); font-family: var(--font-mono);">EUR / mois</span>
+          </div>
+          <p class="text-sm mb-6" style="color: var(--color-text-secondary);">
+            5-7 produits des trois univers : saveurs, style et culture camerounaise.
+          </p>
+          <ul class="text-sm text-left space-y-3 mb-8" style="color: var(--color-text-secondary);">
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              5-7 produits multi-univers
+            </li>
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              1 accessoire mode ou art
+            </li>
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Fiches recettes + histoire du terroir
+            </li>
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Livraison incluse
+            </li>
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Emballage cadeau premium
+            </li>
+          </ul>
+          <a href="/#waitlist" class="block w-full py-3 rounded-full text-sm text-center transition-all duration-300 hover:-translate-y-0.5" style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700; box-shadow: 0 4px 24px rgba(200,150,58,0.25);">
+            Rejoindre la waitlist
+          </a>
+        </div>
+
+        <!-- Cadeau -->
+        <div class="glass rounded-[24px] p-8 text-center transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-primary)]">
+          <p class="text-xs tracking-[2px] uppercase mb-4" style="font-family: var(--font-mono); color: var(--color-text-tertiary);">Cadeau</p>
+          <div class="mb-4">
+            <span class="text-4xl" style="font-family: var(--font-display); font-weight: 900; color: var(--color-primary);">49,90</span>
+            <span class="text-sm" style="color: var(--color-text-tertiary); font-family: var(--font-mono);">EUR / ponctuel</span>
+          </div>
+          <p class="text-sm mb-6" style="color: var(--color-text-secondary);">
+            La box Premium en edition cadeau avec carte personnalisee. Offrez le Cameroun.
+          </p>
+          <ul class="text-sm text-left space-y-3 mb-8" style="color: var(--color-text-secondary);">
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Contenu Box Premium
+            </li>
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Carte personnalisee
+            </li>
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Packaging cadeau premium
+            </li>
+            <li class="flex items-center gap-2">
+              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8l3 3 7-7" stroke="var(--color-secondary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              Envoi a l'adresse du destinataire
+            </li>
+          </ul>
+          <a href="/#waitlist" class="block w-full py-3 rounded-full text-sm text-center transition-all duration-300 hover:-translate-y-0.5" style="border: 1px solid rgba(250,245,238,0.15); color: var(--color-text-secondary); font-family: var(--font-display); font-weight: 600;">
+            Rejoindre la waitlist
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section class="section-light py-20">
+    <div class="max-w-[800px] mx-auto px-6 md:px-8 text-center">
+      <p class="text-xs tracking-[3px] uppercase mb-4" style="font-family: var(--font-mono); color: var(--color-accent);">
+        Comment ca marche
+      </p>
+      <h2 class="text-3xl md:text-4xl leading-[1.1] tracking-[-0.02em] mb-12" style="font-family: var(--font-display); font-weight: 900; color: #1C1A14;">
+        3 etapes, zero effort
+      </h2>
+
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center text-lg" style="background: rgba(200,150,58,0.1); color: var(--color-primary); font-family: var(--font-display); font-weight: 900;">1</div>
+          <h3 class="text-base mb-2" style="font-family: var(--font-display); font-weight: 700; color: #1C1A14;">Inscrivez-vous</h3>
+          <p class="text-sm" style="color: rgba(28,26,20,0.6);">Choisissez votre formule et dites-nous ce qui vous interesse le plus.</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center text-lg" style="background: rgba(200,150,58,0.1); color: var(--color-primary); font-family: var(--font-display); font-weight: 900;">2</div>
+          <h3 class="text-base mb-2" style="font-family: var(--font-display); font-weight: 700; color: #1C1A14;">On selectionne</h3>
+          <p class="text-sm" style="color: rgba(28,26,20,0.6);">Notre famille curate les meilleurs produits du mois, avec une histoire pour chacun.</p>
+        </div>
+        <div>
+          <div class="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center text-lg" style="background: rgba(200,150,58,0.1); color: var(--color-primary); font-family: var(--font-display); font-weight: 900;">3</div>
+          <h3 class="text-base mb-2" style="font-family: var(--font-display); font-weight: 700; color: #1C1A14;">Vous decouvrez</h3>
+          <p class="text-sm" style="color: rgba(28,26,20,0.6);">Recevez votre box chez vous et voyagez au Cameroun sans quitter la France.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Example content -->
+  <section class="py-20">
+    <div class="max-w-[800px] mx-auto px-6 md:px-8 text-center">
+      <p class="text-xs tracking-[3px] uppercase mb-4" style="font-family: var(--font-mono); color: var(--color-primary);">
+        Exemple
+      </p>
+      <h2 class="text-2xl md:text-3xl leading-[1.1] tracking-[-0.02em] mb-8" style="font-family: var(--font-display); font-weight: 900;">
+        Apercu de la Box de Mars
+      </h2>
+
+      <div class="glass rounded-[24px] p-8 md:p-10 text-left">
+        <div class="space-y-4">
+          <div class="flex items-center gap-4 pb-4 border-b border-white/[0.06]">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(200,150,58,0.15);">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2C9 2 5 7 5 11a4 4 0 108 0C13 7 9 2 9 2z" stroke="var(--color-primary)" stroke-width="1.5" fill="none"/></svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm" style="font-family: var(--font-display); font-weight: 600;">Poivre Blanc de Penja IGP</p>
+              <p class="text-xs" style="color: var(--color-text-tertiary);">50g — Terroir du Littoral</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 pb-4 border-b border-white/[0.06]">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(200,150,58,0.15);">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2C9 2 5 7 5 11a4 4 0 108 0C13 7 9 2 9 2z" stroke="var(--color-primary)" stroke-width="1.5" fill="none"/></svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm" style="font-family: var(--font-display); font-weight: 600;">Cafe Arabica des Hauts Plateaux</p>
+              <p class="text-xs" style="color: var(--color-text-tertiary);">100g — Region de l'Ouest</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 pb-4 border-b border-white/[0.06]">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(212,87,42,0.15);">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M5 3L2 6l1 5h12l1-5-3-3" stroke="var(--color-accent)" stroke-width="1.5" fill="none" stroke-linejoin="round"/><path d="M5 3h8v3H5z" stroke="var(--color-accent)" stroke-width="1.5" fill="none"/></svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm" style="font-family: var(--font-display); font-weight: 600;">Beurre de Karite Pur</p>
+              <p class="text-xs" style="color: var(--color-text-tertiary);">50g — Grand Nord Cameroun</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4 pb-4 border-b border-white/[0.06]">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(90,122,72,0.15);">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M9 2v6l3 2" stroke="var(--color-secondary)" stroke-width="1.5" stroke-linecap="round"/><circle cx="9" cy="9" r="7" stroke="var(--color-secondary)" stroke-width="1.5" fill="none"/></svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm" style="font-family: var(--font-display); font-weight: 600;">Bracelet en perles Bamileke</p>
+              <p class="text-xs" style="color: var(--color-text-tertiary);">Artisanat — Ouest Cameroun</p>
+            </div>
+          </div>
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded-lg flex items-center justify-center" style="background: rgba(122,156,184,0.15);">
+              <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><rect x="3" y="3" width="12" height="12" rx="2" stroke="var(--color-sky)" stroke-width="1.5" fill="none"/><path d="M3 7h12" stroke="var(--color-sky)" stroke-width="1.5"/></svg>
+            </div>
+            <div class="flex-1">
+              <p class="text-sm" style="font-family: var(--font-display); font-weight: 600;">Fiche recette : Ndole traditionnel</p>
+              <p class="text-xs" style="color: var(--color-text-tertiary);">+ histoire du plat national camerounais</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <a
+        href="/#waitlist"
+        class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[15px] transition-all duration-300 hover:-translate-y-0.5 mt-10"
+        style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700; box-shadow: 0 4px 24px rgba(200,150,58,0.25);"
+      >
+        Etre informe du lancement
+      </a>
+    </div>
+  </section>
+
+  <Footer />
+</Layout>

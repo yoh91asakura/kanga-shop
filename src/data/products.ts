@@ -7,6 +7,10 @@ export interface Product {
   category: 'terroirs' | 'gardemanger' | 'douceurs' | 'beaute' | 'style' | 'art';
   image: string;
   badge?: string;
+  origin?: string;
+  story?: string;
+  process?: string;
+  usage?: string;
 }
 
 export const categories = {
@@ -31,6 +35,10 @@ export const products: Product[] = [
     category: 'terroirs',
     image: '/images/products/poivre-penja.webp',
     badge: 'Produit star',
+    origin: 'Region du Littoral, Penja — sols volcaniques du Mont Cameroun',
+    story: 'Premier produit africain a obtenir une Indication Geographique Protegee (IGP) en 2013. Introduit en 1930 par Antoine Decre, planteur de bananes visionnaire. Seulement 15 tonnes exportees par an — l\'un des poivres les plus rares au monde.',
+    process: 'Recolte a la main, grappe par grappe, deux fois par an. Nettoyage, sechage et tri selon des methodes traditionnelles inchangees depuis des decennies.',
+    usage: 'Poivre de finition pour plats delicats : poissons, fruits de mer, volailles, cremes et sauces blanches. Une pincee suffit pour reveler des notes florales subtiles.',
   },
   {
     id: 'poivre-penja-noir',
@@ -40,6 +48,10 @@ export const products: Product[] = [
     unit: '100g',
     category: 'terroirs',
     image: '/images/products/poivre-noir-penja.webp',
+    origin: 'Region du Littoral, Penja — sols volcaniques du Mont Cameroun',
+    story: 'Issu du meme terroir IGP que le poivre blanc, le poivre noir de Penja est recolte a pleine maturite. Les sols volcaniques riches en mineraux et le microclimat unique entre humidite et secheresse produisent l\'un des poivres noirs les plus prises au monde.',
+    process: 'Les baies mures sont recoltees a la main directement sur la liane, sechees au soleil pendant plusieurs semaines pour developper leur couleur noire profonde et leur saveur concentree.',
+    usage: 'Ideal pour les viandes rouges, les sauces robustes et les plats en sauce. Fraichement moulu, il libere des huiles aromatiques intenses qui subliment le boeuf, le gibier et les preparations cremees.',
   },
   {
     id: 'cafe-arabica',
@@ -50,6 +62,10 @@ export const products: Product[] = [
     category: 'terroirs',
     image: '/images/products/cafe-grains.webp',
     badge: 'Produit star',
+    origin: 'Hauts plateaux de l\'Ouest (pays Bamoun et Bamileke), entre 1200 et 2200m d\'altitude sur sols volcaniques',
+    story: 'Introduit au Cameroun a la fin du XIXe siecle par les colons allemands, l\'Arabica camerounais s\'est epanoui des 1925 sur les hauts plateaux. Ces montagnes volcaniques produisent des cafes aux notes de cacao, caramel et fleurs blanches qui rivalisent avec les meilleurs crus d\'Amerique centrale.',
+    process: 'Cultive en altitude sur sols volcaniques, les cerises de cafe developpent lentement des aromes complexes. Les grains sont recoltes, fermentes, laves, seches et torrefies artisanalement pour preserver le caractere du terroir.',
+    usage: 'A deguster en filtre ou espresso pour apprecier ses notes florales delicates. Parfait le matin ou en fin de repas grace a son profil equilibre et ses subtiles nuances fruitees.',
   },
   {
     id: 'cacao-poudre',
@@ -59,6 +75,10 @@ export const products: Product[] = [
     unit: '200g',
     category: 'terroirs',
     image: '/images/products/cacao-feves.webp',
+    origin: 'Region du Sud, Centre et Sud-Ouest — le Cameroun est le 2e producteur africain de cacao',
+    story: 'L\'heritage cacaoyer du Cameroun traverse les generations. Les cooperatives du Sud gerent des centaines d\'hectares de plantations. Le mouvement bean-to-bar artisanal emerge au Cameroun, mariant savoir-faire traditionnel et techniques modernes.',
+    process: 'Les cabosses sont recoltees a la main, les feves fermentees pour developper les aromes, sechees au soleil puis torrefiees. Les producteurs artisanaux broient les feves en poudre fine selon des techniques patrimoniales.',
+    usage: 'A dissoudre dans du lait chaud pour un chocolat traditionnel camerounais, ou a utiliser en patisserie. La haute teneur en cacao et les notes complexes de fermentation en font un ingredient noble.',
   },
   {
     id: 'huile-ndjansang',
@@ -69,6 +89,10 @@ export const products: Product[] = [
     category: 'terroirs',
     image: '/images/products/epices-huiles.webp',
     badge: 'Exclusif',
+    origin: 'Forets tropicales humides du Cameroun, ou l\'arbre Ricinodendron heudelotii pousse naturellement',
+    story: 'Le ndjansang est un tresor des forets camerounaises. La collecte et la vente des graines representent une source de revenus cruciale pour les femmes rurales. Cette graine est au coeur de la tradition culinaire camerounaise, avec une profonde signification culturelle dans les contextes festifs et medicinaux.',
+    process: 'Les fruits sauvages sont collectes au sol en foret, les graines sechees, puis grillees et broyees en pate ou huile. Le noyau est riche en proteines (22%), lipides (46%) et glucides (25%).',
+    usage: 'Utiliser comme epaississant et base de saveur dans le mbongo tchobi et les sauces noires. L\'huile peut aussi etre extraite pour la cuisine, apportant nutriments essentiels et saveur typiquement camerounaise.',
   },
   {
     id: 'coffret-mbongo',
@@ -79,6 +103,10 @@ export const products: Product[] = [
     category: 'terroirs',
     image: '/images/products/coffret-mbongo.webp',
     badge: 'Coffret signature',
+    origin: 'Cameroun cotier, Region du Littoral — berceau de la sauce ebene chez le peuple Bassa',
+    story: 'Le Mbongo Tchobi, ou \'sauce ebene\', est ne chez les Bassa du Cameroun cotier. Cette sauce traditionnelle accompagne les celebrations, ceremonies et repas familiaux. Sa couleur sombre et sa saveur complexe representent la profondeur de la cuisine cotiere camerounaise.',
+    process: 'Le melange combine graines de njansang, poivre mbongo, pebe, quatre-cotes et autres aromates. Les epices sont grillees a la poele pendant des heures avant d\'etre ecrasees, creant la couleur noire distinctive.',
+    usage: 'Melanger les epices avec tomate et aromates pour creer une sauce de base, puis ajouter poisson ou viande et laisser mijoter. La texture veloutee et la saveur profonde s\'accordent parfaitement avec des plantains vapeur ou du riz.',
   },
   {
     id: 'pebe',
@@ -88,6 +116,10 @@ export const products: Product[] = [
     unit: '50g',
     category: 'terroirs',
     image: '/images/products/epices-traditionnelles.webp',
+    origin: 'Departement du Nde, Region de l\'Ouest du Cameroun',
+    story: 'Le pebe est la graine du Monodora myristica, aussi appelee fausse noix de muscade pour sa ressemblance gustative. Ingredient fondamental de la cuisine camerounaise, essentiel au melange d\'epices mbongo et present sur tous les grillades traditionnelles.',
+    process: 'Les graines sont recoltees sur l\'arbre Monodora myristica, sechees traditionnellement, puis concassees pour reveler le noyau qui developpe des notes chaudes, boisees et legerement sucrees avec des nuances de muscade, girofle et cannelle.',
+    usage: 'Raper frais sur viandes et poissons grilles pour une chaleur aromatique, ou ajouter aux sauces traditionnelles comme le mbongo tchobi. A utiliser avec parcimonie — une petite quantite apporte une complexite considerable.',
   },
   {
     id: 'essese',
@@ -97,6 +129,10 @@ export const products: Product[] = [
     unit: '50g',
     category: 'terroirs',
     image: '/images/products/essese.webp',
+    origin: 'Forets tropicales du Cameroun — l\'arbre Tetrapleura tetraptera (arbre Aidan)',
+    story: 'L\'essese, appele \'4 cotes\' en francais a cause de la forme quadrangulaire de son fruit, provient de l\'arbre Aidan. La chair tres parfumee est un incontournable de la cuisine camerounaise, reconnue pour sublimer les poissons braises.',
+    process: 'Les gousses a quatre cotes sont recoltees sur l\'arbre, sechees, et la chair aromatique est separee de l\'enveloppe dure. Riche en proteines, potassium, fer, magnesium et phosphore.',
+    usage: 'Utiliser en petites quantites dans les sauces et ragouts comme le mbongo tchobi et la sauce jaune. Un seul fragment de gousse peut parfumer une marmite entiere.',
   },
   {
     id: 'rondelle',
@@ -106,6 +142,10 @@ export const products: Product[] = [
     unit: '50g',
     category: 'terroirs',
     image: '/images/products/rondelle.webp',
+    origin: 'Foret atlantique de la region du Dja, Cameroun — Scorodophloeus zenkeri',
+    story: 'La rondelle est le fruit de l\'arbre a ail tropical, un ingredient traditionnel de la medecine et de la cuisine forestiere camerounaise. Les graines et l\'ecorce ont une odeur alliacee utilisee depuis des generations.',
+    process: 'Les fruits ronds, de la taille d\'une noisette, sont recoltes, seches traditionnellement au soleil, et parfois moulus en poudre. Les graines conservent leur parfum d\'ail apres sechage.',
+    usage: 'Utiliser comme substitut d\'ail dans les soupes et sauces pour une saveur alliacee plus delicate. Ideal pour les plats a base de legumineuses — la rondelle calme l\'estomac et previent les flatulences.',
   },
   {
     id: 'djansang',
@@ -115,6 +155,10 @@ export const products: Product[] = [
     unit: '100g',
     category: 'terroirs',
     image: '/images/products/djansang.webp',
+    origin: 'Zones forestieres humides du Cameroun, notamment la Region du Sud-Ouest',
+    story: 'Tresor forestier camerounais, les graines de Ricinodendron heudelotii soutiennent les moyens de subsistance des femmes rurales depuis des generations. Elles servent aussi dans le jeu de mancala traditionnel (songo), representant un pilier culturel et culinaire.',
+    process: 'Les graines sont recoltees en foret, sechees au soleil, puis grillees et broyees en poudre ou pate. Les noyaux sont separes de la coque et utilises entiers dans les soupes ou moulus finement.',
+    usage: 'Moudre et ajouter aux ragouts et sauces pour une saveur de noisette et une texture veloutee — le djansang est l\'epaississant principal des sauces traditionnelles du Sud-Ouest.',
   },
   {
     id: 'melange-secret',
@@ -125,6 +169,10 @@ export const products: Product[] = [
     category: 'terroirs',
     image: '/images/products/melange-secret.webp',
     badge: 'Best-seller',
+    origin: 'Cameroun — recette familiale transmise de generation en generation',
+    story: 'Notre melange signature combine les meilleures epices forestieres camerounaises en un seul sachet. Inspire des recettes de grand-mere, ce melange tout-en-un est ne de l\'envie de simplifier l\'acces aux saveurs complexes de la cuisine camerounaise.',
+    process: 'Chaque epice est selectionnee, grillee individuellement pour developper ses aromes, puis broyee et melee selon des proportions precises gardees secretes. Le resultat est un melange equilibre et polyvalent.',
+    usage: 'Saupoudrer directement dans vos soupes, sauces, marinades et viandes grillees. Une cuillere a cafe suffit pour transformer un plat ordinaire en festin camerounais. Ideal pour les debutants en cuisine camerounaise.',
   },
   {
     id: 'sel-kanwa',
@@ -134,6 +182,10 @@ export const products: Product[] = [
     unit: '100g',
     category: 'terroirs',
     image: '/images/products/sel-kanwa.webp',
+    origin: 'Gisements de sel fossile du Nord Cameroun, formes il y a des millions d\'annees par l\'assechement de mers anciennes',
+    story: 'Le kanwa est un sel de roche naturel extrait de mines, forme il y a des millions d\'annees. Ce sel gris est un ingredient secret transmis de generation en generation dans la cuisine africaine, utilise pour attendrir les aliments et sublimer les couleurs des legumes.',
+    process: 'Le sel de roche est extrait de gisements naturels et conserve sous sa forme brute, riche en mineraux. Il contient du chlorure de sodium et des composes mineraux naturels aux proprietes uniques pour la cuisine et la beaute.',
+    usage: 'Ajouter une pincee aux plats de haricots et legumineuses pour les attendrir plus vite a la cuisson. Utiliser dans les preparations de legumes pour preserver la chlorophylle et les couleurs vives des feuilles, gombos et choux.',
   },
   {
     id: 'epices-achu',
@@ -143,6 +195,10 @@ export const products: Product[] = [
     unit: '100g',
     category: 'terroirs',
     image: '/images/products/epices-achu.webp',
+    origin: 'Region du Nord-Ouest du Cameroun (Bamenda), adopte par les communautes de l\'Ouest — le \'Food for Kings\'',
+    story: 'L\'Achu et sa sauce jaune sont nes du clan Ngemba au Nord-Ouest du Cameroun. Appele \'Food for Kings\' car traditionnellement servi lors des visites aux chefs traditionnels. Ce plat est present a chaque celebration, ceremonie et rituel.',
+    process: 'Le melange combine essese, pebe, piments forts et aromates locaux. La sauce jaune melange kanwa (pierre calcaire), huile de palme et ce melange special. La sauce est traditionnellement \'battue\' en la versant de marmite en marmite.',
+    usage: 'Melanger les epices avec l\'huile de palme et le bouillon pour creer une sauce jaune vif a servir avec du taro pile (fufu). Se mange traditionnellement avec les doigts — \'un doigt autour du monde\'.',
   },
 
   // ============================================================
@@ -157,6 +213,10 @@ export const products: Product[] = [
     category: 'gardemanger',
     image: '/images/products/cube-maggi.webp',
     badge: 'Incontournable',
+    origin: 'Produit par Nestle pour le marche africain, avec une formulation speciale pour le Cameroun (Maggi Etoile du Cameroun)',
+    story: 'Le cube Maggi est devenu partie integrante de la cuisine africaine depuis l\'epoque coloniale. Au Cameroun, Maggi detient plus de 70% du marche des assaisonnements. Ce petit cube est devenu un ingredient essentiel du ndole et de centaines de plats camerounais.',
+    process: 'Cubes aromatiques comprimes contenant du bouillon, des epices et des aromes. Le produit est concu pour resister aux temperatures africaines atteignant 45°C avec une longue conservation sans refrigeration.',
+    usage: 'Emietter un cube dans les soupes, ragouts et sauces pour un assaisonnement savoureux instantane. Chaque cube est pre-dose pour des quantites standard de cuisine.',
   },
   {
     id: 'foufou',
@@ -166,6 +226,10 @@ export const products: Product[] = [
     unit: '500g',
     category: 'gardemanger',
     image: '/images/products/foufou.webp',
+    origin: 'Repandu dans toute l\'Afrique de l\'Ouest et centrale, aliment de base au Cameroun',
+    story: 'Le foufou est un accompagnement traditionnel africain aux racines profondes dans la culture culinaire d\'Afrique de l\'Ouest et centrale. Cette pate de manioc accompagne presque tous les repas au Cameroun, associee aux sauces riches et aux ragouts.',
+    process: 'Les tubercules de manioc frais sont peles, laves et seches completement au soleil. Le manioc seche est broye en farine fine, tamise pour retirer les grumeaux, puis conditionne.',
+    usage: 'Ajouter lentement de l\'eau chaude a la farine en petrissant vigoureusement pour creer une pate lisse et elastique. Former en boules et servir avec des sauces epicees a la viande, au poisson ou aux legumes.',
   },
   {
     id: 'gari',
@@ -175,6 +239,10 @@ export const products: Product[] = [
     unit: '1kg',
     category: 'gardemanger',
     image: '/images/products/gari.webp',
+    origin: 'Originaire du Benin, desormais central dans la cuisine camerounaise ou il est aussi appele \'tapioca\'',
+    story: 'Le gari est une semoule de manioc traditionnelle aux racines profondes dans la culture alimentaire ouest-africaine. Produit a travers un processus de fermentation de plusieurs jours, il represente des siecles d\'innovation alimentaire africaine.',
+    process: 'Les racines de manioc sont pelees, broyees, puis melangees a l\'eau et laissees a fermenter en sacs pendant trois jours. La pulpe fermentee est pressee, deshydratee, sechee au feu, puis tamisee en granules fins.',
+    usage: 'Melanger avec de l\'eau froide ou chaude et des assaisonnements pour creer une pate lisse a servir avec des sauces. Peut aussi etre melange a de l\'eau froide, du sucre, des cacahuetes grillees et du lait pour un dessert populaire.',
   },
   {
     id: 'farine-mais',
@@ -184,6 +252,10 @@ export const products: Product[] = [
     unit: '500g',
     category: 'gardemanger',
     image: '/images/products/farine-mais.webp',
+    origin: 'Produit dans tout le Cameroun, particulierement repute chez le peuple Bamoun de l\'Ouest',
+    story: 'Le couscous camerounais differe du couscous mediterraneen — c\'est une pate culinaire a base de farine de mais. Ce couscous represente l\'adaptation camerounaise des techniques de cuisson aux ingredients locaux disponibles.',
+    process: 'Les grains de mais sont decortiques soigneusement, broyes en farine. Cette farine est melangee avec de la farine de manioc dans les bonnes proportions pour obtenir la consistance ideale.',
+    usage: 'Melanger la farine avec de l\'eau chaude ou du bouillon pour creer une pate de couscous epaisse et lisse. Servir comme alternative aux feculents avec des sauces et des accompagnements.',
   },
   {
     id: 'arachides-grillees',
@@ -193,6 +265,10 @@ export const products: Product[] = [
     unit: '300g',
     category: 'gardemanger',
     image: '/images/products/arachides-feu.webp',
+    origin: 'Cultivees dans les zones sahelo-soudanaises du Nord et de l\'Adamaoua, Cameroun',
+    story: 'Les arachides grillees sont le snack camerounais par excellence, vendues dans tous les marches et au bord de toutes les routes. Grillees au feu de bois selon la tradition, elles sont au coeur de la convivialite camerounaise.',
+    process: 'Les arachides sont triees, lavees puis grillees lentement sur le feu de bois traditionnel jusqu\'a obtenir un croquant parfait et une saveur fumee unique.',
+    usage: 'A deguster seules en snack, ou a utiliser comme base pour la sauce d\'arachide. Accompagnent parfaitement une biere camerounaise en fin de journee.',
   },
   {
     id: 'arachides-crues',
@@ -202,6 +278,10 @@ export const products: Product[] = [
     unit: '500g',
     category: 'gardemanger',
     image: '/images/products/arachides.webp',
+    origin: 'Zones agricoles du Nord Cameroun et de l\'Adamaoua',
+    story: 'L\'arachide crue est la base de la celebre sauce d\'arachide camerounaise, un plat reconfort incontournable. La qualite premium des arachides camerounaises en fait un ingredient recherche.',
+    process: 'Recoltees a maturite, les arachides sont triees manuellement, sechees au soleil puis conditionnees avec soin pour preserver leur fraicheur et leurs qualites nutritionnelles.',
+    usage: 'Moudre pour preparer la sauce d\'arachide maison, ou griller soi-meme pour un snack frais. Base essentielle du koki et de nombreuses recettes traditionnelles.',
   },
   {
     id: 'pate-arachide',
@@ -211,6 +291,10 @@ export const products: Product[] = [
     unit: '500g',
     category: 'gardemanger',
     image: '/images/products/pate-arachide.webp',
+    origin: 'Cameroun — production artisanale a partir d\'arachides locales',
+    story: 'La pate d\'arachide est l\'ingredient secret de la cuisine camerounaise. Onctueuse et parfumee, elle est la base de la celebre sauce d\'arachide qui accompagne le ndole, le riz et les feculents.',
+    process: 'Les arachides sont grillees, emondees puis broyees finement jusqu\'a obtenir une pate lisse et homogene, sans additifs ni conservateurs.',
+    usage: 'Diluer dans du bouillon chaud pour creer la sauce d\'arachide traditionnelle. Peut aussi etre tartinade sur du pain ou utilisee en patisserie pour des gateaux aux cacahuetes.',
   },
   {
     id: 'haricots-rouges',
@@ -220,6 +304,10 @@ export const products: Product[] = [
     unit: '500g',
     category: 'gardemanger',
     image: '/images/products/graines-haricots.webp',
+    origin: 'Cultives dans les hauts plateaux de l\'Ouest et du Nord-Ouest Cameroun',
+    story: 'Les haricots rouges camerounais sont un pilier de l\'alimentation quotidienne. Ils entrent dans la composition du koki, un plat traditionnel festif a base de haricots piles enveloppes dans des feuilles de bananier et cuits a la vapeur.',
+    process: 'Cultives en altitude, les haricots sont recoltes a maturite, seches au soleil puis tries manuellement pour ne garder que les plus beaux grains.',
+    usage: 'Faire tremper une nuit puis cuire en ragout, ou piler pour preparer le koki traditionnel. Excellents aussi en salade ou en accompagnement de riz.',
   },
   {
     id: 'nyebe',
@@ -229,6 +317,10 @@ export const products: Product[] = [
     unit: '500g',
     category: 'gardemanger',
     image: '/images/products/nyebe.webp',
+    origin: 'Cultive dans les zones semi-arides du Nord Cameroun et de l\'Adamaoua',
+    story: 'Le niebe (haricot a oeil noir) est la base du koki, l\'un des plats festifs les plus aimes du Cameroun. Sa culture ancestrale est adaptee aux sols secs et represente une source de proteines vegetales essentielle.',
+    process: 'Les gousses sont recoltees a maturite, sechees naturellement, puis les graines sont separees et triees a la main pour une qualite optimale.',
+    usage: 'Faire tremper, piler et melanger avec de l\'huile de palme pour preparer le koki, cuit a la vapeur dans des feuilles de bananier. Aussi excellent en ragout ou en accompagnement.',
   },
   {
     id: 'gingembre',
@@ -238,6 +330,10 @@ export const products: Product[] = [
     unit: '250g',
     category: 'gardemanger',
     image: '/images/products/gingembre-epices.webp',
+    origin: 'Cultive dans les hauts plateaux de l\'Ouest et du Nord-Ouest Cameroun',
+    story: 'Le gingembre camerounais est repute pour etre plus parfume et plus piquant que les varietes asiatiques. Il est utilise frais dans la cuisine quotidienne et seche dans les infusions medicinales traditionnelles.',
+    process: 'Les rhizomes sont recoltes a maturite, laves soigneusement et seches naturellement. Le gingembre camerounais developpe une concentration d\'huiles essentielles superieure grace a l\'altitude et au climat.',
+    usage: 'Raper frais dans les sauces, marinades et jus pour un piquant intense. En infusion avec du citron et du miel, c\'est le remede traditionnel camerounais contre le rhume.',
   },
   {
     id: 'eru-okok',
@@ -247,6 +343,10 @@ export const products: Product[] = [
     unit: '50g',
     category: 'gardemanger',
     image: '/images/products/eru-okok.webp',
+    origin: 'Forets tropicales du Cameroun — appele \'eru\' en zone anglophone, \'okok\' en zone francophone',
+    story: 'Le Gnetum africanum est utilise depuis des generations comme aliment et en medecine traditionnelle au Cameroun. Les feuilles constituent un revenu complementaire important pour les communautes forestieres rurales.',
+    process: 'Les feuilles tendres de la liane sont recoltees avec soin, sechees ou parfois utilisees fraiches. Elles sont blanchies et finement coupees avant d\'etre ajoutees aux soupes et ragouts.',
+    usage: 'Couper finement et ajouter aux soupes et ragouts, en particulier la soupe d\'eru. Preparer avec des crevettes sechees, de la peau de boeuf et de l\'huile de palme pour un plat savoureux et nutritif.',
   },
   {
     id: 'ndole-feuilles',
@@ -256,6 +356,10 @@ export const products: Product[] = [
     unit: '100g',
     category: 'gardemanger',
     image: '/images/products/ndole-feuilles.webp',
+    origin: 'Region du Littoral, Douala — berceau du plat national camerounais, ne chez le peuple Sawa',
+    story: 'Le ndole est le plat national officiel du Cameroun, ne chez les Sawa de Douala. Les feuilles ameres symbolisent la generosite et la tradition. Ce plat est present a chaque celebration, mariage et repas familial important.',
+    process: 'Les feuilles de Vernonia amygdalina (feuilles ameres) sont recoltees, lavees soigneusement pour eliminer l\'amertume, puis mijotees avec de la pate d\'arachide, de l\'ail, des oignons et des piments.',
+    usage: 'Cuire les feuilles avec des cacahuetes moulues, de l\'ail et la proteine de votre choix (crevettes, poisson, viande). Servir avec des plantains frits, du bobolo ou du riz. Plat de celebration fait pour les grandes portions et le partage.',
   },
   {
     id: 'chips-plantain',
@@ -265,6 +369,10 @@ export const products: Product[] = [
     unit: 'sachet',
     category: 'gardemanger',
     image: '/images/products/chips-plantain.webp',
+    origin: 'Produit au Cameroun par des marques artisanales comme KELON Chips et MBOA Snackery\'s',
+    story: 'Les chips de plantain representent l\'entrepreneuriat africain moderne. Les producteurs artisanaux ont initie la production de chips de haute qualite il y a une vingtaine d\'annees, creant des produits aux standards d\'exportation.',
+    process: 'Les plantains non murs sont soigneusement selectionnes, tranches et frits dans de l\'huile propre jusqu\'a devenir dores et croustillants. Naturellement sans gluten et sans sucre ajoute.',
+    usage: 'Deguster en snack independant ou en accompagnement de repas. La texture croustillante et la saveur naturellement sucree du plantain en font un en-cas parfait pour toutes les occasions.',
   },
   {
     id: 'nkui',
@@ -275,6 +383,10 @@ export const products: Product[] = [
     category: 'gardemanger',
     image: '/images/products/nkui.webp',
     badge: 'Rare',
+    origin: 'Region de l\'Ouest du Cameroun — tradition du peuple Bamileke',
+    story: 'Le nkui est une tradition Bamileke celebre, historiquement prepare a l\'occasion de la naissance d\'un enfant et servi a la mere pendant 30 jours maximum. Cette sauce epaisse et collante est reputee rendre le sein de la mere abondant et faciliter la montee de lait.',
+    process: 'Le nkui est fabrique a partir de l\'ecorce de Triumfetta pentandra, cuite en sauce epaisse et collante, assaisonnee de condiments traditionnels dont le ngachu\'u, le lepka\'ah et le diepse\'eh.',
+    usage: 'Melanger la base d\'ecorce avec du bouillon et des aromates pour creer une sauce epaisse et collante. Traditionnellement servie avec le couscous de mais. Se mange avec les doigts en raison de sa consistance unique.',
   },
 
   // ============================================================
@@ -288,6 +400,10 @@ export const products: Product[] = [
     unit: 'piece',
     category: 'douceurs',
     image: '/images/products/chocolat-mambo.webp',
+    origin: 'Fabrique au Cameroun par Chococam a partir de feves de cacao camerounais',
+    story: 'Le Mambo est LA barre chocolatee mythique du Cameroun. Chaque Camerounais garde un souvenir d\'enfance lie au Mambo — a la sortie de l\'ecole, sur le chemin du marche, ou en cadeau. C\'est bien plus qu\'un chocolat, c\'est un morceau de nostalgie.',
+    process: 'Produit par Chococam a Douala, le Mambo utilise des feves de cacao 100% camerounaises. La recette originale est inchangee depuis des decennies.',
+    usage: 'A croquer tel quel pour un retour en enfance immediat. Peut aussi etre fondu pour napper des fruits ou des beignets.',
   },
   {
     id: 'mambo-pack',
@@ -298,6 +414,10 @@ export const products: Product[] = [
     category: 'douceurs',
     image: '/images/products/mambo-pack.webp',
     badge: 'Bon plan',
+    origin: 'Fabrique au Cameroun par Chococam',
+    story: 'Trois barres Mambo pour trois fois plus de nostalgie. Le pack est le format ideal pour faire decouvrir le gout du Cameroun a vos proches — ou pour faire durer le plaisir.',
+    process: 'Memes feves de cacao camerounaises, meme recette originale, format familial.',
+    usage: 'A partager en famille ou entre amis. Un cadeau parfait pour faire decouvrir la gourmandise camerounaise.',
   },
   {
     id: 'caramels',
@@ -307,6 +427,10 @@ export const products: Product[] = [
     unit: 'sachet',
     category: 'douceurs',
     image: '/images/products/caramels.webp',
+    origin: 'Production artisanale camerounaise',
+    story: 'Les caramels artisanaux camerounais sont fabriques selon des recettes transmises de mere en fille. Chaque bonbon est un petit bijou de patience et de savoir-faire, cuit lentement au feu doux.',
+    process: 'Sucre, beurre et lait sont cuits lentement a feu doux, remues constamment jusqu\'a obtenir la texture fondante parfaite. Chaque lot est fait a la main en petites quantites.',
+    usage: 'A savourer lentement en laissant fondre en bouche. Accompagne parfaitement un cafe camerounais en fin de repas.',
   },
   {
     id: 'bonbons',
@@ -316,6 +440,10 @@ export const products: Product[] = [
     unit: 'sachet',
     category: 'douceurs',
     image: '/images/products/bonbons.webp',
+    origin: 'Cameroun — confiseries traditionnelles variees',
+    story: 'Les bonbons camerounais sont un univers de saveurs et de couleurs que l\'on retrouve dans chaque marche, chaque echoppe de quartier. Cet assortiment capture l\'esprit joyeux de la confiserie camerounaise.',
+    process: 'Chaque variete est preparee selon des recettes artisanales specifiques, utilisant des ingredients locaux : sucre de canne, fruits tropicaux, noix de coco et cacahuetes.',
+    usage: 'A distribuer et partager genereuement — les bonbons camerounais sont faits pour la convivialite. Parfaits pour decouvrir un arc-en-ciel de saveurs tropicales.',
   },
   {
     id: 'kilichi',
@@ -326,6 +454,10 @@ export const products: Product[] = [
     category: 'douceurs',
     image: '/images/products/kilichi.webp',
     badge: 'Premium',
+    origin: 'Nord Cameroun (region de Ngaoundere) — specialite culinaire Haoussa repandue dans tout le Sahel',
+    story: 'Le kilichi, dont le nom vient du haoussa signifiant \'fine tranche de viande sechee et epicee\', represente des siecles de traditions marchandes Haoussa. Ces commercants ont diffuse le kilichi a travers l\'Afrique centrale jusqu\'au Cameroun, Tchad, Cote d\'Ivoire et au-dela.',
+    process: 'De fines tranches de boeuf sont sechees au soleil jusqu\'a deshydratation complete, puis enduites d\'une pate de cacahuetes broyees melangee aux epices, oignons et legumes, et grillees au feu de bois.',
+    usage: 'Deguster comme snack riche en proteines ou en entree. Peut etre brise en morceaux et ajoute aux soupes pour un gout fume. Correctement seche, le kilichi se conserve six mois sans refrigeration.',
   },
   {
     id: 'bissap',
@@ -336,6 +468,10 @@ export const products: Product[] = [
     category: 'douceurs',
     image: '/images/products/bissap.webp',
     badge: 'Produit star',
+    origin: 'Region du Mayo-Dani, extreme Nord Cameroun — cultive dans les zones saheliennes',
+    story: 'Le folere est le nom camerounais du bissap, la boisson rafraichissante d\'hibiscus connue mondialement. Cette boisson traditionnelle est consommee depuis des generations, prisee pour ses proprietes detoxifiantes et sa couleur vibrante.',
+    process: 'Les fleurs d\'Hibiscus sabdariffa sont recoltees a maturite, sechees au soleil pour preserver leur couleur rouge foncee. L\'infusion est consideree comme la methode la plus respectueuse pour preserver la vitamine C.',
+    usage: 'Infuser les fleurs dans de l\'eau chaude 5-10 minutes, filtrer et servir chaud ou froid avec sucre, miel ou citron. La saveur acidulee et florale est naturellement sans cafeine. Peut etre agrementee de gingembre ou de menthe.',
   },
   {
     id: 'citronnelle',
@@ -345,6 +481,10 @@ export const products: Product[] = [
     unit: '30g',
     category: 'douceurs',
     image: '/images/products/citronnelle.webp',
+    origin: 'Cultivee dans les zones tropicales du Cameroun',
+    story: 'La citronnelle est une plante aromatique prisee au Cameroun tant pour ses qualites gustatives que medicinales. Son parfum citrone est associe aux soirees en famille et aux remedes de grand-mere.',
+    process: 'Les tiges fraiches sont recoltees, lavees et sechees naturellement pour concentrer les huiles essentielles et les aromes citronnes.',
+    usage: 'Infuser dans de l\'eau chaude pour une tisane apaisante et parfumee. Excellent pour la digestion et la relaxation. Peut aussi parfumer les plats de poisson et les soupes.',
   },
   {
     id: 'poudre-baobab',
@@ -354,6 +494,10 @@ export const products: Product[] = [
     unit: '250g',
     category: 'douceurs',
     image: '/images/products/poudre-baobab.webp',
+    origin: 'Region de la Benoue, Nord Cameroun — ou les baobabs poussent naturellement dans l\'ecosysteme sahelien',
+    story: 'La poudre de baobab represente la sagesse nutritionnelle du regime alimentaire traditionnel africain. La pulpe du fruit seche naturellement sur la branche pendant la maturation, ne necessitant aucun traitement autre que le broyage.',
+    process: 'Les fruits de baobab murs sont recoltes une fois naturellement seches par le soleil. La chair est broyee en poudre fine sans additifs ni auxiliaires de transformation, preservant le profil nutritionnel complet.',
+    usage: 'Melanger une cuillere dans les smoothies, jus, yaourts ou compotes. La saveur legerement acidulee et agrumee se marie bien avec les fruits. Riche en vitamine C, calcium, potassium et antioxydants.',
   },
   {
     id: 'tartina',
@@ -363,6 +507,10 @@ export const products: Product[] = [
     unit: '425g',
     category: 'douceurs',
     image: '/images/products/tartina.webp',
+    origin: 'Fabriquee au Cameroun par Chococam a Douala',
+    story: 'Tartina est la pate a tartiner au cacao camerounais par excellence. Fabriquee par Chococam avec des feves selectionnees 100% camerounaises, elle incarne la nostalgie des petits dejeuners camerounais — les tartines de Tartina sont un rituel matinal pour des millions de familles.',
+    process: 'Les feves de cacao camerounaises sont selectionnees, torrefiees et broyees finement. Melangees a du sucre, du lait et des matieres grasses vegetales pour obtenir une pate onctueuse et tartinable.',
+    usage: 'Tartiner genereusement sur du pain frais, des crepes ou des beignets. Peut aussi etre fondue pour napper des fruits ou utilisee en patisserie. Le gout du Cameroun a chaque bouchee.',
   },
 
   // ============================================================
@@ -376,6 +524,10 @@ export const products: Product[] = [
     unit: '25cl',
     category: 'beaute',
     image: '/images/products/huile-karite.webp',
+    origin: 'Nord Cameroun — region de l\'Adamaoua et de l\'Extreme-Nord, berceau des arbres de karite',
+    story: 'L\'huile de karite est un tresor du Nord Cameroun, extraite des noix du Vitellaria paradoxa. Utilisee depuis des millenaires par les femmes du Grand Nord pour la cuisine et les soins corporels, elle represente un heritage de beaute naturelle africaine.',
+    process: 'Les noix de karite sont recoltees, sechees, concassees puis pressees a froid pour extraire l\'huile doree. Ce processus artisanal preserve toutes les proprietes nutritives et cosmetiques.',
+    usage: 'En cuisine : pour les fritures et les sauces traditionnelles. En beaute : appliquer sur la peau et les cheveux pour nourrir, hydrater et proteger. Ideale en soin capillaire avant-shampoing.',
   },
   {
     id: 'beurre-karite',
@@ -386,6 +538,10 @@ export const products: Product[] = [
     category: 'beaute',
     image: '/images/products/beurre-karite-v2.webp',
     badge: 'Produit star',
+    origin: 'Grand Nord Cameroun — savane soudano-sahelienne',
+    story: 'Le beurre de karite pur est un pilier de la beaute africaine depuis des millenaires. Les femmes du Nord Cameroun transmettent de generation en generation les techniques de production de ce \'or des femmes\' aux proprietes exceptionnelles.',
+    process: 'Les noix sont sechees, concassees, grillees puis barattees longuement a la main pour obtenir un beurre cremeux et non raffine. Ce processus entierement artisanal preserve les vitamines A, D, E et F.',
+    usage: 'Appliquer directement sur la peau pour une hydratation intense, ou sur les cheveux en masque nourrissant. En cuisine, utiliser pour les fritures et les sauces du Nord Cameroun.',
   },
   {
     id: 'huile-palme',
@@ -395,6 +551,10 @@ export const products: Product[] = [
     unit: '50cl',
     category: 'beaute',
     image: '/images/products/huile-palme-v2.webp',
+    origin: 'Region du Littoral et du Sud-Ouest Cameroun — zones de plantation de palmiers a huile',
+    story: 'L\'huile de palme rouge artisanale est un ingredient sacre de la cuisine camerounaise. Contrairement a l\'huile industrielle, l\'huile artisanale conserve sa couleur rouge vif et ses proprietes nutritives, dont sa richesse en beta-carotene et vitamine E.',
+    process: 'Les noix de palme sont recoltees en grappes, cuites a la vapeur, pilees au mortier puis pressees. L\'huile rouge qui en resulte est filtree et conditionnee sans raffinage.',
+    usage: 'Indispensable pour le ndole, le eru, le koki et la sauce jaune achu. Aussi utilisee en soin capillaire pour nourrir et faire briller les cheveux.',
   },
   {
     id: 'savon-noir',
@@ -405,6 +565,10 @@ export const products: Product[] = [
     category: 'beaute',
     image: '/images/products/savon-noir.webp',
     badge: 'Tendance',
+    origin: 'Afrique de l\'Ouest (Ghana, Benin, Nigeria), avec production artisanale et usage repandu au Cameroun',
+    story: 'Le savon noir africain est utilise depuis des siecles dans les rituels de beaute africains. Fabrique a partir de cendres de pelures de plantain et de cabosses de cacao, il represente une alternative naturelle aux savons industriels.',
+    process: 'Fabrique artisanalement a partir de cendres de pelures de plantain, de cabosses de cacao et d\'huiles vegetales (palme, coco, karite). Les ingredients sont combines selon des procedes regionaux specifiques.',
+    usage: 'Utiliser comme nettoyant visage, corps et cheveux. Faire mousser delicatement et appliquer sur peau humide. Convient aux peaux acneiques et sensibles, avec des proprietes purifiantes et hydratantes.',
   },
   {
     id: 'poudre-chebe',
@@ -415,6 +579,10 @@ export const products: Product[] = [
     category: 'beaute',
     image: '/images/products/poudre-chebe.webp',
     badge: 'Viral',
+    origin: 'Nord du Tchad (communaute Bassara), aussi presente au Soudan et au Nord Cameroun',
+    story: 'La poudre de chebe est le secret des femmes Bassara du Tchad, connues pour leurs cheveux exceptionnellement longs et epais. Utilisee depuis des generations comme soin capillaire, le chebe est devenu viral sur TikTok et Instagram comme traitement anti-casse.',
+    process: 'Les graines du Croton de Zambese sont grillees pour concentrer leurs proprietes, puis finement broyees en poudre. La poudre est combinee a de l\'eau pour creer un traitement capillaire.',
+    usage: 'Melanger 2 cuilleres de poudre avec 3 cuilleres d\'eau pour creer une pate. Appliquer sur cheveux humides en evitant le cuir chevelu, laisser poser 1-2 heures puis rincer. Utiliser chaque semaine pour renforcer et faire pousser les cheveux.',
   },
   {
     id: 'huile-baobab',
@@ -424,6 +592,10 @@ export const products: Product[] = [
     unit: '50ml',
     category: 'beaute',
     image: '/images/products/huile-baobab.webp',
+    origin: 'Nord Cameroun — extraite des graines du fruit de baobab',
+    story: 'L\'huile de baobab est une huile precieuse extraite des graines du fruit de l\'arbre de vie africain. Riche en acides gras essentiels et en vitamines, elle est utilisee traditionnellement pour proteger la peau du climat sahelien.',
+    process: 'Les graines de baobab sont extraites du fruit, sechees puis pressees a froid pour obtenir une huile doree, legere et penetrante.',
+    usage: 'Appliquer quelques gouttes sur le visage et le corps pour une hydratation legere et un effet anti-age naturel. Excellente en serum capillaire pour les pointes seches.',
   },
   {
     id: 'huile-moringa',
@@ -433,6 +605,10 @@ export const products: Product[] = [
     unit: '50ml',
     category: 'beaute',
     image: '/images/products/huile-moringa.webp',
+    origin: 'Nord Cameroun — l\'arbre Moringa oleifera pousse abondamment dans les zones saheliennes',
+    story: 'Le moringa est surnomme \'l\'arbre miracle\' pour ses innombrables proprietes. L\'huile extraite de ses graines est utilisee depuis des siecles en Afrique pour ses vertus nourrissantes et regenerantes.',
+    process: 'Les graines de moringa sont recoltees a maturite, sechees et pressees a froid pour extraire une huile claire, legere et non grasse aux proprietes exceptionnelles.',
+    usage: 'Appliquer sur le visage comme serum anti-age ou sur les cheveux pour les nourrir. L\'huile de moringa est particulierement adaptee aux peaux matures et aux cheveux fragilises.',
   },
   {
     id: 'coffret-beaute',
@@ -443,6 +619,10 @@ export const products: Product[] = [
     category: 'beaute',
     image: '/images/products/coffret-beaute.webp',
     badge: 'Coffret cadeau',
+    origin: 'Selection Kanga-Shop — les meilleurs cosmetiques naturels camerounais reunis',
+    story: 'Notre coffret rituel beaute reunit les tresors cosmetiques du Cameroun en un seul ecrin premium. Chaque produit a ete selectionne pour creer une routine de soin complete, inspiree des rituels de beaute ancestraux des femmes camerounaises.',
+    process: 'Chaque produit du coffret est selectionne artisanalement et presente dans un emballage cadeau premium. Le coffret comprend savon noir, beurre de karite, poudre de chebe et huile de baobab.',
+    usage: 'Suivre le rituel : nettoyer au savon noir, hydrater au beurre de karite, traiter les cheveux au chebe, et sublimer avec l\'huile de baobab. Le cadeau premium parfait pour decouvrir la beaute naturelle africaine.',
   },
 
   // ============================================================
@@ -456,6 +636,10 @@ export const products: Product[] = [
     unit: 'piece',
     category: 'style',
     image: '/images/products/boubou-homme.webp',
+    origin: 'Tradition vestimentaire du Nord et de l\'Ouest Cameroun',
+    story: 'Le boubou est le vetement de ceremonie par excellence au Cameroun. Porte lors des mariages, funerailles et fetes traditionnelles, il symbolise l\'elegance et le respect des traditions. Chaque coupe et chaque tissu raconte un statut social.',
+    process: 'Confectionne par des tailleurs camerounais experimentes a partir de tissus premium. La coupe ample et elegante suit des patrons traditionnels transmis de maitre a apprenti.',
+    usage: 'Porter lors des grandes occasions : mariages, ceremonies traditionnelles, fetes religieuses. Le boubou se porte ample sur le corps, parfois avec un pantalon assorti et un bonnet.',
   },
   {
     id: 'chemisette-237',
@@ -465,6 +649,10 @@ export const products: Product[] = [
     unit: 'piece',
     category: 'style',
     image: '/images/products/maillot-lions.webp',
+    origin: 'Creation camerounaise — fusion entre style africain et coupe moderne',
+    story: 'La chemisette 237 est nee de la fierte camerounaise moderne. Le \'237\' est l\'indicatif telephonique du Cameroun, devenu un symbole d\'identite nationale. Porter du 237, c\'est afficher sa fierte camerounaise au quotidien.',
+    process: 'Confectionnee en coton premium avec des motifs camerounais imprimes ou brodes. La coupe moderne a manches courtes permet un port decontracte mais elegant.',
+    usage: 'Porter au quotidien, au bureau ou en soiree. La chemisette 237 se marie avec un jean pour un look casual-chic ou avec un pantalon habille pour les evenements.',
   },
   {
     id: 'maillot-foot',
@@ -475,6 +663,10 @@ export const products: Product[] = [
     category: 'style',
     image: '/images/products/maillot-cameroun.webp',
     badge: 'Populaire',
+    origin: 'Cameroun — les couleurs des Lions Indomptables',
+    story: 'Le maillot des Lions Indomptables est bien plus qu\'un maillot de sport : c\'est un symbole de fierte nationale. Depuis les exploits de Roger Milla en 1990 et Samuel Eto\'o, le maillot vert-rouge-jaune est porte avec passion par la diaspora du monde entier.',
+    process: 'Replica du maillot officiel aux couleurs du drapeau camerounais : vert, rouge et jaune. Tissu technique respirant adapte au port sportif et quotidien.',
+    usage: 'Porter les jours de match, lors des competitions africaines, ou simplement pour afficher ses couleurs. Le maillot camerounais se porte avec fierte, au stade comme en ville.',
   },
   {
     id: 'cabas-femme',
@@ -484,6 +676,10 @@ export const products: Product[] = [
     unit: 'piece',
     category: 'style',
     image: '/images/products/artisane-raphia.webp',
+    origin: 'Artisanat du Centre et de l\'Ouest Cameroun — tressage en raphia naturel',
+    story: 'Le cabas en raphia est l\'heritage des artisanes camerounaises qui maitrisent l\'art du tressage depuis des generations. Chaque piece est unique, portant l\'empreinte de sa creatrice. Le raphia est une fibre naturelle, durable et ecologique.',
+    process: 'Les fibres de raphia sont recoltees sur les palmiers, sechees naturellement puis teintes avec des pigments naturels. Le tressage est entierement fait a la main, piece par piece, par des artisanes experimentees.',
+    usage: 'Utiliser comme sac de courses chic et ecologique, ou comme accessoire de mode quotidien. Le raphia est naturellement resistant et s\'embellit avec le temps.',
   },
   {
     id: 'sac-cuir-femme',
@@ -493,6 +689,10 @@ export const products: Product[] = [
     unit: 'piece',
     category: 'style',
     image: '/images/products/sac-cuir-femme.webp',
+    origin: 'Artisanat camerounais — cuir travaille dans la tradition du Nord Cameroun',
+    story: 'Le travail du cuir est un art ancestral au Nord Cameroun, herite des traditions peules et haoussa. Chaque sac est fabrique avec du cuir tanne selon des methodes traditionnelles, avec des finitions qui evoquent l\'identite camerounaise.',
+    process: 'Le cuir est tanne artisanalement, coupe et cousu a la main. Les finitions et les details sont inspires des motifs traditionnels camerounais.',
+    usage: 'Porter au quotidien comme sac a main elegant. Le cuir camerounais vieillit avec grace et developpe une belle patine avec le temps.',
   },
   {
     id: 'tissu-ndop',
@@ -503,6 +703,10 @@ export const products: Product[] = [
     category: 'style',
     image: '/images/products/tissu-ndop.webp',
     badge: 'Identite forte',
+    origin: 'Region Bamileke du Cameroun (Ouest et Nord-Ouest) — fabrication entre le Nord et l\'Ouest',
+    story: 'Le Ndop est un tissu symbolique de la tradition Bamileke, apparu en 1920. Ses motifs graphiques representent les fondements de la cosmogonie Bamileke, evoquant la dualite du monde (ancetres et vivants) et les elements cosmiques. Des efforts sont en cours pour l\'inscrire au patrimoine mondial UNESCO.',
+    process: 'La fabrication se fait en deux phases. Des fils de raphia sont cousus tres serres selon les lignes du dessin. Le tissu est plonge dans l\'indigo, qui ne doit pas penetrer les coutures. Apres sechage, les coutures sont retirees, revelant le motif en reserve.',
+    usage: 'Porter comme vetement traditionnel lors des ceremonies importantes. Le tissu sert a creer des pagnes, tuniques et vetements traditionnels. De plus en plus populaire dans la mode contemporaine.',
   },
   {
     id: 'toghu',
@@ -512,6 +716,10 @@ export const products: Product[] = [
     unit: 'coupon',
     category: 'style',
     image: '/images/products/toghu-atoghu.webp',
+    origin: 'Region du Nord-Ouest du Cameroun (Bamenda) — porte par les peuples des Grassfields',
+    story: 'Le Toghu est un vetement royal et traditionnel, brode a la main avec des motifs geometriques frappants. Fierement choisi comme tenue traditionnelle lors des Jeux Olympiques de Londres 2012. Chaque motif geometrique porte une signification particuliere liee a l\'occasion.',
+    process: 'Cree sur velours noir, avec des fils colores brodes a la main (jaune, orange, ocre, rouge, blanc, vert) creant un contraste saisissant. Les motifs comprennent lignes entrelacees, etoiles, carres, losanges et spirales.',
+    usage: 'Porter lors des ceremonies et evenements formels. La tunique presente des broderies rectilignes sur le col, les manches et l\'ourlet. Peut etre adaptee a des creations de mode contemporaine.',
   },
   {
     id: 'pagnes-wax',
@@ -521,6 +729,10 @@ export const products: Product[] = [
     unit: '6 yards',
     category: 'style',
     image: '/images/products/pagnes-wax.webp',
+    origin: 'Production d\'inspiration hollandaise, adoptee et transformee par la culture africaine — largement portee au Cameroun',
+    story: 'Le pagne wax est devenu un symbole de la mode africaine a travers le monde. Chaque motif a un nom et raconte une histoire : amour, pouvoir, famille. Au Cameroun, le choix du pagne pour un evenement est un acte de communication sociale a part entiere.',
+    process: 'Le tissu est imprime selon la technique du batik par cire (wax), creant des motifs colores des deux cotes du tissu. Les couleurs vives et les motifs geometriques ou floraux sont la signature du wax.',
+    usage: 'Utiliser pour confectionner des vetements, des accessoires ou de la decoration interieure. Les 6 yards permettent de creer un ensemble complet (haut + jupe ou robe). Chaque motif a une signification — demandez conseil.',
   },
 
   // ============================================================
@@ -535,6 +747,10 @@ export const products: Product[] = [
     category: 'art',
     image: '/images/products/tableau-peinture.webp',
     badge: 'Piece unique',
+    origin: 'Artistes contemporains camerounais — Douala, Yaounde et diaspora',
+    story: 'La scene artistique camerounaise est l\'une des plus dynamiques d\'Afrique. Les peintres camerounais melent traditions ancestrales et techniques contemporaines pour creer des oeuvres qui racontent le Cameroun d\'aujourd\'hui — ses marches, ses femmes, ses paysages.',
+    process: 'Chaque tableau est une oeuvre originale, peinte sur toile par un artiste camerounais. Techniques mixtes, acrylique ou huile, chaque piece est signee et unique.',
+    usage: 'Accrocher chez vous pour apporter une touche d\'Afrique authentique a votre interieur. Chaque tableau est une piece de conversation qui raconte une histoire camerounaise.',
   },
   {
     id: 'masques',
@@ -544,6 +760,10 @@ export const products: Product[] = [
     unit: 'piece',
     category: 'art',
     image: '/images/products/sculpteur-masques.webp',
+    origin: 'Regions de l\'Ouest et du Nord-Ouest Cameroun — traditions Bamileke et Bamoun',
+    story: 'Les masques camerounais sont bien plus que des objets decoratifs : ils sont les gardiens des traditions, utilises lors des ceremonies d\'initiation, des funerailles royales et des danses rituelles. Chaque masque incarne un esprit ou un ancetre.',
+    process: 'Sculptes a la main dans du bois dur par des artisans heritiers d\'une longue tradition. Les masques Bamileke sont ornes de perles, cauris et pigments naturels selon des codes precis.',
+    usage: 'Exposer comme piece d\'art mural ou sur socle. Chaque masque est une piece de patrimoine vivant — demandez-nous l\'histoire et la signification du votre.',
   },
   {
     id: 'statuettes',
@@ -553,6 +773,10 @@ export const products: Product[] = [
     unit: 'piece',
     category: 'art',
     image: '/images/products/statuettes-bois.webp',
+    origin: 'Artisanat camerounais — sculpteurs du Centre, de l\'Ouest et du Nord Cameroun',
+    story: 'La sculpture sur bois est un art millenaire au Cameroun. Les statuettes representent des scenes de vie, des figures ancestrales ou des symboles de fertilite et de prosperite. Chaque piece porte l\'empreinte unique de son createur.',
+    process: 'Sculptees a la main dans du bois d\'ebene, d\'iroko ou d\'acajou par des artisans experimentes. Le bois est choisi pour sa durete et sa beaute naturelle, puis travaille avec des outils traditionnels.',
+    usage: 'Disposer sur une etagere, une table ou un meuble pour une touche d\'art africain authentique. Les statuettes camerounaises sont des pieces de conversation qui enrichissent tout interieur.',
   },
   {
     id: 'bijoux-ethniques',
@@ -562,6 +786,10 @@ export const products: Product[] = [
     unit: 'piece',
     category: 'art',
     image: '/images/products/bijoux-ethniques.webp',
+    origin: 'Traditions orfevreres du Cameroun — perles, laiton, cauris et fibres naturelles',
+    story: 'Les bijoux camerounais racontent l\'histoire de leur porteur : statut social, appartenance ethnique, etapes de vie. Les perles de verre, les cauris et le laiton sont charges de symbolique dans toutes les cultures camerounaises.',
+    process: 'Chaque piece est fabriquee a la main par des artisans bijoutiers camerounais. Les perles sont enfilees selon des motifs traditionnels, le laiton est martele et les cauris assembles selon des codes ancestraux.',
+    usage: 'Porter au quotidien ou lors d\'occasions speciales pour affirmer votre lien avec la culture africaine. Chaque bijou est unique et peut etre porte seul ou combine avec d\'autres pieces.',
   },
   {
     id: 'songo-awale',
@@ -571,6 +799,10 @@ export const products: Product[] = [
     unit: 'piece',
     category: 'art',
     image: '/images/products/songo-awale.webp',
+    origin: 'Cameroun (Afrique centrale) et Afrique de l\'Ouest — Songo est le nom camerounais, Awale le nom ivoirien',
+    story: 'Le Songo est un jeu strategique des groupes Beti du Cameroun, devenu \'jeu national\' et facteur d\'unite nationale. Ce jeu remonte a des siecles, joue avec des graines sechees, et represente la valeur de la reflexion strategique dans les cultures africaines.',
+    process: 'Le plateau est sculpte dans du bois d\'iroko par des artisans camerounais. Au Cameroun, le plateau comporte 14 cases par cote (contre 12 en Afrique de l\'Ouest). Les graines de jeu sont selectionnees et polies a la main.',
+    usage: 'Installer le plateau et jouer a deux. Le jeu est typiquement pratique en communaute, lors des celebrations. C\'est un jeu intellectuellement stimulant adapte a tous les ages — parfait comme cadeau culturel original.',
   },
   {
     id: 'vannerie',
@@ -580,5 +812,9 @@ export const products: Product[] = [
     unit: 'piece',
     category: 'art',
     image: '/images/products/vannerie-camerounaise.webp',
+    origin: 'Artisanat du Centre et de l\'Ouest Cameroun — tradition de vannerie en raphia et fibres naturelles',
+    story: 'La vannerie camerounaise est un art feminin transmis de mere en fille depuis des generations. Chaque panier est tresse a la main avec une precision remarquable, les motifs geometriques portant la signature de la communaute de la tisseuse.',
+    process: 'Les fibres de raphia et les herbes sechees sont teintes avec des pigments naturels puis tressees a la main selon des techniques ancestrales. Chaque piece necessite plusieurs jours de travail minutieux.',
+    usage: 'Utiliser comme element de decoration murale tendance ou comme panier de rangement elegant. Les paniers camerounais s\'integrent aussi bien dans un interieur contemporain que traditionnel.',
   },
 ];
