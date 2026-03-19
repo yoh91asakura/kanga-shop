@@ -2,20 +2,20 @@
 ---
 
 <div id="waitlist-container">
-  <form id="waitlist-form" class="glass rounded-[20px] p-8 md:p-12 max-w-lg mx-auto">
+  <form id="waitlist-form" class="rounded-[20px] p-8 md:p-12 max-w-lg mx-auto bg-white/80 border border-black/[0.06] shadow-lg">
     <p
       class="text-xs tracking-[3px] uppercase mb-4"
-      style="font-family: var(--font-mono); color: var(--color-primary);"
+      style="font-family: var(--font-mono); color: var(--color-accent);"
     >
       Waitlist
     </p>
     <h3
       class="text-2xl mb-2"
-      style="font-family: var(--font-display); font-weight: 700;"
+      style="font-family: var(--font-display); font-weight: 700; color: #1C1A14;"
     >
       Soyez les premiers
     </h3>
-    <p class="text-sm mb-6" style="color: var(--color-text-secondary);">
+    <p class="text-sm mb-6" style="color: rgba(28,26,20,0.6);">
       Inscrivez-vous pour etre informe du lancement de Kanga-Shop.
     </p>
 
@@ -35,7 +35,7 @@
         placeholder="votre@email.com"
         required
         class="w-full px-4 py-3.5 rounded-xl outline-none transition-all duration-300 text-[15px]"
-        style="background: #2E2A1E; border: 1px solid rgba(250,245,238,0.15); color: var(--color-text-primary); font-family: var(--font-body);"
+        style="background: #F5F0E8; border: 1px solid rgba(28,26,20,0.12); color: #1C1A14; font-family: var(--font-body);"
       />
     </div>
 
@@ -52,13 +52,13 @@
         id="waitlist-interest"
         name="interest"
         class="w-full px-4 py-3.5 rounded-xl outline-none transition-all duration-300 text-[15px]"
-        style="background: #2E2A1E; border: 1px solid rgba(250,245,238,0.15); color: var(--color-text-primary); font-family: var(--font-body);"
+        style="background: #F5F0E8; border: 1px solid rgba(28,26,20,0.12); color: #1C1A14; font-family: var(--font-body);"
       >
-        <option value="tout" style="background: #2E2A1E; color: #FAF5EE;">Tout</option>
-        <option value="saveurs" style="background: #2E2A1E; color: #FAF5EE;">Saveurs</option>
-        <option value="style237" style="background: #2E2A1E; color: #FAF5EE;">Style 237</option>
-        <option value="art" style="background: #2E2A1E; color: #FAF5EE;">Art & Culture</option>
-        <option value="box" style="background: #2E2A1E; color: #FAF5EE;">La Box Decouverte</option>
+        <option value="tout" style="background: #F5F0E8; color: #1C1A14;">Tout</option>
+        <option value="saveurs" style="background: #F5F0E8; color: #1C1A14;">Saveurs</option>
+        <option value="style237" style="background: #F5F0E8; color: #1C1A14;">Style 237</option>
+        <option value="art" style="background: #F5F0E8; color: #1C1A14;">Art & Culture</option>
+        <option value="box" style="background: #F5F0E8; color: #1C1A14;">La Box Decouverte</option>
       </select>
     </div>
 
@@ -72,7 +72,7 @@
           required
           class="mt-1 w-4 h-4 rounded accent-[var(--color-primary)]"
         />
-        <span class="text-xs leading-relaxed" style="color: var(--color-text-tertiary);">
+        <span class="text-xs leading-relaxed" style="color: rgba(28,26,20,0.45);">
           J'accepte que mes donnees soient utilisees pour m'informer du lancement
           de Kanga-Shop.
           <a
@@ -105,7 +105,7 @@
   </form>
 
   <!-- Success message (hidden by default) -->
-  <div id="waitlist-success" class="glass rounded-[20px] p-8 md:p-12 text-center max-w-lg mx-auto hidden">
+  <div id="waitlist-success" class="rounded-[20px] p-8 md:p-12 text-center max-w-lg mx-auto hidden bg-white/80 border border-black/[0.06] shadow-lg">
     <div class="text-5xl mb-4">&#10024;</div>
     <h3
       class="text-2xl mb-3"
@@ -113,7 +113,7 @@
     >
       Bienvenue dans la famille !
     </h3>
-    <p class="text-sm" style="color: var(--color-text-secondary);">
+    <p class="text-sm" style="color: rgba(28,26,20,0.6);">
       Vous serez parmi les premiers informes du lancement de Kanga-Shop.
       Merci pour votre confiance.
     </p>

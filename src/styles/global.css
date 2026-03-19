@@ -81,6 +81,34 @@ nav.glass-panel {
   transform: translateY(0);
 }
 
+/* ===== LIGHT SECTIONS (alternating) ===== */
+.section-light {
+  background-color: #FAF5EE;
+  color: #1C1A14;
+}
+
+.section-light .text-secondary {
+  color: rgba(28, 26, 20, 0.65);
+}
+
+.section-light .text-tertiary {
+  color: rgba(28, 26, 20, 0.4);
+}
+
+.section-light .glass {
+  background: rgba(28, 26, 20, 0.05);
+  border-color: rgba(28, 26, 20, 0.1);
+}
+
+.section-light .glass:hover {
+  background: rgba(28, 26, 20, 0.08);
+  border-color: var(--color-primary);
+}
+
+.section-light .label-mono {
+  color: var(--color-accent);
+}
+
 /* ===== SELECTION ===== */
 ::selection {
   background-color: rgba(200, 150, 58, 0.3);
