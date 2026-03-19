@@ -501,7 +501,7 @@ export const products: Product[] = [
     price: 14.90,
     unit: 'yard',
     category: 'style',
-    image: '/images/products/artisane-raphia.png',
+    image: '/images/products/tissu-ndop.png',
     badge: 'Identite forte',
   },
   {
@@ -511,7 +511,7 @@ export const products: Product[] = [
     price: 29.90,
     unit: 'coupon',
     category: 'style',
-    image: '/images/products/artisane-raphia.png',
+    image: '/images/products/toghu-atoghu.png',
   },
   {
     id: 'pagnes-wax',
@@ -520,7 +520,7 @@ export const products: Product[] = [
     price: 29.90,
     unit: '6 yards',
     category: 'style',
-    image: '/images/products/artisane-raphia.png',
+    image: '/images/products/pagnes-wax.png',
   },
 
   // ============================================================
@@ -570,7 +570,7 @@ export const products: Product[] = [
     price: 34.90,
     unit: 'piece',
     category: 'art',
-    image: '/images/products/statuettes-bois.png',
+    image: '/images/products/songo-awale.png',
   },
   {
     id: 'vannerie',
@@ -579,6 +579,6 @@ export const products: Product[] = [
     price: 29.90,
     unit: 'piece',
     category: 'art',
-    image: '/images/products/artisane-raphia.png',
+    image: '/images/products/vannerie-camerounaise.png',
   },
 ];
