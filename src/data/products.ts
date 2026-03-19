@@ -39,7 +39,7 @@ export const products: Product[] = [
     price: 12.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/poivre-penja.png',
+    image: '/images/products/poivre-noir-penja.png',
   },
   {
     id: 'cafe-arabica',
@@ -96,7 +96,7 @@ export const products: Product[] = [
     price: 4.90,
     unit: '50g',
     category: 'terroirs',
-    image: '/images/products/epices-traditionnelles.png',
+    image: '/images/products/essese.png',
   },
   {
     id: 'rondelle',
@@ -105,7 +105,7 @@ export const products: Product[] = [
     price: 5.90,
     unit: '50g',
     category: 'terroirs',
-    image: '/images/products/epices-traditionnelles.png',
+    image: '/images/products/rondelle.png',
   },
   {
     id: 'djansang',
@@ -114,7 +114,7 @@ export const products: Product[] = [
     price: 7.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/epices-traditionnelles.png',
+    image: '/images/products/djansang.png',
   },
   {
     id: 'melange-secret',
@@ -123,7 +123,7 @@ export const products: Product[] = [
     price: 9.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/epices-traditionnelles.png',
+    image: '/images/products/melange-secret.png',
     badge: 'Best-seller',
   },
   {
@@ -133,7 +133,7 @@ export const products: Product[] = [
     price: 6.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/epices-traditionnelles.png',
+    image: '/images/products/sel-kanwa.png',
   },
   {
     id: 'epices-achu',
@@ -142,7 +142,7 @@ export const products: Product[] = [
     price: 12.90,
     unit: '100g',
     category: 'terroirs',
-    image: '/images/products/epices-traditionnelles.png',
+    image: '/images/products/epices-achu.png',
   },
 
   // ============================================================
@@ -228,7 +228,7 @@ export const products: Product[] = [
     price: 5.50,
     unit: '500g',
     category: 'gardemanger',
-    image: '/images/products/graines-haricots.png',
+    image: '/images/products/nyebe.png',
   },
   {
     id: 'gingembre',
@@ -273,7 +273,7 @@ export const products: Product[] = [
     price: 15.90,
     unit: '100g',
     category: 'gardemanger',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/nkui.png',
     badge: 'Rare',
   },
 
@@ -296,7 +296,7 @@ export const products: Product[] = [
     price: 4.90,
     unit: 'pack 3',
     category: 'douceurs',
-    image: '/images/products/chocolat-mambo.png',
+    image: '/images/products/mambo-pack.png',
     badge: 'Bon plan',
   },
   {
@@ -306,7 +306,7 @@ export const products: Product[] = [
     price: 4.90,
     unit: 'sachet',
     category: 'douceurs',
-    image: '/images/products/chocolat-mambo.png',
+    image: '/images/products/caramels.png',
   },
   {
     id: 'bonbons',
@@ -315,7 +315,7 @@ export const products: Product[] = [
     price: 3.90,
     unit: 'sachet',
     category: 'douceurs',
-    image: '/images/products/chocolat-mambo.png',
+    image: '/images/products/bonbons.png',
   },
   {
     id: 'kilichi',
@@ -473,7 +473,7 @@ export const products: Product[] = [
     price: 44.90,
     unit: 'piece',
     category: 'style',
-    image: '/images/products/maillot-lions.png',
+    image: '/images/products/maillot-cameroun.png',
     badge: 'Populaire',
   },
   {
@@ -492,7 +492,7 @@ export const products: Product[] = [
     price: 44.90,
     unit: 'piece',
     category: 'style',
-    image: '/images/products/artisane-raphia.png',
+    image: '/images/products/sac-cuir-femme.png',
   },
   {
     id: 'tissu-ndop',
@@ -561,7 +561,7 @@ export const products: Product[] = [
     price: 24.90,
     unit: 'piece',
     category: 'art',
-    image: '/images/products/statuettes-bois.png',
+    image: '/images/products/bijoux-ethniques.png',
   },
   {
     id: 'songo-awale',
