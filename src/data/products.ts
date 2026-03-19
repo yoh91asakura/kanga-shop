@@ -14,12 +14,12 @@ export interface Product {
 }
 
 export const categories = {
-  terroirs: { label: 'Terroirs du Cameroun', emoji: '🌶️', description: 'Epices, cafes et cacaos' },
-  gardemanger: { label: 'Garde-manger 237', emoji: '🍲', description: 'Feculents, legumineuses et essentiels' },
-  douceurs: { label: 'Douceurs & Boissons', emoji: '🍫', description: 'Confiseries, chocolats et infusions' },
-  beaute: { label: 'Beaute Naturelle', emoji: '✨', description: 'Cosmetiques camerounais' },
-  style: { label: 'Style 237', emoji: '👕', description: 'Mode et accessoires' },
-  art: { label: 'Art & Culture', emoji: '🎨', description: 'Art, artisanat et jeux' },
+  terroirs: { label: 'Terroirs du Cameroun', emoji: '', description: 'Epices, cafes et cacaos' },
+  gardemanger: { label: 'Garde-manger 237', emoji: '', description: 'Feculents, legumineuses et essentiels' },
+  douceurs: { label: 'Douceurs & Boissons', emoji: '', description: 'Confiseries, chocolats et infusions' },
+  beaute: { label: 'Beaute Naturelle', emoji: '', description: 'Cosmetiques camerounais' },
+  style: { label: 'Style 237', emoji: '', description: 'Mode et accessoires' },
+  art: { label: 'Art & Culture', emoji: '', description: 'Art, artisanat et jeux' },
 } as const;
 
 export const products: Product[] = [

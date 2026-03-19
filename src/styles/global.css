@@ -15,6 +15,8 @@
   --color-earth: #8B7355;
   --color-sky: #7A9CB8;
 
+  --color-input-bg: #F5F0E8;
+
   --color-text-primary: #FAF5EE;
   --color-text-secondary: rgba(250, 245, 238, 0.7);
   --color-text-tertiary: rgba(250, 245, 238, 0.4);
@@ -83,8 +85,8 @@ nav.glass-panel {
 
 /* ===== LIGHT SECTIONS (alternating) ===== */
 .section-light {
-  background-color: #FAF5EE;
-  color: #1C1A14;
+  background-color: var(--color-text-primary);
+  color: var(--color-bg-primary);
   position: relative;
 }
 

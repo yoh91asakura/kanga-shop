@@ -1,5 +1,6 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import Nav from '../../components/Nav.astro';
 import Footer from '../../components/Footer.astro';
 import { products, categories } from '../../data/products';
 import type { GetStaticPaths } from 'astro';
@@ -24,23 +25,7 @@ const related = products
   title={`${product.name} — Kanga-Shop`}
   description={product.description}
 >
-  <!-- Navigation -->
-  <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 glass-panel" style="background: '';">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
-      <a href="/" class="text-lg" style="font-family: var(--font-display); font-weight: 900;">
-        <span style="color: var(--color-primary);">Kanga</span><span style="color: var(--color-text-tertiary);">-</span>Shop
-      </a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="/#saveurs" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Saveurs</a>
-        <a href="/#style237" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Style 237</a>
-        <a href="/#art" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Art & Culture</a>
-        <a href="/shop" class="text-sm transition-colors" style="color: var(--color-primary); font-family: var(--font-body); font-weight: 600;">Shop</a>
-      </div>
-      <a href="/#waitlist" class="px-5 py-2 rounded-full text-sm transition-all duration-300 hover:-translate-y-0.5" style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;">
-        Waitlist
-      </a>
-    </div>
-  </nav>
+  <Nav activePage="shop" />
 
   <!-- Hero Image -->
   <section class="relative h-[50vh] md:h-[60vh] overflow-hidden">
@@ -54,7 +39,7 @@ const related = products
     {product.badge && (
       <span
         class="absolute top-24 right-6 md:right-12 px-4 py-1.5 rounded-full text-xs tracking-[1px] uppercase"
-        style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;"
+        style="background: var(--color-primary); color: var(--color-bg-primary); font-family: var(--font-display); font-weight: 700;"
       >
         {product.badge}
       </span>
@@ -160,7 +145,7 @@ const related = products
           <a
             href="/#waitlist"
             class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[15px] transition-all duration-300 hover:-translate-y-0.5"
-            style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700; box-shadow: 0 4px 24px rgba(200,150,58,0.25);"
+            style="background: var(--color-primary); color: var(--color-bg-primary); font-family: var(--font-display); font-weight: 700; box-shadow: 0 4px 24px rgba(200,150,58,0.25);"
           >
             Rejoindre la waitlist
           </a>
@@ -211,7 +196,7 @@ const related = products
                 {rel.badge && (
                   <span
                     class="absolute top-3 right-3 px-3 py-1 rounded-full text-[11px] tracking-[1px] uppercase"
-                    style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;"
+                    style="background: var(--color-primary); color: var(--color-bg-primary); font-family: var(--font-display); font-weight: 700;"
                   >
                     {rel.badge}
                   </span>
@@ -241,7 +226,7 @@ const related = products
                   </div>
                   <span
                     class="px-4 py-2 rounded-full text-xs"
-                    style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;"
+                    style="background: var(--color-primary); color: var(--color-bg-primary); font-family: var(--font-display); font-weight: 700;"
                   >
                     Voir
                   </span>

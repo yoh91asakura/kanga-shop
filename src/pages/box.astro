@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
 ---
 
@@ -7,22 +8,7 @@ import Footer from '../components/Footer.astro';
   title="La Box Decouverte — Kanga-Shop"
   description="Chaque mois, une selection surprise de produits camerounais livree chez vous. Saveurs, mode, art — un morceau du Cameroun dans votre boite aux lettres."
 >
-  <!-- Navigation -->
-  <nav class="fixed top-0 left-0 right-0 z-50 glass-panel" style="background: '';">
-    <div class="max-w-[1200px] mx-auto px-6 md:px-8 h-16 flex items-center justify-between">
-      <a href="/" class="text-lg" style="font-family: var(--font-display); font-weight: 900;">
-        <span style="color: var(--color-primary);">Kanga</span><span style="color: var(--color-text-tertiary);">-</span>Shop
-      </a>
-      <div class="hidden md:flex items-center gap-8">
-        <a href="/#saveurs" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Saveurs</a>
-        <a href="/shop" class="text-sm transition-colors hover:text-[var(--color-primary)]" style="color: var(--color-text-secondary); font-family: var(--font-body);">Shop</a>
-        <a href="/box" class="text-sm transition-colors" style="color: var(--color-primary); font-family: var(--font-body); font-weight: 600;">La Box</a>
-      </div>
-      <a href="/#waitlist" class="px-5 py-2 rounded-full text-sm transition-all duration-300 hover:-translate-y-0.5" style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;">
-        Waitlist
-      </a>
-    </div>
-  </nav>
+  <Nav activePage="box" />
 
   <!-- Hero -->
   <section class="pt-32 pb-16">
@@ -76,7 +62,7 @@ import Footer from '../components/Footer.astro';
 
         <!-- Premium (recommended) -->
         <div class="rounded-[24px] p-8 text-center transition-all duration-300 hover:-translate-y-1 relative" style="background: rgba(200,150,58,0.1); border: 2px solid var(--color-primary);">
-          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[10px] tracking-[2px] uppercase" style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700;">
+          <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-[10px] tracking-[2px] uppercase" style="background: var(--color-primary); color: var(--color-bg-primary); font-family: var(--font-display); font-weight: 700;">
             Populaire
           </div>
           <p class="text-xs tracking-[2px] uppercase mb-4" style="font-family: var(--font-mono); color: var(--color-primary);">Premium</p>
@@ -109,7 +95,7 @@ import Footer from '../components/Footer.astro';
               Emballage cadeau premium
             </li>
           </ul>
-          <a href="/#waitlist" class="block w-full py-3 rounded-full text-sm text-center transition-all duration-300 hover:-translate-y-0.5" style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700; box-shadow: 0 4px 24px rgba(200,150,58,0.25);">
+          <a href="/#waitlist" class="block w-full py-3 rounded-full text-sm text-center transition-all duration-300 hover:-translate-y-0.5" style="background: var(--color-primary); color: var(--color-bg-primary); font-family: var(--font-display); font-weight: 700; box-shadow: 0 4px 24px rgba(200,150,58,0.25);">
             Rejoindre la waitlist
           </a>
         </div>
@@ -156,24 +142,24 @@ import Footer from '../components/Footer.astro';
       <p class="text-xs tracking-[3px] uppercase mb-4" style="font-family: var(--font-mono); color: var(--color-accent);">
         Comment ca marche
       </p>
-      <h2 class="text-3xl md:text-4xl leading-[1.1] tracking-[-0.02em] mb-12" style="font-family: var(--font-display); font-weight: 900; color: #1C1A14;">
+      <h2 class="text-3xl md:text-4xl leading-[1.1] tracking-[-0.02em] mb-12" style="font-family: var(--font-display); font-weight: 900; color: var(--color-bg-primary);">
         3 etapes, zero effort
       </h2>
 
       <div class="grid md:grid-cols-3 gap-8">
         <div>
           <div class="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center text-lg" style="background: rgba(200,150,58,0.1); color: var(--color-primary); font-family: var(--font-display); font-weight: 900;">1</div>
-          <h3 class="text-base mb-2" style="font-family: var(--font-display); font-weight: 700; color: #1C1A14;">Inscrivez-vous</h3>
+          <h3 class="text-base mb-2" style="font-family: var(--font-display); font-weight: 700; color: var(--color-bg-primary);">Inscrivez-vous</h3>
           <p class="text-sm" style="color: rgba(28,26,20,0.6);">Choisissez votre formule et dites-nous ce qui vous interesse le plus.</p>
         </div>
         <div>
           <div class="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center text-lg" style="background: rgba(200,150,58,0.1); color: var(--color-primary); font-family: var(--font-display); font-weight: 900;">2</div>
-          <h3 class="text-base mb-2" style="font-family: var(--font-display); font-weight: 700; color: #1C1A14;">On selectionne</h3>
+          <h3 class="text-base mb-2" style="font-family: var(--font-display); font-weight: 700; color: var(--color-bg-primary);">On selectionne</h3>
           <p class="text-sm" style="color: rgba(28,26,20,0.6);">Notre famille curate les meilleurs produits du mois, avec une histoire pour chacun.</p>
         </div>
         <div>
           <div class="w-12 h-12 mx-auto mb-4 rounded-full flex items-center justify-center text-lg" style="background: rgba(200,150,58,0.1); color: var(--color-primary); font-family: var(--font-display); font-weight: 900;">3</div>
-          <h3 class="text-base mb-2" style="font-family: var(--font-display); font-weight: 700; color: #1C1A14;">Vous decouvrez</h3>
+          <h3 class="text-base mb-2" style="font-family: var(--font-display); font-weight: 700; color: var(--color-bg-primary);">Vous decouvrez</h3>
           <p class="text-sm" style="color: rgba(28,26,20,0.6);">Recevez votre box chez vous et voyagez au Cameroun sans quitter la France.</p>
         </div>
       </div>
@@ -243,7 +229,7 @@ import Footer from '../components/Footer.astro';
       <a
         href="/#waitlist"
         class="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-full text-[15px] transition-all duration-300 hover:-translate-y-0.5 mt-10"
-        style="background: var(--color-primary); color: #1C1A14; font-family: var(--font-display); font-weight: 700; box-shadow: 0 4px 24px rgba(200,150,58,0.25);"
+        style="background: var(--color-primary); color: var(--color-bg-primary); font-family: var(--font-display); font-weight: 700; box-shadow: 0 4px 24px rgba(200,150,58,0.25);"
       >
         Etre informe du lancement
       </a>

@@ -38,11 +38,12 @@
 - **Earth:** #8B7355 (Brun Savane) — sol de la savane. Usage: bordures, separateurs, elements discrets
 - **Sky:** #7A9CB8 (Bleu Volcan) — brume du volcan en fond. Usage: info, liens, elements informationnels
 - **Background (dark):** #1C1A14 (Nuit Savane) — brun nuit chaud
-- **Background surfaces:** #0F2318 (secondary), #142D1F (tertiary)
+- **Background surfaces:** #252218 (secondary), #2E2A1E (tertiary)
 - **Text:** #FAF5EE (Creme Chaude) — plus organique que le blanc pur
 - **Glass surfaces:** rgba(250, 245, 238, 0.08) avec backdrop-filter: blur(24px), border: rgba(250, 245, 238, 0.15)
 - **Semantic:** success #5A7A48, warning #C8963A, error #D4572A, info #7A9CB8
 - **Dark mode:** Default. Image hero visible a travers les surfaces glassmorphism
+- **Input background:** --color-input-bg: #F5F0E8 (form fields on light sections)
 - **Light mode:** Fond #FAF5EE, texte #1C1A14, surfaces glass rgba(28, 26, 20, 0.06)
 
 ## Spacing

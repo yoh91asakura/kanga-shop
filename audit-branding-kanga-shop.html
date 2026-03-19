@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Audit Complet v3 — Kanga-Shop</title>
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&f[]=instrument-sans@400,500,600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --gold: #C8963A;
+    --red: #D4572A;
+    --green: #5A7A48;
+    --brown: #8B7355;
+    --sky: #7A9CB8;
+    --bg: #1C1A14;
+    --cream: #FAF5EE;
+    --glass: rgba(250,245,238,0.06);
+    --border: rgba(250,245,238,0.1);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--cream); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  .container { max-width: 900px; margin: 0 auto; padding: 0 32px; }
+  header { padding: 80px 0 60px; border-bottom: 1px solid var(--border); }
+  header .label { font-family: 'Satoshi', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--gold); margin-bottom: 16px; }
+  header h1 { font-family: 'Satoshi', sans-serif; font-size: clamp(36px, 6vw, 56px); font-weight: 900; line-height: 1.05; letter-spacing: -0.03em; margin-bottom: 20px; }
+  header .subtitle { font-size: 18px; color: rgba(250,245,238,0.55); max-width: 620px; }
+  header .meta { margin-top: 32px; display: flex; gap: 32px; font-size: 13px; color: rgba(250,245,238,0.35); }
+  .score-banner { margin: 48px 0; padding: 40px; background: var(--glass); border: 1px solid var(--border); border-radius: 20px; display: grid; grid-template-columns: repeat(auto-fit, minmax(130px, 1fr)); gap: 24px; text-align: center; }
+  .score-item .value { font-family: 'Satoshi', sans-serif; font-size: 36px; font-weight: 900; }
+  .score-item .label-sm { font-size: 12px; letter-spacing: 1px; text-transform: uppercase; color: rgba(250,245,238,0.4); margin-top: 4px; }
+  .grade-a { color: var(--green); }
+  .grade-b { color: var(--gold); }
+  .grade-c { color: var(--red); }
+  section { padding: 56px 0; border-bottom: 1px solid var(--border); }
+  section:last-of-type { border-bottom: none; }
+  .section-label { font-family: 'Satoshi', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+  h2 { font-family: 'Satoshi', sans-serif; font-size: 28px; font-weight: 900; letter-spacing: -0.02em; margin-bottom: 20px; line-height: 1.2; }
+  h3 { font-family: 'Satoshi', sans-serif; font-size: 18px; font-weight: 700; margin-bottom: 10px; margin-top: 32px; }
+  p { margin-bottom: 16px; color: rgba(250,245,238,0.75); }
+  strong { color: var(--cream); font-weight: 600; }
+  em { color: var(--gold); font-style: normal; font-weight: 600; }
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; margin: 24px 0; }
+  .card { background: var(--glass); border: 1px solid var(--border); border-radius: 16px; padding: 24px; }
+  .card h4 { font-family: 'Satoshi', sans-serif; font-size: 15px; font-weight: 700; margin-bottom: 8px; }
+  .card p { font-size: 14px; margin-bottom: 0; color: rgba(250,245,238,0.55); }
+  .verdict { background: rgba(200,150,58,0.08); border: 1px solid rgba(200,150,58,0.2); border-radius: 16px; padding: 24px 28px; margin: 24px 0; }
+  .verdict.good { background: rgba(90,122,72,0.08); border-color: rgba(90,122,72,0.25); }
+  .verdict.warn { background: rgba(212,87,42,0.08); border-color: rgba(212,87,42,0.2); }
+  .verdict .tag { display: inline-block; font-family: 'Satoshi', sans-serif; font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase; padding: 4px 10px; border-radius: 6px; margin-bottom: 12px; }
+  .verdict.good .tag { background: rgba(90,122,72,0.2); color: var(--green); }
+  .verdict .tag { background: rgba(200,150,58,0.2); color: var(--gold); }
+  .verdict.warn .tag { background: rgba(212,87,42,0.2); color: var(--red); }
+  .verdict p { margin-bottom: 0; }
+
+  /* Color swatches */
+  .swatch-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 24px 0; }
+  .swatch { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); }
+  .swatch-color { height: 64px; }
+  .swatch-info { padding: 12px 14px; background: var(--glass); }
+  .swatch-info .name { font-family: 'Satoshi', sans-serif; font-size: 13px; font-weight: 700; margin-bottom: 2px; }
+  .swatch-info .hex { font-family: 'Geist Mono', monospace; font-size: 11px; color: rgba(250,245,238,0.4); }
+  .swatch-info .status { font-size: 11px; margin-top: 4px; }
+  .status-ok { color: var(--green); }
+  .status-warn { color: var(--gold); }
+  .status-err { color: var(--red); }
+
+  .check-list { margin: 24px 0; }
+  .check-item { display: flex; align-items: flex-start; gap: 12px; padding: 12px 0; border-bottom: 1px solid rgba(250,245,238,0.04); font-size: 14px; }
+  .check-item:last-child { border-bottom: none; }
+  .check-icon { flex-shrink: 0; width: 22px; height: 22px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 12px; margin-top: 2px; }
+  .check-icon.yes { background: rgba(90,122,72,0.2); color: var(--green); }
+  .check-icon.no { background: rgba(212,87,42,0.15); color: var(--red); }
+  .check-icon.partial { background: rgba(200,150,58,0.15); color: var(--gold); }
+
+  .priority-table { width: 100%; border-collapse: collapse; margin: 24px 0; font-size: 14px; }
+  .priority-table th { font-family: 'Satoshi', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: rgba(250,245,238,0.35); text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--border); }
+  .priority-table td { padding: 14px 16px; border-bottom: 1px solid rgba(250,245,238,0.04); color: rgba(250,245,238,0.7); vertical-align: top; }
+  .pill { display: inline-block; padding: 3px 10px; border-radius: 99px; font-size: 11px; font-weight: 600; font-family: 'Satoshi', sans-serif; }
+  .pill.high { background: rgba(212,87,42,0.15); color: var(--red); }
+  .pill.med { background: rgba(200,150,58,0.15); color: var(--gold); }
+  .pill.low { background: rgba(90,122,72,0.15); color: var(--green); }
+  .pill.done { background: rgba(90,122,72,0.2); color: var(--green); }
+
+  code { font-family: 'Geist Mono', monospace; font-size: 12px; background: rgba(250,245,238,0.06); padding: 2px 6px; border-radius: 4px; color: var(--gold); }
+
+  footer { padding: 48px 0; text-align: center; font-size: 12px; color: rgba(250,245,238,0.2); }
+  @media (max-width: 640px) {
+    .container { padding: 0 20px; }
+    header { padding: 48px 0 40px; }
+    header .meta { flex-direction: column; gap: 8px; }
+    .score-banner { grid-template-columns: repeat(2, 1fr); padding: 24px; }
+    .swatch-grid { grid-template-columns: 1fr 1fr; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header>
+  <div class="label">Audit Complet v3</div>
+  <h1>Kanga-Shop :<br>audit branding, couleurs<br>et architecture</h1>
+  <p class="subtitle">Troisieme passe. Inclut cette fois un audit couleurs complet, une analyse de l'architecture des pages, et le bilan de toutes les updates depuis v1.</p>
+  <div class="meta">
+    <span>19 mars 2026</span>
+    <span>Branding + Couleurs + Architecture</span>
+    <span>Pre-launch</span>
+  </div>
+</header>
+
+<!-- SCORES -->
+<div class="score-banner">
+  <div class="score-item"><div class="value grade-a">A</div><div class="label-sm">Design System</div></div>
+  <div class="score-item"><div class="value grade-a">A</div><div class="label-sm">Positionnement</div></div>
+  <div class="score-item"><div class="value grade-a">A-</div><div class="label-sm">Storytelling</div></div>
+  <div class="score-item"><div class="value grade-b">B+</div><div class="label-sm">Architecture</div></div>
+  <div class="score-item"><div class="value grade-b">B</div><div class="label-sm">Couleurs (code)</div></div>
+  <div class="score-item"><div class="value grade-b">B+</div><div class="label-sm">Catalogue</div></div>
+</div>
+
+<!-- 1. PROGRESSION -->
+<section>
+  <div class="section-label">01 — Progression globale</div>
+  <h2>Tout ce qui a ete fait depuis v1</h2>
+
+  <div class="check-list">
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>Manifeste fondateur</strong> — "Ces produits meritent mieux que le rayon monde". Emotionnel, partageable, signe "entre Douala et Paris".</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>Tagline reecrite</strong> — "Le Cameroun, sublime. Saveurs, mode, art — curates avec amour." Badge hero = "La maison de lifestyle camerounais".</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>Storytelling produit complet</strong> — Les 50+ produits ont maintenant origin, story, process, usage. C'est exceptionnel.</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>Section Impact ajoutee</strong> — Sourcing direct, artisans soutenus, heritage preserve. Avec SVGs custom.</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>Page Box Decouverte</strong> — 3 tiers (29,90 / 39,90 / 49,90), pricing, "how it works", apercu mensuel. Page complete.</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>Shop complet</strong> — Page catalogue avec filtres par categorie + pages produit individuelles avec story/origin/process/usage.</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>Preuve sociale</strong> — Compteur "200+ familles nous attendent" avec avatars dans le formulaire waitlist.</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>WebP + SVGs custom</strong> — Images optimisees, emojis remplaces par des icones vectorielles.</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>Animations afinees</strong> — Trigger 95%, duree 0.6s, translation 20px. Plus reactif.</div></div>
+  </div>
+
+  <div class="verdict good">
+    <div class="tag">Bilan</div>
+    <p><strong>10/10 recommandations implementees.</strong> Le projet a fait un bond spectaculaire en termes de branding, de contenu et d'architecture. Le positionnement est clair, le storytelling est riche, l'architecture est complete. C'est du solide.</p>
+  </div>
+</section>
+
+<!-- 2. AUDIT COULEURS -->
+<section>
+  <div class="section-label">02 — Audit couleurs</div>
+  <h2>La palette et son implementation</h2>
+
+  <h3>La palette officielle</h3>
+  <p>Ta palette est extraite du paysage camerounais (image hero). C'est une approche forte et coherente. Voici l'etat des lieux :</p>
+
+  <div class="swatch-grid">
+    <div class="swatch">
+      <div class="swatch-color" style="background: #C8963A;"></div>
+      <div class="swatch-info">
+        <div class="name">Or Ambre</div>
+        <div class="hex">#C8963A — Primary</div>
+        <div class="status status-ok">Bien utilise partout</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #D4572A;"></div>
+      <div class="swatch-info">
+        <div class="name">Terre Rouge</div>
+        <div class="hex">#D4572A — Accent</div>
+        <div class="status status-ok">Bien utilise (labels, errors)</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #5A7A48;"></div>
+      <div class="swatch-info">
+        <div class="name">Vert Feuillage</div>
+        <div class="hex">#5A7A48 — Secondary</div>
+        <div class="status status-ok">Utilise (success, impact)</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #8B7355;"></div>
+      <div class="swatch-info">
+        <div class="name">Brun Savane</div>
+        <div class="hex">#8B7355 — Earth</div>
+        <div class="status status-warn">Defini mais jamais utilise</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #7A9CB8;"></div>
+      <div class="swatch-info">
+        <div class="name">Bleu Volcan</div>
+        <div class="hex">#7A9CB8 — Sky</div>
+        <div class="status status-warn">1 seule utilisation (box)</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #1C1A14;"></div>
+      <div class="swatch-info">
+        <div class="name">Nuit Savane</div>
+        <div class="hex">#1C1A14 — Background</div>
+        <div class="status status-err">50+ hardcodes au lieu de var()</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #FAF5EE;"></div>
+      <div class="swatch-info">
+        <div class="name">Creme Chaude</div>
+        <div class="hex">#FAF5EE — Text</div>
+        <div class="status status-ok">Bien utilise via variable</div>
+      </div>
+    </div>
+    <div class="swatch">
+      <div class="swatch-color" style="background: #F5F0E8;"></div>
+      <div class="swatch-info">
+        <div class="name">??? (input bg)</div>
+        <div class="hex">#F5F0E8 — NON DEFINI</div>
+        <div class="status status-err">7 usages, pas dans DESIGN.md</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Ce qui fonctionne</h3>
+  <p>L'Or Ambre (#C8963A) comme couleur primaire est un choix excellent — chaud, premium, differenciant. La combinaison dark mode + or + cream cree un ecrin luxe qui fonctionne. La Terre Rouge en accent apporte de l'energie sans casser la chaleur. Le systeme de tokens CSS dans <code>global.css</code> est propre et bien structure.</p>
+
+  <h3>Les 4 problemes identifies</h3>
+
+  <div class="card-grid">
+    <div class="card" style="border-color: rgba(212,87,42,0.3);">
+      <h4 style="color: var(--red);">50+ couleurs hardcodees</h4>
+      <p><code>#1C1A14</code> apparait en dur dans quasi tous les composants au lieu de <code>var(--color-bg-primary)</code>. Meme chose pour <code>#FAF5EE</code>. Ca marche, mais si tu changes ta palette un jour, tu dois toucher 50 fichiers.</p>
+    </div>
+    <div class="card" style="border-color: rgba(212,87,42,0.3);">
+      <h4 style="color: var(--red);">#F5F0E8 : couleur fantome</h4>
+      <p>Utilisee 7 fois dans WaitlistForm (inputs, selects) mais pas definie dans DESIGN.md ni dans les CSS tokens. C'est un beige legerement plus chaud que le Creme. Soit tu l'officialises, soit tu utilises <code>#FAF5EE</code>.</p>
+    </div>
+    <div class="card" style="border-color: rgba(200,150,58,0.3);">
+      <h4 style="color: var(--gold);">Brun Savane : jamais utilise</h4>
+      <p><code>#8B7355</code> est defini comme "Earth" dans ta palette mais n'apparait nulle part dans le code. C'est une couleur chaude qui pourrait servir pour les bordures, les separateurs, ou les labels secondaires.</p>
+    </div>
+    <div class="card" style="border-color: rgba(200,150,58,0.3);">
+      <h4 style="color: var(--gold);">Bleu Volcan : sous-utilise</h4>
+      <p><code>#7A9CB8</code> apparait une seule fois (icone palette dans la Box). C'est pourtant une couleur riche qui pourrait servir pour les liens, les elements info, ou creer du contraste avec l'or.</p>
+    </div>
+  </div>
+
+  <h3>Ratio de contraste (accessibilite)</h3>
+  <p>Or Ambre <code>#C8963A</code> sur fond <code>#1C1A14</code> donne un ratio d'environ <strong>5.2:1</strong> — ca passe le AA pour le texte normal (4.5:1 requis) mais rate le AAA (7:1). Pour les petits labels en or, c'est limite. Terre Rouge <code>#D4572A</code> sur fond sombre donne environ <strong>4.3:1</strong> — ca rate le AA de peu. Sur les sections light (<code>#FAF5EE</code>), les textes en <code>rgba(28,26,20,0.6)</code> donnent un ratio d'environ <strong>4.8:1</strong> — juste au-dessus du AA.</p>
+
+  <div class="verdict warn">
+    <div class="tag">Couleurs — Recommandations</div>
+    <p><strong>3 actions :</strong> (1) Remplacer les 50+ hardcodes <code>#1C1A14</code> par des variables CSS — c'est de la dette technique. (2) Officialiser <code>#F5F0E8</code> comme <code>--color-input-bg</code> ou le remplacer par le Creme existant. (3) Trouver des usages pour le Brun Savane et le Bleu Volcan — 2 couleurs definies mais mortes, ca dilue la palette.</p>
+  </div>
+</section>
+
+<!-- 3. ARCHITECTURE -->
+<section>
+  <div class="section-label">03 — Architecture du site</div>
+  <h2>L'arborescence est maintenant complete</h2>
+
+  <p>Le site est passe de 2 pages (landing + mentions legales) a une vraie architecture e-commerce :</p>
+
+  <div class="check-list">
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>/</strong> — Landing page avec hero video, manifeste, 4 sections univers, impact, waitlist</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>/shop</strong> — Catalogue complet avec filtres par categorie, 50+ produits, badges</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>/shop/[id]</strong> — Fiche produit individuelle avec hero image, story, origin, process, usage, produits similaires</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>/box</strong> — Page Box Decouverte avec 3 tiers de pricing, "how it works", apercu mensuel</div></div>
+    <div class="check-item"><div class="check-icon yes">&#10003;</div><div><strong>/mentions-legales</strong> — Page legale</div></div>
+  </div>
+
+  <h3>Points forts de l'architecture</h3>
+  <p>Les fiches produit <code>/shop/[id]</code> sont excellentes. L'encart "L'histoire" avec fond dore subtil est un vrai differenciant — ca transforme une fiche produit en mini-article. Les sections Origine, Fabrication, Utilisation avec icones SVG donnent une structure claire. Les produits similaires en bas de page encouragent la navigation.</p>
+
+  <p>La page Box avec les 3 tiers de pricing est bien structuree. Le tier "Populaire" mis en avant visuellement avec la bordure or et le badge est un bon pattern de conversion.</p>
+
+  <h3>Points a ameliorer</h3>
+
+  <div class="card-grid">
+    <div class="card">
+      <h4>Nav inconsistante</h4>
+      <p>La nav de la landing a un hamburger mobile. Les navs de /shop, /box et /shop/[id] n'en ont pas — elles perdent les liens mobile. A harmoniser avec un composant Nav partage.</p>
+    </div>
+    <div class="card">
+      <h4>Pas de lien "Box" dans la nav principale</h4>
+      <p>La landing a : Saveurs, Style, Art, Box, Shop. Mais /shop et /shop/[id] n'ont pas de lien vers /box. La page Box est invisible depuis le catalogue.</p>
+    </div>
+    <div class="card">
+      <h4>Emojis dans les filtres Shop</h4>
+      <p>Les boutons de filtre du Shop utilisent encore des emojis du <code>categories</code> object. Ailleurs, tu es passe aux SVGs. Incoherence mineure mais visible.</p>
+    </div>
+    <div class="card">
+      <h4>Background secondaire decale</h4>
+      <p>DESIGN.md dit <code>#0F2318</code> et <code>#142D1F</code> pour les fonds secondaires. Le CSS utilise <code>#252218</code> et <code>#2E2A1E</code>. C'est un choix (plus chaud), mais DESIGN.md devrait etre mis a jour.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 4. BRANDING FINAL -->
+<section>
+  <div class="section-label">04 — Branding</div>
+  <h2>L'identite est maintenant lisible en 3 secondes</h2>
+
+  <p>Le test de la "premiere impression" : quand quelqu'un arrive sur ton site, en 3 secondes il doit comprendre qui tu es, ce que tu fais, et pourquoi c'est different. Avant les updates, il comprenait "un site camerounais joli". Maintenant il comprend :</p>
+
+  <p style="color: var(--cream); font-size: 18px; font-weight: 500; padding: 24px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); margin: 24px 0; text-align: center;">
+    "La maison de lifestyle camerounais" + "Le Cameroun, sublime" + image hero cinematique
+  </p>
+
+  <p>C'est clair, c'est premium, c'est differenciant. Le manifeste juste en dessous donne le "pourquoi" avec une charge emotionnelle forte. La section Impact plus bas credibilise le positionnement ethique. Le flow est coherent.</p>
+
+  <h3>Le positionnement dans le marche</h3>
+  <p><strong>Ton avantage unique reste intact et s'est meme renforce :</strong> personne ne fait le lifestyle camerounais integre (saveurs + mode + beaute + art) dans un ecrin premium avec du storytelling par produit. Moon Look fait la mode. Saveurs d'Afrik fait l'epicerie. ADJOAA fait la curation multi-marques. Toi tu fais tout, avec ta propre histoire.</p>
+
+  <p>L'ajout du storytelling complet sur les 50+ produits (origin, story, process, usage) est un moat enorme. C'est du contenu que personne d'autre n'a. Le Poivre de Penja avec son histoire IGP, le Chebe avec sa viralite TikTok, le Ndop avec l'UNESCO — chaque fiche produit est un argument de vente autonome.</p>
+
+  <div class="verdict good">
+    <div class="tag">Branding</div>
+    <p><strong>Le positionnement est verrouille.</strong> "Premiere maison de lifestyle camerounais" est clair, defensible, et premium. Le manifeste "colere douce" donne de l'ame. Le storytelling produit donne de la profondeur. La marque est prete pour le lancement.</p>
+  </div>
+</section>
+
+<!-- 5. PLAN FINAL -->
+<section>
+  <div class="section-label">05 — Ce qu'il reste</div>
+  <h2>Les derniers moves avant le launch</h2>
+
+  <table class="priority-table">
+    <thead><tr><th>Priorite</th><th>Action</th><th>Impact</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><span class="pill high">P0</span></td>
+        <td><strong>Refactorer les couleurs hardcodees</strong> — remplacer les 50+ <code>#1C1A14</code> et <code>#FAF5EE</code> par les CSS variables correspondantes. Officialiser <code>#F5F0E8</code> comme <code>--color-input-bg</code>.</td>
+        <td>Maintenabilite. Si tu changes la palette plus tard, c'est un seul fichier a toucher.</td>
+      </tr>
+      <tr>
+        <td><span class="pill high">P0</span></td>
+        <td><strong>Harmoniser la navigation</strong> — extraire un composant Nav.astro partage avec hamburger mobile, et l'utiliser sur /shop, /box, /shop/[id]. Ajouter le lien "Box" partout.</td>
+        <td>UX mobile. Actuellement les pages internes n'ont pas de menu mobile.</td>
+      </tr>
+      <tr>
+        <td><span class="pill med">P1</span></td>
+        <td><strong>Remplacer les emojis dans categories</strong> — les filtres du shop utilisent encore les emojis du data model. Passer aux SVGs inline pour la coherence.</td>
+        <td>Coherence visuelle. Les emojis cassent le premium sur les filtres.</td>
+      </tr>
+      <tr>
+        <td><span class="pill med">P1</span></td>
+        <td><strong>Utiliser le Brun Savane et le Bleu Volcan</strong> — integrer <code>#8B7355</code> pour les bordures/separateurs et <code>#7A9CB8</code> pour les liens et elements info.</td>
+        <td>Richesse visuelle. 2 couleurs definies mais mortes = gachis de palette.</td>
+      </tr>
+      <tr>
+        <td><span class="pill med">P1</span></td>
+        <td><strong>Mettre a jour DESIGN.md</strong> — les couleurs de fond secondaires ont change (<code>#252218</code> vs <code>#0F2318</code>). Le doc doit refleter la realite du code.</td>
+        <td>Documentation. Evite la confusion pour toi ou un futur collaborateur.</td>
+      </tr>
+      <tr>
+        <td><span class="pill med">P1</span></td>
+        <td><strong>Creer 2-3 coffrets cadeaux supplementaires</strong> — "Decouverte Cameroun" (mix saveurs), "Noel camerounais", "Mariage". Format roi du gifting.</td>
+        <td>AOV x2-3. Le coffret beaute existe deja et montre la voie.</td>
+      </tr>
+      <tr>
+        <td><span class="pill low">P2</span></td>
+        <td><strong>SEO storytelling</strong> — transformer les meilleurs stories produit en articles de blog. "L'histoire du Poivre de Penja IGP", "Le secret du Chebe".</td>
+        <td>Trafic organique long terme. Tu as deja le contenu, il faut juste le redistribuer.</td>
+      </tr>
+      <tr>
+        <td><span class="pill low">P2</span></td>
+        <td><strong>Contenu TikTok/Instagram</strong> — les fiches produit sont des scripts video prets a l'emploi. "Saviez-vous que le Poivre de Penja est le seul produit africain a avoir une IGP ?"</td>
+        <td>Acquisition organique. Canal #1 diaspora.</td>
+      </tr>
+      <tr>
+        <td><span class="pill low">P2</span></td>
+        <td><strong>Ameliorer les contrastes AA</strong> — la Terre Rouge (<code>#D4572A</code>) rate le AA sur fond sombre de peu. Passer a <code>#E06434</code> (hover variant deja definie) pour les petits textes.</td>
+        <td>Accessibilite. Pas bloquant mais important pour l'inclusivite.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- 6. SYNTHESE -->
+<section>
+  <div class="section-label">06 — Synthese finale</div>
+  <h2>Ou tu en es</h2>
+
+  <p>En 3 iterations, Kanga-Shop est passe de "landing page avec waitlist" a "marque complete avec identite, manifeste, catalogue enrichi, pages produit, box decouverte avec pricing, et section impact". C'est un projet pre-launch qui a desormais la profondeur d'une marque etablie.</p>
+
+  <p>Le branding est verrouille. Le storytelling est riche. L'architecture est complete. Les couleurs sont belles mais ont besoin d'un refactoring technique pour la maintenabilite.</p>
+
+  <div class="card-grid" style="grid-template-columns: repeat(3, 1fr);">
+    <div class="card" style="border-color: rgba(90,122,72,0.3); text-align:center;">
+      <h4 style="color: var(--green);">Branding : pret</h4>
+      <p>Positionnement, manifeste, tagline, storytelling produit. Tu peux lancer.</p>
+    </div>
+    <div class="card" style="border-color: rgba(200,150,58,0.3); text-align:center;">
+      <h4 style="color: var(--gold);">Code : a nettoyer</h4>
+      <p>Couleurs hardcodees, nav a harmoniser, emojis a remplacer. De la dette technique, pas des blockers.</p>
+    </div>
+    <div class="card" style="border-color: rgba(122,156,184,0.3); text-align:center;">
+      <h4 style="color: var(--sky);">Growth : a lancer</h4>
+      <p>Le contenu est la. Il faut maintenant le distribuer : TikTok, Instagram, SEO, coffrets cadeaux.</p>
+    </div>
+  </div>
+
+  <p style="margin-top: 32px; color: rgba(250,245,238,0.4); font-size: 14px; text-align: center;">Le Cameroun est sublime. Ton site aussi. Maintenant, montre-le au monde.</p>
+</section>
+
+</div>
+<footer><div class="container">Audit Complet v3 — Kanga-Shop — Mars 2026</div></footer>
+</body>
+</html>
