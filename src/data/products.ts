@@ -210,7 +210,7 @@ export const products: Product[] = [
     price: 5.90,
     unit: '500g',
     category: 'gardemanger',
-    image: '/images/products/arachides.png',
+    image: '/images/products/pate-arachide.png',
   },
   {
     id: 'haricots-rouges',
@@ -246,7 +246,7 @@ export const products: Product[] = [
     price: 5.90,
     unit: '50g',
     category: 'gardemanger',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/eru-okok.png',
   },
   {
     id: 'ndole-feuilles',
@@ -255,7 +255,7 @@ export const products: Product[] = [
     price: 6.90,
     unit: '100g',
     category: 'gardemanger',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/ndole-feuilles.png',
   },
   {
     id: 'chips-plantain',
@@ -334,7 +334,7 @@ export const products: Product[] = [
     price: 7.90,
     unit: '100g',
     category: 'douceurs',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/bissap.png',
     badge: 'Produit star',
   },
   {
