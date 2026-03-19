@@ -344,7 +344,7 @@ export const products: Product[] = [
     price: 6.90,
     unit: '30g',
     category: 'douceurs',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/citronnelle.png',
   },
   {
     id: 'poudre-baobab',
@@ -353,7 +353,7 @@ export const products: Product[] = [
     price: 11.90,
     unit: '250g',
     category: 'douceurs',
-    image: '/images/products/gingembre-epices.png',
+    image: '/images/products/poudre-baobab.png',
   },
   {
     id: 'tartina',
@@ -362,7 +362,7 @@ export const products: Product[] = [
     price: 10.90,
     unit: '425g',
     category: 'douceurs',
-    image: '/images/products/chocolat-mambo.png',
+    image: '/images/products/tartina.png',
   },
 
   // ============================================================
@@ -403,7 +403,7 @@ export const products: Product[] = [
     price: 12.90,
     unit: '100g',
     category: 'beaute',
-    image: '/images/products/beurre-karite-v2.png',
+    image: '/images/products/savon-noir.png',
     badge: 'Tendance',
   },
   {
@@ -413,7 +413,7 @@ export const products: Product[] = [
     price: 14.90,
     unit: '50g',
     category: 'beaute',
-    image: '/images/products/beurre-karite-v2.png',
+    image: '/images/products/poudre-chebe.png',
     badge: 'Viral',
   },
   {
@@ -423,7 +423,7 @@ export const products: Product[] = [
     price: 12.90,
     unit: '50ml',
     category: 'beaute',
-    image: '/images/products/huile-karite.png',
+    image: '/images/products/huile-baobab.png',
   },
   {
     id: 'huile-moringa',
@@ -432,7 +432,7 @@ export const products: Product[] = [
     price: 12.90,
     unit: '50ml',
     category: 'beaute',
-    image: '/images/products/huile-karite.png',
+    image: '/images/products/huile-moringa.png',
   },
   {
     id: 'coffret-beaute',
@@ -441,7 +441,7 @@ export const products: Product[] = [
     price: 34.90,
     unit: 'coffret',
     category: 'beaute',
-    image: '/images/products/beurre-karite-v2.png',
+    image: '/images/products/coffret-beaute.png',
     badge: 'Coffret cadeau',
   },
 
